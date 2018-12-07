@@ -13,11 +13,13 @@ import { UsuarioComponent } from '../app/components/usuario/usuario.component';
 import {UsuarioService} from './services/usuario.service';
 
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    LoginComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,
