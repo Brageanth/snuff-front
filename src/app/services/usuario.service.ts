@@ -10,7 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class UsuarioService {
 
   selectedusuario: Usuario = new Usuario (); 
-  constructor(private http:HttpClient) { } //cualquier cosa
+  constructor(private http:HttpClient) { }
 
 insertusuario(pUsuario: Usuario)
 {
@@ -23,7 +23,6 @@ insertusuario(pUsuario: Usuario)
       .subscribe(
         res => {
           console.log(res);
-          console.log();
           
         },
         err => {
