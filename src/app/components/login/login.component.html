@@ -1,3 +1,42 @@
-<p>
-  login works!
-</p>
+<div class="card mt-6 mx-auto rounded-circle pt-5 pl-5 pr-5 pb-3" style="width: 25%"> 
+  <div class="card-body">
+    <h3 class="card-title text-center text-white pb-2">¡Inicia Sesion!</h3>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" > 
+      
+      <div class="form-group row">
+        <div class="col">
+          <input
+            type="email"
+            class="form-control"
+            name="correo"
+            #correo="ngModel"
+            [(ngModel)]="loginService.selectedusuario.correo"
+            placeholder="Correo"
+          >
+        </div>
+
+        <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='!correo.value.includes("@") || !correo.value.includes(".") || correo.value.includes(" ") ' >
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+      </div> 
+
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          name="contrasenia"
+          #contrasenia="ngModel"
+          [(ngModel)]="loginService.selectedusuario.contrasenia"
+          placeholder="Contraseña"
+        >
+      </div>
+
+      <div class="form-group text-center pt-2">
+        <button class="btn btn-outline-warning" type="submit">
+         Registrarse 
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

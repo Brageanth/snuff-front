@@ -4,13 +4,15 @@ import { Usuario } from '../models/usuario';
 
 import {HttpClient} from '@angular/common/http';
 
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
   selectedusuario: Usuario = new Usuario (); 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
 insertusuario(pUsuario: Usuario)
 {
@@ -22,9 +24,7 @@ insertusuario(pUsuario: Usuario)
     })
       .subscribe(
         res => {
-          console.log(res);
-          console.log();
-          
+          this.router.navigateByUrl('/login');
         },
         err => {
           console.log("Error occured");
