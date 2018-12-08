@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 export class UsuarioService {
 
   selectedusuario: Usuario = new Usuario (); 
+<<<<<<< HEAD
   constructor(private http:HttpClient, private router: Router) { }
+=======
+  constructor(private http:HttpClient) { }
+>>>>>>> 894ee13a1f374a21e004c4a08bd70ee8caaa59e8
 
 insertusuario(pUsuario: Usuario)
 {
@@ -24,7 +28,12 @@ insertusuario(pUsuario: Usuario)
     })
       .subscribe(
         res => {
+<<<<<<< HEAD
           this.router.navigateByUrl('/login');
+=======
+          console.log(res);
+          
+>>>>>>> 894ee13a1f374a21e004c4a08bd70ee8caaa59e8
         },
         err => {
           console.log("Error occured");
