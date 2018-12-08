@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-//import {  } from '../../services/'
+import { NgForm } from '@angular/forms'
+
+import { LoginService } from '../../services/login.service';
+
+import { Login } from '../../models/login'
 
 @Component({
   selector: 'app-login',
@@ -9,9 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
+  onSubmit(loginForm: NgForm)
+  {
+    this.loginService.insertusuario(loginForm.value);  
+  }
 }

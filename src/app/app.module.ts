@@ -13,6 +13,7 @@ import { UsuarioComponent } from '../app/components/usuario/usuario.component';
 
 //services 
 import {UsuarioService} from './services/usuario.service';
+import { LoginService } from './services/login.service'; 
 
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

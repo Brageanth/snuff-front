@@ -13,18 +13,15 @@ import { NgForm } from '@angular/forms';
 })
 export class UsuarioComponent implements OnInit {
 
+
   constructor(private http:HttpClient, private usuarioService: UsuarioService ) { }
   
 
-  ngOnInit(): void {
-    this.http.get('http://pruebasbrageanth.pythonanywhere.com').subscribe(data => {
-      console.log(data);
-    });
+  ngOnInit(): void {    
   }
 
   onSubmit(usuarioform: NgForm)
-   {
-      this.usuarioService.insertusuario(usuarioform.value);  
-
+  {
+    this.usuarioService.insertusuario(usuarioform.value);  
   }
 }
