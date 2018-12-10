@@ -20,6 +20,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm: NgForm)
   {
-    this.loginService.insertusuario(loginForm.value);  
+    this.loginService.insertlogin(loginForm.value);  
   }
 }

@@ -13,10 +13,21 @@ import { UsuarioComponent } from '../app/components/usuario/usuario.component';
 
 //services 
 import {UsuarioService} from './services/usuario.service';
+import { ColoreService } from './services/colore.service';
+import { EstampadoService } from './services/estampado.service';
+import {PrendaService } from './services/prenda.service';
+import {TallaService } from './services/talla.service';
 import { LoginService } from './services/login.service'; 
+import { CompraService } from './services/compra.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { PrendaComponent } from './components/inventario/prenda/prenda.component';
+import { ColoreComponent } from './components/inventario/colore/colore.component';
+import { TallaComponent } from './components/inventario/talla/talla.component';
+import { EstampadoComponent } from './components/inventario/estampado/estampado.component';
+import { CompraComponent } from './components/compra/compra.component';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
@@ -28,7 +39,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    InventarioComponent,
+    PrendaComponent,
+    ColoreComponent,
+    TallaComponent,
+    EstampadoComponent,
+    CompraComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,
@@ -40,7 +57,12 @@ const appRoutes: Routes = [
   ],
   providers: [
     UsuarioService,
-    LoginService
+    LoginService,
+    PrendaService,
+    TallaService,
+    ColoreService,
+    EstampadoService,
+    CompraService
   ],
   bootstrap: [AppComponent]
 })
