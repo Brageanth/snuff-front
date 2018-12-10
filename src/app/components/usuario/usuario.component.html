@@ -1,0 +1,89 @@
+<div class="card mt-5 mx-auto rounded-circle pt-5 pl-5 pr-5 pb-3" style="width: 38%"> 
+  <div class="card-body">
+    <h3 class="card-title text-center text-white pb-2">¡Registrate!</h3>
+    <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)" > 
+      
+      <div class="form-group row">
+        <div class="col">
+          <input
+            type="email"
+            class="form-control"
+            name="correo"
+            #correo="ngModel"
+            [(ngModel)]="usuarioService.selectedusuario.correo"
+            placeholder="Correo"
+          >
+        </div>
+
+            <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='!correo.value.includes("@") || !correo.value.includes(".") || correo.value.includes(" ") ' >
+               <i class="fas fa-exclamation-circle"></i>
+          </div>
+      </div> 
+
+      <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            name="contrasenia"
+            #contrasenia="ngModel"
+            [(ngModel)]="usuarioService.selectedusuario.contrasenia"
+            placeholder="Contraseña"
+          >
+      </div>
+          
+      <div class="form-group row">
+        <div class="col">
+            <input
+              type="password"
+              class="form-control"
+              name="confirmar"
+              #confirmar="ngModel"
+              [(ngModel)]="usuarioService.selectedusuario.confirmar"
+              placeholder="Confirmar Contraseña"
+            >
+          </div>
+      
+        <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='contrasenia.value!==confirmar.value && confirmar.value!==Null'>
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col"> 
+          <input
+            type="number"
+            class="form-control"
+            name="celular"
+            #celular="ngModel"
+            [(ngModel)]="usuarioService.selectedusuario.celular"
+            placeholder="Celular"
+          >
+        </div>
+        <div style="font-size: 1.6em" class='text-danger col-1' *ngIf="(2000000 > celular.value || celular.value > 4000000000) && (celular.value.length!==0)">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="direccion"
+          #direccion="ngModel"
+          [(ngModel)]="usuarioService.selectedusuario.direccion"
+          placeholder="Direccion de residencia"
+        >
+      </div>
+
+      <div class="form-group text-center pt-2 ">
+        <button class="btn btn-outline-warning" type="submit">
+         Registrarse
+        </button>
+      </div>
+    </form>
+    <p class="text-center">
+      <a href="/login" class="text-warning">¿Ya estas registrago?</a>
+    </p>
+  </div>
+
+</div>
