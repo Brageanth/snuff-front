@@ -13,13 +13,22 @@ import { Login } from '../../models/login'
 })
 export class LoginComponent implements OnInit {
 
+  codigo: number;
+
   constructor(private loginService: LoginService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
 
   onSubmit(loginForm: NgForm)
   {
-    this.loginService.insertusuario(loginForm.value);  
+    this.loginService.insertlogin(loginForm.value);
+  }
+
+  onSubmitReset(resetForm: NgForm)
+  {    
+    console.log(resetForm.value);
+    
+    this.codigo=this.loginService.resetPassword(resetForm.value);
   }
 }

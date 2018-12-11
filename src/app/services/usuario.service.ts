@@ -4,7 +4,6 @@ import { Usuario } from '../models/usuario';
 
 import {HttpClient} from '@angular/common/http';
 
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

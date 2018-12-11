@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http'; 
-import { Login, Reset } from '../models/login';
-
+import { Login } from '../models/login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class PrendaService {
 
   selectedusuario: Login = new Login ();
-  codigo: any;
-
   constructor(private http:HttpClient) { }
 
   insertlogin(pLogin: Login) {  
@@ -27,21 +24,5 @@ export class LoginService {
         }
       );
   }
-
-  resetPassword(pReset: Reset) {  
-    console.log(pReset.resetCorreo);
-    
-    const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com/reset', {
-      correo: pReset.resetCorreo,
-    }).subscribe(
-        res => {
-          this.codigo = res;
-          console.log(res);
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    return this.codigo;
-  }
 }
+
