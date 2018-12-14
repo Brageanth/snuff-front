@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms'
 
 import { LoginService } from '../../services/login.service';
 
-import { Login } from '../../models/login'
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,11 @@ export class LoginComponent implements OnInit {
   slides: Array<boolean> = [true, false, false, false];
   users: any;
   user: any;
+  error: string;
+  errorPassword: string;
+  correoError: string;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   async ngOnInit() {
     this.users = await this.loginService.getUsuarios()
@@ -32,9 +35,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit(loginForm: NgForm)
-  {
-    this.loginService.insertlogin(loginForm.value);
+  onSubmit(loginForm: NgForm){
+    let userLogin =this.buscarUser(loginForm.value.correo);
+    if(userLogin){
+      if(userLogin.contrasenia==loginForm.value.contrasenia){
+        this.router.navigate(['/compra'])
+      }
+      else{
+        this.errorPassword = 'Contraseña incorrecta';
+      }
+    }
+    else{
+      this.error = ' no se encuentra registrado';
+      this.correoError = loginForm.value.correo;
+    }
   }
 
   async onSubmitReset(resetForm: NgForm, n: number)
