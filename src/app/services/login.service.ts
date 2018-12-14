@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http'; 
-import { Login, Reset } from '../models/login';
+import { Login, Reset, updatePassword } from '../models/login';
+import { Usuario } from '../models/usuario'
 
 
 @Injectable({
@@ -9,39 +10,72 @@ import { Login, Reset } from '../models/login';
 })
 export class LoginService {
 
-  selectedusuario: Login = new Login ();
+  selectedusuario: Login = new Login();
+  selectedUpdateUsuario: updatePassword = new updatePassword();
   codigo: any;
 
   constructor(private http:HttpClient) { }
 
-  insertlogin(pLogin: Login) {  
-    const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com', {
-      correo: pLogin.correo,
-      contrasenia: pLogin.contrasenia,
-    }).subscribe(
-        res => {
-          console.log(res);    
-        },
-        err => {
-          console.log("Error occured");
-        }
-      );
+  getUsuarios(){
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve((this.http.get('http://pruebasbrageanth.pythonanywhere.com').toPromise().then(
+          res => {
+            return res
+          },
+          err => {
+            console.log(err);
+          }
+        )))
+      }, 2000);
+    });
   }
 
-  resetPassword(pReset: Reset) {  
-    console.log(pReset.resetCorreo);
+  insertlogin(pLogin: Login) {
+    let usersList;
     
-    const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com/reset', {
-      correo: pReset.resetCorreo,
-    }).subscribe(
-        res => {
-          this.codigo = res;
-          console.log(res);
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    return this.codigo;
+    this.http.get('http://pruebasbrageanth.pythonanywhere.com/').subscribe(
+    res => {
+      usersList = res;
+    },
+    err => {
+      console.log(err);
+    });
+
+    for(let user of usersList){
+      if(user.correo==pLogin.correo){
+        console.log('bien');
+        
+      }
+    }
+  }
+
+  resetPassword(pReset: Reset) {    
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve((this.http.post('http://pruebasbrageanth.pythonanywhere.com/reset', {
+          correo: pReset.resetCorreo,
+        }).toPromise().then(
+            res => {
+              return res
+            },
+            err => {
+              console.log(err);
+            }
+          )))
+      }, 2000);
+    });
+  }
+  
+  updatePassword(user: any) {
+    return this.http.put('http://pruebasbrageanth.pythonanywhere.com/resetPassword'+user.id, user)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 }

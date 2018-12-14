@@ -6,3 +6,7 @@ export class Login {
 export class Reset {
     resetCorreo: string;
 }
+
+export class updatePassword {
+    resetContrasenia: string;
+}
