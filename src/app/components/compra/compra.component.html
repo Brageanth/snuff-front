@@ -1,3 +1,26 @@
-<p>
-  compra works!
-</p>
+<div class="card mt-5 mx-auto pt-0 pl-3 pr-5 pb-6" style="width: 60%; height: 100% "> 
+  <div class="card-body">
+    <h3 class="card-title text-center pt-0"> ¡Elige tu preferida! </h3>
+    <form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)"> 
+    </form>
+  </div>
+  <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#compraForm" data-slide-to="0" class="active"></li>
+        <li data-target="#compraForm" data-slide-to="1"></li>
+        <li data-target="#compraForm" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <app-prenda></app-prenda>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+        </div>
+      </div>
+    </div>
+</div>
+
