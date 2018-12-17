@@ -15,7 +15,7 @@ import { Prenda } from 'src/app/models/prenda';
 })
 export class CompraComponent implements OnInit { 
 
-  @Input() prenda: Prenda;
+  public prenda: Prenda;
   slides = [true, false, false, false]
 
   constructor(private http:HttpClient, private compraService: CompraService) { }

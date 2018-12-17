@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Prenda } from '../../../models/prenda'
 
 @Component({
@@ -8,7 +8,7 @@ import { Prenda } from '../../../models/prenda'
 })
 export class ColoreComponent implements OnInit {
 
-  prenda: Prenda;
+  @Input() prenda: Prenda;
 
   constructor() { }
 
