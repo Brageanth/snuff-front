@@ -10,7 +10,11 @@
                 value="{{prenda}}"
                 (click)="guardarPrenda(prenda)"
             >
-            <img src="http://pruebasbrageanth.pythonanywhere.com{{prenda.imagen}}" alt="" class="form-check-label img-fluid w-100">
+            <img
+                src="http://pruebasbrageanth.pythonanywhere.com{{prenda.imagen}}"
+                class="form-check-label img-fluid w-100"
+                (click)="guardarPrenda(prenda)"
+            >
         </div>
     </div>
 </form>
