@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 
 //service
 
@@ -11,7 +12,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './compra.component.html',
   styleUrls: ['./compra.component.css']
 })
-export class CompraComponent implements OnInit {
+export class CompraComponent implements OnInit { 
 
   constructor(private http:HttpClient, private compraService: CompraService) { }
 
