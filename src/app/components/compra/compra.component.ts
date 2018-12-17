@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 
 //service
 
@@ -12,7 +13,7 @@ import { Prenda } from 'src/app/models/prenda';
   templateUrl: './compra.component.html',
   styleUrls: ['./compra.component.css']
 })
-export class CompraComponent implements OnInit {
+export class CompraComponent implements OnInit { 
 
   public prenda: Prenda;
   slides = [true, false, false, false]
