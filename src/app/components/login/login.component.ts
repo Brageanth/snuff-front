@@ -20,11 +20,13 @@ export class LoginComponent implements OnInit {
   error: string;
   errorPassword: string;
   correoError: string;
+  cargo: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
   async ngOnInit() {
     this.users = await this.loginService.getUsuarios()
+    this.cargo = true;
   }
 
   buscarUser(correo:string){    

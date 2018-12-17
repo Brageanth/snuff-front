@@ -8,12 +8,11 @@ import { NgForm } from '@angular/forms';
 import { Prenda } from '../../../models/prenda';
 
 @Component({
-
-  
   selector: 'app-prenda',
   templateUrl: './prenda.component.html',
   styleUrls: ['./prenda.component.css']
 })
+
 export class PrendaComponent implements OnInit {
  
   @Output() prenda:EventEmitter<any> = new EventEmitter()
@@ -21,11 +20,6 @@ export class PrendaComponent implements OnInit {
   prendasList:Array<Prenda> = [];
 
   constructor(private http:HttpClient, private prendaService: PrendaService ) { }
-
-  onSubmit(prendaform: NgForm)
-  {
-//    this.guardarPrenda(prendaform.value);
-  }
 
   guardarPrenda(prendaform: NgForm){
     this.prenda.emit(prendaform);

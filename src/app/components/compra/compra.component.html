@@ -1,6 +1,6 @@
 <div class="card mt-5 mx-auto pt-0 pl-3 pr-5 pb-6" style="width: 60%; height: 100% "> 
   <div class="card-body">
-    <h3 class="card-title text-center pt-0"> ¡Elige tu preferida! </h3>
+    <h3 class="card-title text-center pt-0"> DIY </h3>
     <form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)"> 
     </form>
   </div>
@@ -15,7 +15,7 @@
           <app-prenda (prenda)="getPrenda($event)"></app-prenda>
         </div>
         <div class="carousel-item" [ngClass]="{'active':this.slides[1]}">
-          <app-colore></app-colore>
+          <app-colore [prenda]="prenda"></app-colore>
         </div>
         <div class="carousel-item" [ngClass]="{'active':this.slides[2]}">
           <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">

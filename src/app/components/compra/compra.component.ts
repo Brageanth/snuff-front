@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 
@@ -15,7 +15,7 @@ import { Prenda } from 'src/app/models/prenda';
 })
 export class CompraComponent implements OnInit { 
 
-  public prenda: Prenda;
+  @Input() prenda: Prenda;
   slides = [true, false, false, false]
 
   constructor(private http:HttpClient, private compraService: CompraService) { }

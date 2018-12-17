@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Prenda } from '../../../models/prenda'
 
 @Component({
   selector: 'app-colore',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./colore.component.css']
 })
 export class ColoreComponent implements OnInit {
+
+  prenda: Prenda;
 
   constructor() { }
 
