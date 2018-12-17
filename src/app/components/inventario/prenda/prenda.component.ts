@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 // Service
@@ -16,7 +16,7 @@ import { Prenda } from '../../../models/prenda';
 })
 export class PrendaComponent implements OnInit {
  
-  @Output() prendas:EventEmitter<Prenda> = new EventEmitter<Prenda>()
+  @Output() prenda:EventEmitter<any> = new EventEmitter()
 
   prendasList:Array<Prenda> = [];
 
@@ -24,11 +24,11 @@ export class PrendaComponent implements OnInit {
 
   onSubmit(prendaform: NgForm)
   {
-    prendaform.value; 
+//    this.guardarPrenda(prendaform.value);
   }
 
-  guardarPrenda(prenda: Prenda){
-    
+  guardarPrenda(prendaform: NgForm){
+    this.prenda.emit(prendaform);
   }
   
   async ngOnInit() { 
@@ -72,7 +72,6 @@ export class PrendaComponent implements OnInit {
         prendaActual.imagen = prenda.imagen;
         this.prendasList.push(prendaActual);
       }
-      console.log(this.prendasList);
     }
   }
 }
