@@ -7,23 +7,18 @@
     to {width: 99%;}
 }
 
-.card {
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.modal-content{
+    background: rgba(0, 0, 0, 0.1);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 1), rgba(236, 233, 230, 1));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(236, 233, 230, 1)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
-.modal-content {
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
-}
-.tab {
+.tab{
     display: none;
 }
-#loadOso {
+#loadOso{
     animation: osoLoad 1s linear infinite alternate;
 }
-#progressReset {
+#progressReset{
     width: 100%;
     background-color: transparent;
 }

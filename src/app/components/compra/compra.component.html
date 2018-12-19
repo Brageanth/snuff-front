@@ -1,10 +1,7 @@
 <div class="card mt-5 mx-auto pt-0 pl-3 pr-5 pb-6" style="width: 60%; height: 100% "> 
   <div class="card-body">
     <h3 class="card-title text-center pt-0"> DIY </h3>
-    <form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)"> 
-    </form>
-  </div>
-  <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
+    <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item" [ngClass]="{'active':this.slides[0]}">
           <app-prenda (prenda)="getPrenda($event)"></app-prenda>
@@ -38,5 +35,6 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 

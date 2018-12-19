@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit {
   public serverCode: any = 0;
   slides: Array<boolean> = [true, false, false];
   users: any;
-  user: any;
+  user: any;  
   error: string;
   errorPassword: string;
   correoError: string;
   cargo: boolean = false;
   cargando: boolean = false;
+  activeNav: boolean = true;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -84,5 +85,9 @@ export class LoginComponent implements OnInit {
         this.slides[_i]=false;
       }
     }
+  }
+
+  navActive(){
+    this.activeNav = !this.activeNav;
   }
 }
