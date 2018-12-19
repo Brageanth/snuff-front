@@ -1,3 +1,12 @@
+@keyframes osoLoad {
+    from {width: 20%;}
+    to {width: 25%;}
+}
+@keyframes barLoad {
+    from {width: 0%;}
+    to {width: 99%;}
+}
+
 .card {
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
@@ -10,4 +19,18 @@
 }
 .tab {
     display: none;
+}
+#loadOso {
+    animation: osoLoad 1s linear infinite alternate;
+}
+#progressReset {
+    width: 100%;
+    background-color: transparent;
+}
+#barReset {
+    width: 1%;
+    height: 20px;
+    background-color: #EFB810;
+    animation: barLoad 5s ease-in-out 1 alternate;
+    animation-fill-mode: forwards;
 }

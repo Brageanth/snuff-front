@@ -14,13 +14,14 @@ import {Router} from "@angular/router"
 export class LoginComponent implements OnInit {
 
   public serverCode: any = 0;
-  slides: Array<boolean> = [true, false, false, false];
+  slides: Array<boolean> = [true, false, false];
   users: any;
   user: any;
   error: string;
   errorPassword: string;
   correoError: string;
   cargo: boolean = false;
+  cargando: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -55,8 +56,10 @@ export class LoginComponent implements OnInit {
 
   async onSubmitReset(resetForm: NgForm, n: number)
   { 
+    let width = 1;
+    this.cargando = true;
     this.serverCode = await this.loginService.resetPassword(resetForm.value);
-    
+    this.cargando = false;
     if(this.serverCode!=0){
       this.nextSlide(n=n+1);
     }
@@ -67,7 +70,6 @@ export class LoginComponent implements OnInit {
   {     
     this.user.contrasenia = updatePasswordForm.value.contrasenia;
     this.loginService.updatePassword(this.user);
-    this.nextSlide(n=n+1);
   }
 
   nextSlide(n: number):void {
@@ -79,7 +81,6 @@ export class LoginComponent implements OnInit {
         this.slides[_i]=true;
       }
       else{
-        console.log(_i);
         this.slides[_i]=false;
       }
     }

@@ -5,20 +5,36 @@
     </form>
   </div>
   <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#compraForm" data-slide-to="0" class="active"></li>
-        <li data-target="#compraForm" data-slide-to="1"></li>
-        <li data-target="#compraForm" data-slide-to="2"></li>
-      </ol>
       <div class="carousel-inner">
         <div class="carousel-item" [ngClass]="{'active':this.slides[0]}">
           <app-prenda (prenda)="getPrenda($event)"></app-prenda>
         </div>
         <div class="carousel-item" [ngClass]="{'active':this.slides[1]}">
-          <app-colore [prenda]="prenda"></app-colore>
+          <app-colore 
+            *ngIf="this.slides[1]" 
+            [prenda]="this.slides[1]?prenda:{}" 
+            (color)="getColor($event)"
+          ></app-colore>
         </div>
         <div class="carousel-item" [ngClass]="{'active':this.slides[2]}">
-          <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+          <app-talla 
+            *ngIf="this.slides[2]" 
+            [color]="this.slides[2]?color:{}" 
+            [prenda]="this.slides[2]?prenda:{}"
+            (talla)="getTalla($event)"
+          ></app-talla>
+        </div>
+        <div class="carousel-item" [ngClass]="{'active':this.slides[3]}">
+            <app-estampado
+            *ngIf="this.slides[3]" 
+            [color]="this.slides[3]?color:{}" 
+            [prenda]="this.slides[3]?prenda:{}"
+            [talla]="this.slides[3]?talla:{}"
+            (estampado)="getEstampado($event)"
+          ></app-estampado>
+        </div>
+        <div class="carousel-item" [ngClass]="{'active':this.slides[4]}">
+          logrado  
         </div>
       </div>
     </div>

@@ -1,8 +1,70 @@
-body{
-    background: #F2994A;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Kanit:700,800');
+
+/* Height */
+.h-10{
+    height: 9vh;
 }
+.h-91{
+    height: 91vh;
+}
+
+/* Margins */
 .mt-6{
-    margin-top: 8.5em;
+    margin-top: 6vh;
+}
+.mt-10{
+    margin-top: 10vh;
+}
+
+/* Font size */
+.fs-6{
+    font-size: 6vw;
+}
+
+/* Font family */
+.ff-kanit{
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Font color */
+.text-input{
+    color: #949494;
+}
+
+/* Paddings */
+.pt-6{
+    padding-top: 6eh;
+}
+
+/* Roundeds */
+.rounded-4{
+    border-radius: 4vh;
+}
+
+/* Background */
+.bg-input{
+    background: #c4c4c4;
+}
+.bg-transparent{
+    background: transparent;
+}
+.bg-texture-black{
+    background: url(./assets/img/textura.png), rgba(0, 0, 0, 0.89);
+    background-size: 100%, 0;
+}    
+
+/* Border colors */
+.border-transparent{
+    border-color: transparent;
+}
+
+/* Customs */
+.row-form-compra{
+    max-height:30vh;
+    overflow-y: hidden;
+}
+html, body{
+    height: 100vh;
+    margin: 0;
 }

@@ -1,6 +1,8 @@
-<img src="../../../assets/img/oso.png" class="w-25" *ngif="!cargo">
+<div *ngIf="!cargo" class="text-center img-fluid mt-6">
+  <img src="../../../assets/img/oso.png" id="loadOso">
+</div>
 
-<div class="card mt-6 mx-auto rounded-circle pt-5 pl-5 pr-5 pb-3" [style.width]="error==null?'30%':35%''" > 
+<div class="card mt-6 mx-auto rounded-circle pt-5 pl-5 pr-5 pb-3" [style.width]="error==null?'30%':35%''" *ngIf="cargo"> 
   <div class="card-body">
     <h3 class="card-title text-center text-white pb-2">¡Inicia Sesion!</h3>
     <div class="alert alert-danger" role="alert" *ngIf="correoError!=null">
@@ -54,7 +56,10 @@
     <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header border-0 text-warning">
+          <div id="progressReset" *ngIf="cargando">
+            <div id="barReset"></div>
+          </div>
+          <div class="modal-header border-0 text-warning"> 
             <h5 class="modal-title" id="exampleModalLabel">Reestablece tu contraseña</h5>
             <button type="button" class="close text-center" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -85,19 +90,21 @@
                   </button>
                 </div>
               </form>
-              <div class="form-group row carousel-item" [ngClass]="{'active':this.slides[1]}">
-                <div class="col">
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="codigoInput"
-                    [(ngModel)]="loginService.selectedusuario.codigo"
-                    #codigoInput="ngModel"
-                    placeholder="Codigo"
-                  >
-                </div>
-                <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='(codigoInput.value!==this.serverCode) && (codigoInput.value!==null)'>
-                  <i class="fas fa-exclamation-circle"></i>
+              <div class="carousel-item" [ngClass]="{'active':this.slides[1]}">
+                <div class="form-group row">
+                  <div class="col">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="codigoInput"
+                      [(ngModel)]="loginService.selectedusuario.codigo"
+                      #codigoInput="ngModel"
+                      placeholder="Codigo"
+                    >
+                  </div>
+                  <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='(codigoInput.value!==this.serverCode) && (codigoInput.value!==null)'>
+                    <i class="fas fa-exclamation-circle"></i>
+                  </div>
                 </div>
                 <div class="form-group text-center pt-2">
                   <button class="btn btn-outline-warning" (click)="nextSlide(2)" [disabled]="(codigoInput.value!==this.serverCode) && (codigoInput.value!==null)">
@@ -139,12 +146,6 @@
                   </button>
                 </div>
               </form>
-              <div class="carousel-item" [ngClass]="{'active':this.slides[3]}">
-                <h1 class="text-centered">¡Listo!</h1>
-                <button type="button" class="btn btn-outline-warning" data-dismiss="modal" aria-label="Close">
-                  Inciar sesion
-                </button>
-              </div>
             </div>
           </div>
         </div>

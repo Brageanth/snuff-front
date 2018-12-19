@@ -6,5 +6,6 @@ export class Estampado {
     categoria: string; 
     prenda: Prenda;
     stock: boolean;
-
+    imagenPrenda: string;
+    imagenEstampado: string;
 }

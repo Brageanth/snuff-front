@@ -30,41 +30,47 @@ export class PrendaComponent implements OnInit {
     let ress = <any> await this.prendaService.getprenda();    
     for (let prenda of ress){
       let prendaActual: Prenda = new Prenda();
-      
-      if(prenda.tipo=='CB'){
-        prendaActual.tipo = 'Camibuso' ;
-        prendaActual.cantidad = prenda.cantidad;
-        prendaActual.precio = prenda.precio;
-        prendaActual.imagen = prenda.imagen;
-        this.prendasList.push(prendaActual);
-      }
-      else if(prenda.tipo=='CH'){
-        prendaActual.tipo = 'Chaqueta' ;
-        prendaActual.cantidad = prenda.cantidad;
-        prendaActual.precio = prenda.precio;
-        prendaActual.imagen = prenda.imagen;
-        this.prendasList.push(prendaActual);
-      }
-      else if(prenda.tipo=='CHC'){
-        prendaActual.tipo = 'Chaquetacapota' ;
-        prendaActual.cantidad = prenda.cantidad;
-        prendaActual.precio = prenda.precio;
-        prendaActual.imagen = prenda.imagen;
-        this.prendasList.push(prendaActual);
-      }
-      else if(prenda.tipo=='C'){
-        prendaActual.tipo = 'Camiseta' ;
-        prendaActual.cantidad = prenda.cantidad;
-        prendaActual.precio = prenda.precio;
-        prendaActual.imagen = prenda.imagen;
-        this.prendasList.push(prendaActual);
-      }
-      else if(prenda.tipo=='BC'){
-        prendaActual.tipo = 'Busocapota' ;
-        prendaActual.cantidad = prenda.cantidad;
-        prendaActual.precio = prenda.precio;
-        prendaActual.imagen = prenda.imagen;
-        this.prendasList.push(prendaActual);
+      if(prenda.cantidad>0){
+        if(prenda.tipo=='CB'){
+          prendaActual.id = prenda.id;
+          prendaActual.tipo = 'Camibuso';
+          prendaActual.cantidad = prenda.cantidad;
+          prendaActual.precio = prenda.precio;
+          prendaActual.imagen = prenda.imagen;
+          this.prendasList.push(prendaActual);
+        }
+        else if(prenda.tipo=='CH'){
+          prendaActual.id = prenda.id;
+          prendaActual.tipo = 'Chaqueta' ;
+          prendaActual.cantidad = prenda.cantidad;
+          prendaActual.precio = prenda.precio;
+          prendaActual.imagen = prenda.imagen;
+          this.prendasList.push(prendaActual);
+        }
+        else if(prenda.tipo=='CHC'){
+          prendaActual.id = prenda.id;
+          prendaActual.tipo = 'Chaquetacapota' ;
+          prendaActual.cantidad = prenda.cantidad;
+          prendaActual.precio = prenda.precio;
+          prendaActual.imagen = prenda.imagen;
+          this.prendasList.push(prendaActual);
+        }
+        else if(prenda.tipo=='C'){
+          prendaActual.id = prenda.id;
+          prendaActual.tipo = 'Camiseta' ;
+          prendaActual.cantidad = prenda.cantidad;
+          prendaActual.precio = prenda.precio;
+          prendaActual.imagen = prenda.imagen;
+          this.prendasList.push(prendaActual);
+        }
+        else if(prenda.tipo=='BC'){
+          prendaActual.id = prenda.id;
+          prendaActual.tipo = 'Busocapota' ;
+          prendaActual.cantidad = prenda.cantidad;
+          prendaActual.precio = prenda.precio;
+          prendaActual.imagen = prenda.imagen;
+          this.prendasList.push(prendaActual);
+        }
       }
     }
   }

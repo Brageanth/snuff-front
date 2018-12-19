@@ -7,6 +7,9 @@ import {HttpClient} from '@angular/common/http';
 import { CompraService } from '../../services/compra.service';
 import { NgForm } from '@angular/forms';
 import { Prenda } from 'src/app/models/prenda';
+import { Colore } from 'src/app/models/colore';
+import { Talla } from 'src/app/models/talla';
+import { Estampado } from 'src/app/models/estampado';
 
 @Component({
   selector: 'app-compra',
@@ -16,7 +19,10 @@ import { Prenda } from 'src/app/models/prenda';
 export class CompraComponent implements OnInit { 
 
   public prenda: Prenda;
-  slides = [true, false, false, false]
+  public color: Colore;
+  public talla: Talla;
+  public estampado: Estampado;
+  slides = [true, false, false, false, false]
 
   constructor(private http:HttpClient, private compraService: CompraService) { }
 
@@ -30,5 +36,24 @@ export class CompraComponent implements OnInit {
     this.prenda=prendaform;
     this.slides[0]=false;
     this.slides[1]=true;
+  }
+  
+  getColor(pColor: any){
+    this.color=pColor;
+    this.slides[1]=false;
+    this.slides[2]=true;   
+  }
+
+  getTalla(pTalla: any){
+    this.talla=pTalla;
+    this.slides[2]=false;
+    this.slides[3]=true;
+  }
+
+  getEstampado(pEstampado: any){
+    this.estampado=pEstampado;
+    this.slides[3]=false;
+    this.slides[4]=true;
+    console.log(this.estampado);
   }
 }

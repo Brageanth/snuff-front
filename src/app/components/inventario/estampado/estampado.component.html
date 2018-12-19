@@ -1,3 +1,24 @@
-<p>
-  estampado works!
-</p>
+<h4 class="text-center mb-5">Diseño</h4>
+<div class="row row-form-compra pl-5 mb-1">
+  <div class="col-sm-12">
+    <img
+      src="http://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagenPrenda}}"
+      class="form-check-label img-fluid w-100"
+    >
+  </div>
+</div>
+<div class="row pl-5 mb-2">
+  <div 
+    class="col-3 fs-6" 
+    *ngFor="let estampado of estampadoList"
+  >
+    <img
+      src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}"
+      class="form-check-label img-fluid w-100"
+      (click)="activeSlide(estampado)"
+    >
+  </div>  
+</div>
+<button class="btn btn-outline-warning" (click)="guardarEstampado()">
+  Siguiente
+</button>

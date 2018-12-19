@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http'; 
 import { Login, Reset, updatePassword } from '../models/login';
-import { Usuario } from '../models/usuario'
 
 
 @Injectable({

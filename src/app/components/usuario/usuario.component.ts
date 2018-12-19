@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 
 // Service
 
@@ -14,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class UsuarioComponent implements OnInit {
 
 
-  constructor(private http:HttpClient, private usuarioService: UsuarioService ) { }
+  constructor(private usuarioService: UsuarioService ) { }
   
 
   ngOnInit(): void {    
