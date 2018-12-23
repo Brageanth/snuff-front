@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http'; 
 import { Login, Reset, updatePassword } from '../models/login';
@@ -12,8 +12,13 @@ export class LoginService {
   selectedusuario: Login = new Login();
   selectedUpdateUsuario: updatePassword = new updatePassword();
   codigo: any;
+  token = new EventEmitter();
 
   constructor(private http:HttpClient) { }
+  
+  guardarToken(pToken: string) {
+    
+  }
 
   getUsuarios(){
     return new Promise(resolve => {
@@ -30,23 +35,14 @@ export class LoginService {
     });
   }
 
-  insertlogin(pLogin: Login) {
-    let usersList;
-    
+  insertlogin() {
     this.http.get('http://pruebasbrageanth.pythonanywhere.com/').subscribe(
     res => {
-      usersList = res;
+      res;
     },
     err => {
       console.log(err);
     });
-
-    for(let user of usersList){
-      if(user.correo==pLogin.correo){
-        console.log('bien');
-        
-      }
-    }
   }
 
   resetPassword(pReset: Reset) {    

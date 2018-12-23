@@ -10,6 +10,7 @@ import { Prenda } from 'src/app/models/prenda';
 import { Colore } from 'src/app/models/colore';
 import { Talla } from 'src/app/models/talla';
 import { Estampado } from 'src/app/models/estampado';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-compra',
@@ -24,9 +25,11 @@ export class CompraComponent implements OnInit {
   public estampado: Estampado;
   slides = [true, false, false, false, false]
 
-  constructor(private http:HttpClient, private compraService: CompraService) { }
+  constructor(private appComponent: AppComponent, private http:HttpClient, private compraService: CompraService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.appComponent.getToken();
+  }
 
   onSubmit(compraform: NgForm){
     this.compraService.insertcompra(compraform.value);

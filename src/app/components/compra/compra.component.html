@@ -1,40 +1,41 @@
-<div class="card mt-5 mx-auto pt-0 pl-3 pr-5 pb-6" style="width: 60%; height: 100% "> 
-  <div class="card-body">
-    <h3 class="card-title text-center pt-0"> DIY </h3>
-    <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item" [ngClass]="{'active':this.slides[0]}">
-          <app-prenda (prenda)="getPrenda($event)"></app-prenda>
-        </div>
-        <div class="carousel-item" [ngClass]="{'active':this.slides[1]}">
-          <app-colore 
-            *ngIf="this.slides[1]" 
-            [prenda]="this.slides[1]?prenda:{}" 
-            (color)="getColor($event)"
-          ></app-colore>
-        </div>
-        <div class="carousel-item" [ngClass]="{'active':this.slides[2]}">
-          <app-talla 
-            *ngIf="this.slides[2]" 
-            [color]="this.slides[2]?color:{}" 
-            [prenda]="this.slides[2]?prenda:{}"
-            (talla)="getTalla($event)"
-          ></app-talla>
-        </div>
-        <div class="carousel-item" [ngClass]="{'active':this.slides[3]}">
-            <app-estampado
-            *ngIf="this.slides[3]" 
-            [color]="this.slides[3]?color:{}" 
-            [prenda]="this.slides[3]?prenda:{}"
-            [talla]="this.slides[3]?talla:{}"
-            (estampado)="getEstampado($event)"
-          ></app-estampado>
-        </div>
-        <div class="carousel-item" [ngClass]="{'active':this.slides[4]}">
-          logrado  
-        </div>
+<div class="container-fluid bg-texture-black h-100">
+  <h2 class="text-center ff-chunkfive text-white pt-2">
+    <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
+      DIY 
+    </div>
+  </h2>
+  <div id="carouselCompra" data-interval="false" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" [ngClass]="{'active':this.slides[0]}">
+        <app-prenda (prenda)="getPrenda($event)"></app-prenda>
+      </div>
+      <div class="carousel-item" [ngClass]="{'active':this.slides[1]}">
+        <app-colore 
+          *ngIf="this.slides[1]" 
+          [prenda]="this.slides[1]?prenda:{}" 
+          (color)="getColor($event)"
+        ></app-colore>
+      </div>
+      <div class="carousel-item" [ngClass]="{'active':this.slides[2]}">
+        <app-talla 
+          *ngIf="this.slides[2]" 
+          [color]="this.slides[2]?color:{}" 
+          [prenda]="this.slides[2]?prenda:{}"
+          (talla)="getTalla($event)"
+        ></app-talla>
+      </div>
+      <div class="carousel-item" [ngClass]="{'active':this.slides[3]}">
+          <app-estampado
+          *ngIf="this.slides[3]" 
+          [color]="this.slides[3]?color:{}" 
+          [prenda]="this.slides[3]?prenda:{}"
+          [talla]="this.slides[3]?talla:{}"
+          (estampado)="getEstampado($event)"
+        ></app-estampado>
+      </div>
+      <div class="carousel-item" [ngClass]="{'active':this.slides[4]}">
+        logrado  
       </div>
     </div>
   </div>
 </div>
-

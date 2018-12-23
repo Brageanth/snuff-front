@@ -30,7 +30,7 @@ export class ColoreComponent implements OnInit {
         }
       }
     }
-    this.altoCuadro = 30/this.colorList.length;
+    this.altoCuadro = (65-this.colorList.length)/this.colorList.length;
   }
 
   activeSlide(pColor: Colore){

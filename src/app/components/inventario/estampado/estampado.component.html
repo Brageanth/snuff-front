@@ -1,5 +1,5 @@
-<h4 class="text-center mb-5">Diseño</h4>
-<div class="row row-form-compra pl-5 mb-1">
+<h3 class="text-center ff-lazer text-white mt-3">DISEÑO</h3>
+<div class="row row-form-compra pl-5 w-75 mx-auto mt-3 mb-3">
   <div class="col-sm-12">
     <img
       src="http://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagenPrenda}}"
@@ -7,7 +7,7 @@
     >
   </div>
 </div>
-<div class="row pl-5 mb-2">
+<div class="row pl-5 mb-2 w-75">
   <div 
     class="col-3 fs-6" 
     *ngFor="let estampado of estampadoList"
@@ -19,6 +19,8 @@
     >
   </div>  
 </div>
-<button class="btn btn-outline-warning" (click)="guardarEstampado()">
-  Siguiente
-</button>
+<div class="text-center mt-4">
+  <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarEstampado()">
+    Siguiente
+  </button>
+</div>

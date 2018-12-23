@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgForm } from '@angular/forms'
-
 import { LoginService } from '../../services/login.service';
-
 import {Router} from "@angular/router"
+import { AppComponent } from 'src/app/app.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -22,13 +21,22 @@ export class LoginComponent implements OnInit {
   correoError: string;
   cargo: boolean = false;
   cargando: boolean = false;
-  activeNav: boolean = true;
+  token: string;
+  resetModal: boolean;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private cookieService: CookieService, private appComponent: AppComponent, private loginService: LoginService, private router: Router) { }
 
   async ngOnInit() {
-    this.users = await this.loginService.getUsuarios()
+    this.users = await this.loginService.getUsuarios();
+    if(this.cookieService.check('Token')){
+      this.token = this.cookieService.get('Token');
+      this.router.navigate(['/compra']);
+    }
     this.cargo = true;
+  }
+
+  modalReset(){
+    this.resetModal = !this.resetModal;
   }
 
   buscarUser(correo:string){    
@@ -40,12 +48,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm: NgForm){
-    let userLogin =this.buscarUser(loginForm.value.correo);
+    let userLogin = this.buscarUser(loginForm.value.correo);
     if(userLogin){
       if(userLogin.contrasenia==loginForm.value.contrasenia){
+        this.cookieService.set( 'Token', userLogin.id, 1, '/' );
         this.router.navigate(['/compra'])
       }
       else{
+        
         this.errorPassword = 'Contraseña incorrecta';
       }
     }
@@ -64,6 +74,7 @@ export class LoginComponent implements OnInit {
     if(this.serverCode!=0){
       this.nextSlide(n=n+1);
     }
+  
     this.user = this.buscarUser(resetForm.value.resetCorreo);
   }
 
@@ -71,6 +82,7 @@ export class LoginComponent implements OnInit {
   {     
     this.user.contrasenia = updatePasswordForm.value.contrasenia;
     this.loginService.updatePassword(this.user);
+    this.modalReset();
   }
 
   nextSlide(n: number):void {
@@ -85,9 +97,5 @@ export class LoginComponent implements OnInit {
         this.slides[_i]=false;
       }
     }
-  }
-
-  navActive(){
-    this.activeNav = !this.activeNav;
   }
 }

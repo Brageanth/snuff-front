@@ -1,20 +1,22 @@
-<h4 class="text-center mb-5">Elige el color</h4>
-<div class="row row-form-compra pl-5 mb-3">
-    <div class="col-sm-8">
+<h3 class="text-center ff-lazer text-white mt-3">COLOR</h3>
+<div class="row row-div-compra pl-5 mb-3 w-75 mx-auto mt-4">
+    <div class="col-sm-10">
         <img
           src="http://pruebasbrageanth.pythonanywhere.com{{colorActive.imagen}}"
           class="form-check-label img-fluid w-100"
         >
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <div 
-            class="col-sm-12" 
+            class="col-sm-12 m-2"
             *ngFor="let color of colorList" 
             [style.background]="color.hexadecimal" 
-            [style.height]="altoCuadro+'em'" 
+            [style.height]="altoCuadro+'vh'" 
             (click)="activeSlide(color)"></div>
     </div>
 </div>
-<button class="btn btn-outline-warning" (click)="guardarColor()">
-    Siguiente
-</button>
+<div class="text-center mt-4">
+    <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarColor()">
+        SIGUIENTE
+    </button>
+</div>

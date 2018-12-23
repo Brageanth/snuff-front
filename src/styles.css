@@ -1,6 +1,20 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css?family=Kanit:700,800');
 
+/* Font Face */
+@font-face{
+    font-family: Chunkfive;
+    src: url(./assets/font/Chunkfive.ttf);
+}
+@font-face{
+    font-family: Espacio;
+    src: url(./assets/font/Espacio.ttf);
+}
+@font-face{
+    font-family: Lazer84;
+    src: url(./assets/font/Lazer84.ttf);
+}
+
 /* Height */
 .h-10{
     height: 9vh;
@@ -21,6 +35,21 @@
 }
 
 /* Font size */
+.fs_8{
+    font-size: 0.8vw;
+}
+.fs-1{
+    font-size: 1vw;
+}
+.fs-2{
+    font-size: 2vw;
+}
+.fs-3{
+    font-size: 3vw;
+}
+.fs-4{
+    font-size: 4vw;
+}
 .fs-6{
     font-size: 6vw;
 }
@@ -29,6 +58,15 @@
 .ff-kanit{
     font-family: 'Kanit', sans-serif;
 }
+.ff-chunkfive{
+    font-family: 'Chunkfive', sans-serif;
+}
+.ff-espacio{
+    font-family: 'Espacio', sans-serif;
+}
+.ff-lazer{
+    font-family: 'Lazer84', sans-serif;
+}
 
 /* Font color */
 .text-input{
@@ -36,14 +74,20 @@
 }
 
 /* Paddings */
-.pt-6{
-    padding-top: 6eh;
+.p-0{
+    padding: 0;
 }
 .pl-0{
     padding-left: 0;
 }
-.p-0{
-    padding: 0;
+.pt-6{
+    padding-top: 6vh;
+}
+.pt-20{
+    padding: 20vh;
+}
+.pt-25{
+    padding: 25vh;
 }
 
 /* Roundeds */
@@ -67,10 +111,22 @@
 .border-transparent{
     border-color: transparent;
 }
+.border-yellow{
+    border-color: #c19c38!important;    
+}
+
+/* Boder width */
+.border_4{
+    border-width: .4vh!important;
+}
 
 /* Customs */
 .row-form-compra{
-    max-height: 70vh;
+    max-height: 60vh;
+    overflow-y: hidden;
+}
+.row-div-compra{
+    max-height: 65vh;
     overflow-y: hidden;
 }
 html, body{
