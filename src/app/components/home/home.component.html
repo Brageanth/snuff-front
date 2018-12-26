@@ -1,0 +1,29 @@
+<div class="container-fluid bg-texture-black p-0">
+  <div id="carouselPreviewsIndicators" class="carousel slide  mh-90 oy-hidden" data-ride="carousel" data-interval="3500">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselPreviewsIndicators" [attr.data-slide-to]="i" *ngFor="let estampado of estampadoList; let i = index" [ngClass]="{'active':this.activeSlide(estampado)}" class="rounded-circle"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let estampado of estampadoList" [ngClass]="{'active':activeSlide(estampado)}">
+        <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPreview}}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+  <ul class="nav text-center fs-2 ff-chunkfive row pt-4 pb-2">
+    <li class="nav-item col-4">
+      <a class="nav-link text-white" href="#">CINE Y SERIES</a>
+    </li>
+    <li class="nav-item col-4">
+      <a class="nav-link text-white" href="#">MUSICA</a>
+    </li>
+    <li class="nav-item col-4">
+      <a class="nav-link text-white" href="#">PINTURA Y ARTE</a>
+    </li>
+  </ul>
+  <div class="horizontal-scroll">
+    <div class="pt-25 ff-espacio">
+      <h1>CAMPAÑA DE TEMPORADA</h1>
+      <video src="{{}}"></video>
+    </div>
+  </div>
+</div>
