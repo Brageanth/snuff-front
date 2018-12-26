@@ -23,6 +23,29 @@
     height: 91vh;
 }
 
+/* Max-Min Height */
+.mh-91{
+    max-height: 91vh;
+    min-height: 91vh;
+}
+
+/* Paddings */
+.p-0{
+    padding: 0;
+}
+.pl-0{
+    padding-left: 0;
+}
+.pt-6{
+    padding-top: 6vh;
+}
+.pt-20{
+    padding: 20vh;
+}
+.pt-25{
+    padding: 25vh;
+}
+
 /* Margins */
 .mt-6{
     margin-top: 6vh;
@@ -40,6 +63,9 @@
 }
 .fs-1{
     font-size: 1vw;
+}
+.fs-1_5{
+    font-size: 1.5vw;
 }
 .fs-2{
     font-size: 2vw;
@@ -73,23 +99,6 @@
     color: #949494;
 }
 
-/* Paddings */
-.p-0{
-    padding: 0;
-}
-.pl-0{
-    padding-left: 0;
-}
-.pt-6{
-    padding-top: 6vh;
-}
-.pt-20{
-    padding: 20vh;
-}
-.pt-25{
-    padding: 25vh;
-}
-
 /* Roundeds */
 .rounded-4{
     border-radius: 4vh;
@@ -118,6 +127,11 @@
 /* Boder width */
 .border_4{
     border-width: .4vh!important;
+}
+
+/* Overflow */
+.oy-hidden{
+    overflow-y: hidden;
 }
 
 /* Customs */

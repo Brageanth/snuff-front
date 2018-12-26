@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent {
   title = 'snuff-front';
   activeNav = false;
+  homeNav = true;
   token: boolean;
 
   constructor(private cookieService: CookieService) { }
@@ -21,5 +22,9 @@ export class AppComponent {
   getToken() {
     this.token = this.cookieService.check('Token');
     console.log(this.token);
+  }
+
+  typeNav() {
+
   }
 }

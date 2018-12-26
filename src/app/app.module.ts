@@ -19,12 +19,14 @@ import { ColoreComponent } from './components/inventario/colore/colore.component
 import { TallaComponent } from './components/inventario/talla/talla.component';
 import { EstampadoComponent } from './components/inventario/estampado/estampado.component';
 import { CompraComponent } from './components/compra/compra.component';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'compra', component: CompraComponent },
+  { path: '', component: HomeComponent },
 ];
 
 
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     ColoreComponent,
     TallaComponent,
     EstampadoComponent,
-    CompraComponent
+    CompraComponent,
+    HomeComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,
