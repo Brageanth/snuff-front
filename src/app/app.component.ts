@@ -31,5 +31,6 @@ export class AppComponent {
     } else {
       this.homeNav = false;
     }
+    console.log(this.router.url);
   }
 }
