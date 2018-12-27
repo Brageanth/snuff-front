@@ -1,5 +1,5 @@
 <h3 class="text-center ff-lazer text-white mt-3">DISEÑO</h3>
-<div class="row row-form-compra pl-5 w-75 mx-auto mt-3 mb-3">
+<div class="row row-form-compra pl-5 w-75 mx-auto mt-3 mb-2">
   <div class="col-sm-12">
     <img
       src="http://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagenPrenda}}"
@@ -7,9 +7,9 @@
     >
   </div>
 </div>
-<div class="row pl-5 mb-2 w-75">
+<div class="row pl-5 w-75 row-form-compra mx-auto nowrap">
   <div 
-    class="col-3 fs-6" 
+    class="col-2 fs-6" 
     *ngFor="let estampado of estampadoList"
   >
     <img
@@ -17,9 +17,14 @@
       class="form-check-label img-fluid w-100"
       (click)="activeSlide(estampado)"
     >
-  </div>  
+  </div>
+  <div class="scroll-downs">
+    <div class="mousey">
+      <div class="scroller"></div>
+    </div>
+  </div>
 </div>
-<div class="text-center mt-4">
+<div class="text-center">
   <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarEstampado()">
     Siguiente
   </button>

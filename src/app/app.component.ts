@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent {
   homeNav = true;
   token: boolean;
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private cookieService: CookieService, private router: Router) { }
 
   navActive() {
     this.activeNav = !this.activeNav;
@@ -25,6 +26,10 @@ export class AppComponent {
   }
 
   typeNav() {
-
+    if (this.router.url === '/') {
+      this.homeNav = true;
+    } else {
+      this.homeNav = false;
+    }
   }
 }
