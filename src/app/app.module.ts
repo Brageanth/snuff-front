@@ -21,12 +21,14 @@ import { EstampadoComponent } from './components/inventario/estampado/estampado.
 import { CompraComponent } from './components/compra/compra.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './components/home/home.component';
+import { CheckoutComponent } from './components/compra/checkout/checkout.component';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'compra', component: CompraComponent },
   { path: '', component: HomeComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     TallaComponent,
     EstampadoComponent,
     CompraComponent,
-    HomeComponent
+    HomeComponent,
+    CheckoutComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,

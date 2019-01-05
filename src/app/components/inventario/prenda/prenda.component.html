@@ -1,13 +1,18 @@
-<h4 class="text-center mb-0 ff-espacio text-white pt-1">ARMA TU PRENDA EN</h4>
-<h3 class="text-center ff-lazer text-white mb-0 mt-0">4</h3>
-<h4 class="text-center mt-0 ff-espacio text-white">PASOS</h4>
-<h3 class="text-center ff-lazer text-white mt-3">ELIJE LA PRENDA</h3>
-<div class="row row-form-compra w-75 mx-auto mt-4">
-    <div class="col-sm-6" *ngFor="let prenda of prendasList">
-        <img
-            src="http://pruebasbrageanth.pythonanywhere.com{{prenda.imagen}}"
-            class="form-check-label img-fluid w-100"
-            (click)="guardarPrenda(prenda)"
-        >
+<div *ngIf="!cargo" class="text-center img-fluid h-100">
+    <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
+</div>
+<div *ngIf="cargo">
+    <h4 class="text-center mb-0 ff-espacio text-white pt-1">ARMA TU PRENDA EN</h4>
+    <h3 class="text-center ff-lazer text-white mb-0 mt-0">4</h3>
+    <h4 class="text-center mt-0 ff-espacio text-white">PASOS</h4>
+    <h3 class="text-center ff-lazer text-white mt-3">ELIJE LA PRENDA</h3>
+    <div class="row row-form-compra w-75 mx-auto mt-4">
+        <div class="col-sm-6" *ngFor="let prenda of prendasList">
+            <img
+                src="http://pruebasbrageanth.pythonanywhere.com{{prenda.imagen}}"
+                class="form-check-label img-fluid w-100"
+                (click)="guardarPrenda(prenda)"
+            >
+        </div>
     </div>
 </div>

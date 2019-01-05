@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { Compra } from '../models/compra';
-
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -10,31 +8,46 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CompraService {
 
-  selectedusuario: Compra = new Compra (); 
-  constructor( private http:HttpClient) { }
+  selectedusuario: Compra = new Compra ();
+  constructor(private http: HttpClient) { }
 
-insertcompra(pCompra: Compra)
-{
-  const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com/compra', {
-    prenda: pCompra.prenda,
-    color: pCompra.color,
-    talla: pCompra.talla,
-    estampado: pCompra.estampado,
-    usuario: pCompra.usuario,
-    cantidad: pCompra.cantidad,
-    precio: pCompra.precio,
-    fabricada: pCompra.fabricada,
-    entregada: pCompra.entregada
-
+insertcompra(pCompra: Compra) {
+  console.log(pCompra);
+  const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com/compra/', {
+      prenda: pCompra.prenda,
+      color: pCompra.color,
+      talla: pCompra.talla,
+      estampado: pCompra.estampado,
+      usuario: pCompra.usuario,
+      cantidad: pCompra.cantidad,
+      precio: pCompra.precio,
+      fabricada: pCompra.fabricada,
+      entregada: pCompra.entregada,
+      carrito: pCompra.carrito,
+      pagado: pCompra.pagado
     })
       .subscribe(
         res => {
           console.log(res);
-          
         },
         err => {
-          console.log("Error occured");
+          console.log(err);
         }
       );
+ }
+
+ getCompras() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve((this.http.get('http://pruebasbrageanth.pythonanywhere.com/compra').toPromise().then(
+        res => {
+          return res;
+        },
+        err => {
+          console.log(err);
+        }
+      )));
+    }, 2000);
+  });
  }
 }

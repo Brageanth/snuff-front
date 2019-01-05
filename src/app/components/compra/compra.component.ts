@@ -1,12 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { CompraService } from '../../services/compra.service';
-import { NgForm } from '@angular/forms';
 import { Prenda } from 'src/app/models/prenda';
 import { Colore } from 'src/app/models/colore';
 import { Talla } from 'src/app/models/talla';
 import { Estampado } from 'src/app/models/estampado';
 import { AppComponent } from 'src/app/app.component';
+import { Compra } from 'src/app/models/compra';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginService } from 'src/app/services/login.service';
+import { Usuario } from 'src/app/models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compra',
@@ -20,16 +23,47 @@ export class CompraComponent implements OnInit {
   public talla: Talla;
   public estampado: Estampado;
   slides = [true, false, false, false, false];
+  token: number;
+  users: any;
+  userActive: Usuario;
 
-  constructor(private appComponent: AppComponent, private compraService: CompraService) { }
+  constructor(
+    private appComponent: AppComponent,
+    private compraService: CompraService,
+    private cookieService: CookieService,
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
-    this.appComponent.typeNav();
-    this.appComponent.getToken();
+  ngOnInit() {
+    this.token = +this.cookieService.get('Token');
+    if (!this.token) {
+      this.router.navigate(['/login']);
+    }
+    this.appComponent.typeNav(true);
   }
 
-  onSubmit(compraform: NgForm) {
-    this.compraService.insertcompra(compraform.value);
+  onSubmit(checkout: boolean) {
+    const compra = new Compra;
+    compra.color = this.color.id;
+    compra.entregada = false;
+    compra.estampado = this.estampado.id;
+    compra.fabricada = false;
+    compra.pagado = false;
+    compra.precio = this.prenda.precio + 30900;
+    compra.prenda = this.prenda.id;
+    compra.talla = this.talla.id;
+    compra.usuario = this.token;
+    compra.cantidad = 1;
+    if (checkout) {
+      compra.carrito = false;
+      this.compraService.insertcompra(compra);
+      this.router.navigate(['/checkout']);
+    } else {
+      compra.carrito = true;
+      this.compraService.insertcompra(compra);
+      this.router.navigate(['/']);
+    }
+    console.log(compra);
   }
 
   getPrenda(prendaform: any) {

@@ -17,33 +17,37 @@ export class EstampadoComponent implements OnInit {
   @Input() talla: Talla;
   estampadoList: Array<Estampado> = [];
   estampadoActive: Estampado;
-  @Output() estampado:EventEmitter<any> = new EventEmitter()
+  @Output() estampado: EventEmitter<any> = new EventEmitter();
+  cargo = false;
 
   constructor(private estampadoService: EstampadoService) { }
 
   async ngOnInit() {
-    
-    let ress = <any> await this.estampadoService.getEstampado();
+
+    const ress = <any> await this.estampadoService.getEstampado();
     let i = 0;
 
-    for (let estampado of ress){
-      if(estampado.cantidad>0){
-        if(estampado.prenda == this.prenda.id){
-          if(estampado.stock == true){
+    for (const estampado of ress) {
+      if (estampado.cantidad > 0) {
+        if (estampado.prenda === this.prenda.id) {
+          if (estampado.stock === true) {
             this.estampadoList.push(estampado);
-            if(i==0)this.estampadoActive = estampado;
+            if (i === 0) {
+              this.estampadoActive = estampado;
+            }
           }
         }
       }
       i++;
     }
+    this.cargo = true;
   }
 
-  activeSlide(pEstampado: Estampado){
+  activeSlide(pEstampado: Estampado) {
     this.estampadoActive = pEstampado;
   }
 
-  guardarEstampado(){
+  guardarEstampado() {
     this.estampado.emit(this.estampadoActive);
   }
 }

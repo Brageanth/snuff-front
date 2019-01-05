@@ -1,29 +1,146 @@
 <div class="container-fluid bg-texture-black p-0">
-  <div id="carouselPreviewsIndicators" class="carousel slide  mh-91 oy-hidden" data-ride="carousel" data-interval="3500">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselPreviewsIndicators" [attr.data-slide-to]="i" *ngFor="let estampado of estampadoList; let i = index" [ngClass]="{'active':this.activeSlide(estampado)}" class="rounded-circle"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let estampado of estampadoList" [ngClass]="{'active':activeSlide(estampado)}">
-        <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPreview}}" class="d-block w-100" alt="...">
+  <div *ngIf="!cargo" class="text-center img-fluid h-100">
+    <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
+  </div>
+
+  <div *ngIf="cargo">
+    <div id="carouselPreviewsIndicators" class="carousel slide  mh-91 oy-hidden" data-ride="carousel" data-interval="3500">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselPreviewsIndicators" [attr.data-slide-to]="i" *ngFor="let estampado of estampadoList; let i = index" [ngClass]="{'active':this.activeSlide(estampado)}" class="rounded-circle"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let estampado of estampadoList" [ngClass]="{'active':activeSlide(estampado)}">
+          <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPreview}}" class="d-block w-100" alt="...">
+        </div>
       </div>
     </div>
-  </div>
-  <ul class="nav text-center fs-2 ff-chunkfive row pt-3 pb-2 w-100">
-    <li class="nav-item col-4">
-      <a class="nav-link text-white" href="#">CINE Y SERIES</a>
-    </li>
-    <li class="nav-item col-4">
-      <a class="nav-link text-white" href="#">MUSICA</a>
-    </li>
-    <li class="nav-item col-4">
-      <a class="nav-link text-white" href="#">PINTURA Y ARTE</a>
-    </li>
-  </ul>
-  <div class="horizontal-scroll">
-    <div class="pt-25 ff-espacio">
+    <ul class="nav text-center fs-2 ff-chunkfive row pt-3 pb-2 w-100">
+      <li class="nav-item col-4">
+        <a class="nav-link text-white" href="#">CINE Y SERIES</a>
+      </li>
+      <li class="nav-item col-4">
+        <a class="nav-link text-white" href="#">MUSICA</a>
+      </li>
+      <li class="nav-item col-4">
+        <a class="nav-link text-white" href="#">PINTURA Y ARTE</a>
+      </li>
+    </ul>
+    <div class="plr-25 pt-10 ff-espacio text-white text-center pb-10" *ngFor="let campania of campaniaList">
       <h1>CAMPAÑA DE TEMPORADA</h1>
-      <video src=""></video>
+      <video src="http://pruebasbrageanth.pythonanywhere.com{{campania.video}}" class="w-75 mt-4" controls></video>
+      <div class="fs-1_3 w-75 mx-auto text-left">{{campania.descripcion}}</div>
+    </div>
+    <div class="plr-25 pt-10 ff-espacio text-white text-center pb-10" *ngFor="let campania of campaniaList">
+      <h1>{{campania.copy}}</h1>
+      <div class="oy-hidden mh-65 mb-5">
+        <img src="http://pruebasbrageanth.pythonanywhere.com{{estampadoBack.imagenPreview}}" alt="" class="o-3 mt-5 img-fluid" #imgBack (load)="imgSize()" [ngClass]="{'h-60':this.imgLarge, 'w-75':this.imgWidth}">
+      </div>
+      <button type="button" class="btn bg-white ff-chunkfive fs-1" [routerLink]="['/compra']">TIENDA</button>
+    </div>
+    <div class="plr-25 pt-10 text-white pb-6 container-fluid">
+      <div class="row text-center">
+        <div class="col-12">
+          <img src="../../../assets/img/snuff.png" alt="Snuff" class="img-fluid">
+        </div>
+      </div>
+      <div class="row plr-5 pt-3">
+        <div class="col-1"></div>
+        <div class="ml-auto pt-4 pb-4 col-3 border-top border-bottom border-white text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Descubrir
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="" class="text-white">Cine y series</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="" class="text-white">Musica</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="" class="text-white">Pintura y arte</a>
+          </div>
+        </div>
+        <div class="col-3 pt-4 pb-4 border-top border-bottom border-white text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Privacidad
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="" class="text-white">Politicas de privacidad</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="" class="text-white">Uso y tratamiento de datos</a>
+          </div>
+        </div>
+        <div class="mr-auto col-3 pt-4 pb-4 border-top border-bottom border-white text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Cuenta
+          </div>
+          <div class="ff-espacio fs_8">
+            <a [routerLink]="['/login']" class="text-white">Iniciar sesion</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a [routerLink]="['/registro']" class="text-white">Registrarse</a>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div class="row plr-5">
+        <div class="mx-auto col-9 border-bottom border-white">
+          <div class="mx-auto pt-4 pb-4 col-6">
+            <div class="mb-1 ff-chunkfive text-white fs-1 text-center">
+              Descripcion
+            </div>
+            <div class="ff-espacio fs_8" *ngFor="let empresa of empresaList text-justify">
+              {{empresa.descripcion}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row plr-5">
+        <div class="mx-auto col-9 border-bottom border-white">
+          <div class="mx-auto pt-4 pb-4 col-6">
+            <div class="mb-1 ff-chunkfive text-white fs-1 text-center">
+              Composicion y lavado
+            </div>
+            <div class="ff-espacio fs_8" *ngFor="let empresa of empresaList text-justify">
+              {{empresa.composicion}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row plr-5" *ngFor="let empresa of empresaList">
+        <div class="col-1"></div>
+        <div class="ml-auto pt-4 pb-4 col-3 text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Correo
+          </div>
+          <div class="ff-espacio fs_8">
+            {{empresa.correo}}
+          </div>
+        </div>
+        <div class="col-3 pt-4 pb-4 text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Redes sociales
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="{{empresa.facebook}}" class="text-white" target="_blank">Facebook</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="{{empresa.instagram}}" class="text-white" target="_blank">Instagram</a>
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="{{empresa.twitter}}" class="text-white" target="_blank">Twitter</a>
+          </div>
+        </div>
+        <div class="mr-auto col-3 pt-4 pb-4 text-center">
+          <div class="mb-1 ff-chunkfive text-white fs-1">
+            Telefono
+          </div>
+          <div class="ff-espacio fs_8">
+            <a href="tel:+{{empresa.telefono}}" class="text-white">{{empresa.telefono}}</a>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
     </div>
   </div>
 </div>

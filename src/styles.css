@@ -16,6 +16,14 @@
 }
 
 /* Keyframes */
+@keyframes osoLoad {
+    from {width: 20%;}
+    to {width: 25%;}
+}
+@keyframes barLoad {
+    from {width: 0%;}
+    to {width: 99%;}
+}
 @keyframes scroll {
     0% { opacity: 0; }
     10% { transform: translateX(0); opacity: 1; }
@@ -31,11 +39,24 @@
 .h-10{
     height: 9vh;
 }
+.h-60 {
+    height: 60vh;
+}
+.h-65 {
+    height: 65vh;
+}
 .h-91{
     height: 91vh;
 }
+.h-100{
+    height: 100vh!important;
+}
 
 /* Max-Min Height */
+.mh-65 {
+    max-height: 65vh;
+    min-height: 65vh;
+}
 .mh-91{
     max-height: 91vh;
     min-height: 91vh;
@@ -48,14 +69,48 @@
 .pl-0{
     padding-left: 0;
 }
+.pb-6{
+    padding-bottom: 6vh!important;
+}
+.pb-7{
+    padding-bottom: 7vh;
+}
+.pb-8 {
+    padding-bottom: 8vh!important;
+}
+.pb-10 {
+    padding-bottom: 10vh!important;
+}
 .pt-6{
     padding-top: 6vh;
+}
+.pt-10 {
+    padding-top: 10vh!important;
+}
+.pt-15 {
+    padding-top: 15vh!important;
 }
 .pt-20{
     padding: 20vh;
 }
 .pt-25{
     padding: 25vh;
+}
+.plr-1 {
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+.plr-5 {
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+.plr-25 {
+    padding-left: 25vh;
+    padding-right: 25vh;
+}
+.ptb_5 {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
 }
 
 /* Margins */
@@ -65,16 +120,28 @@
 .mt-10{
     margin-top: 10vh;
 }
+.mt-20{
+    margin-top: 20vh;
+}
 .ml-0{
     margin-left: 0;
 }
+.mlr-25 {
+    margin: 0 25vh;
+}
 
 /* Font size */
+.fs_6{
+    font-size: 0.6vw;
+}
 .fs_8{
     font-size: 0.8vw;
 }
 .fs-1{
     font-size: 1vw;
+}
+.fs-1_3{
+    font-size: 1.3vw;
 }
 .fs-1_5{
     font-size: 1.5vw;
@@ -123,8 +190,15 @@
 .bg-transparent{
     background: transparent;
 }
+.bg-black {
+    background-color: black;
+}
 .bg-texture-black{
     background: url(./assets/img/textura.png), rgba(0, 0, 0, 0.89);
+    background-size: 100%, 0;
+}    
+.bg-texture-white{
+    background: url(./assets/img/textura.png), rgba(255, 255, 255, 1);
     background-size: 100%, 0;
 }    
 
@@ -145,10 +219,21 @@
 .oy-hidden{
     overflow-y: hidden;
 }
+.ox-scroll {
+    overflow-x: scroll;
+}
 
 /* Wrap */
 .nowrap{
     flex-wrap: nowrap;
+}
+
+/* Opacity */
+.o-3 {
+    opacity: .3;
+}
+.o-5 {
+    opacity: .5;
 }
 
 /* Customs */
@@ -192,4 +277,18 @@ html, body{
     animation-duration: 2.2s;
     animation-timing-function: cubic-bezier(.15,.41,.69,.94);
     animation-iteration-count: infinite;
+}
+#loadOso{
+    animation: osoLoad 1s linear infinite alternate;
+}
+#progressReset{
+    width: 100%;
+    background-color: transparent;
+}
+#barReset {
+    width: 1%;
+    height: 20px;
+    background-color: #EFB810;
+    animation: barLoad 5s ease-in-out 1 alternate;
+    animation-fill-mode: forwards;
 }

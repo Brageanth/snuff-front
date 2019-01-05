@@ -32,13 +32,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.appComponent.typeNav();
     this.users = await this.loginService.getUsuarios();
     if (this.cookieService.check('Token')) {
       this.token = this.cookieService.get('Token');
       this.router.navigate(['/compra']);
     }
     this.cargo = true;
+    this.appComponent.typeNav(this.cargo);
   }
 
   modalReset() {

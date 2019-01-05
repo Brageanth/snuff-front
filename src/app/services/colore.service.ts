@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColoreService {
-    
-  constructor(private http:HttpClient) { }
 
-  getColor() { 
+  constructor(private http: HttpClient) { }
+
+  getColor() {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/inventario/color').toPromise().then(
@@ -21,6 +20,6 @@ export class ColoreService {
           }
         ));
       }, 2000);
-    });    
+    });
   }
 }

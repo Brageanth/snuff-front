@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { HomeService } from './services/home.service';
+import { Empresa } from './models/home';
+import { LoginComponent } from './components/login/login.component';
+import { CompraService } from './services/compra.service';
 
 
 @Component({
@@ -12,25 +16,50 @@ export class AppComponent {
   title = 'snuff-front';
   activeNav = false;
   homeNav = true;
-  token: boolean;
+  token: number;
+  empresaList: Empresa;
+  cargo = false;
+  numeroCarrito = 0;
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(
+    private cookieService: CookieService,
+    private router: Router,
+    private homeService: HomeService,
+    private compraService: CompraService
+  ) { }
 
   navActive() {
     this.activeNav = !this.activeNav;
   }
 
   getToken() {
-    this.token = this.cookieService.check('Token');
-    console.log(this.token);
+    this.token = +this.cookieService.get('Token');
   }
 
-  typeNav() {
+  async getNumeroCarrito() {
+    const res = <any> await this.compraService.getCompras();
+    for (const compra of res) {
+      if (this.token === compra.usuario) {
+        if (!compra.pagado) {
+          if (compra.carrito) {
+            this.numeroCarrito++;
+            console.log('una');
+          }
+        }
+        console.log('dos');
+      }
+    }
+  }
+
+  async typeNav(pCargo: boolean) {
     if (this.router.url === '/') {
       this.homeNav = true;
+      this.empresaList = <Empresa> await this.homeService.getEmpresa();
     } else {
       this.homeNav = false;
     }
-    console.log(this.router.url);
+    this.getToken();
+    await this.getNumeroCarrito();
+    this.cargo = pCargo;
   }
 }

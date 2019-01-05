@@ -22,4 +22,19 @@ export class HomeService {
       }, 2000);
     });
   }
+
+  getEmpresa() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/empresa').toPromise().then(
+          res => {
+            return res;
+          },
+          err => {
+            console.log(err);
+          }
+        ));
+      }, 2000);
+    });
+  }
 }

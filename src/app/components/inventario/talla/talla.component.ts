@@ -15,27 +15,29 @@ export class TallaComponent implements OnInit {
   @Input() color: Colore;
   tallaList: Array<Talla> = [];
   imagen: string;
-  @Output() talla:EventEmitter<any> = new EventEmitter()
+  @Output() talla: EventEmitter<any> = new EventEmitter();
+  cargo = false;
 
   constructor(private tallaService: TallaService) { }
 
   async ngOnInit() {
-    
-    let ress = <any> await this.tallaService.getTalla();
-    
-    for (let talla of ress){
-      if(talla.cantidad>0){
-        if(talla.prenda == this.prenda.id){
-          if(talla.color == this.color.id){
+
+    const ress = <any> await this.tallaService.getTalla();
+
+    for (const talla of ress) {
+      if (talla.cantidad > 0) {
+        if (talla.prenda === this.prenda.id) {
+          if (talla.color === this.color.id) {
             this.tallaList.push(talla);
           }
         }
       }
     }
     this.imagen = this.color.imagen;
+    this.cargo = true;
   }
 
-  guardarTalla(pTalla: Talla){
+  guardarTalla(pTalla: Talla) {
     this.talla.emit(pTalla);
   }
 }

@@ -1,19 +1,24 @@
-<h3 class="text-center ff-lazer text-white mt-3">TALLA</h3>
-<div class="row row-form-compra pl-5 mb-1 w-75 mx-auto mt-4">
-  <div class="col-sm-12">
-    <img
-      src="http://pruebasbrageanth.pythonanywhere.com{{imagen}}"
-      class="form-check-label img-fluid w-100"
-      *ngIf="imagen"
-    >
-  </div>
+<div *ngIf="!cargo" class="text-center img-fluid h-100">
+    <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
 </div>
-<div class="row pl-5 w-75 mx-auto">
-    <div 
-      class="col-4 fs-4 bg-white text-center m-3" 
-      *ngFor="let talla of tallaList" 
-      (click)="guardarTalla(talla)"
-    >
-      {{talla.talla}}  
+<div *ngIf="cargo">
+  <h3 class="text-center ff-lazer text-white mt-3">TALLA</h3>
+  <div class="row row-form-compra pl-5 mb-1 w-75 mx-auto mt-4">
+    <div class="col-sm-12">
+      <img
+        src="http://pruebasbrageanth.pythonanywhere.com{{imagen}}"
+        class="form-check-label img-fluid w-100"
+        *ngIf="imagen"
+      >
     </div>
+  </div>
+  <div class="row pl-5 w-75 mx-auto">
+      <div 
+        class="col-4 fs-4 bg-white text-center m-3" 
+        *ngFor="let talla of tallaList" 
+        (click)="guardarTalla(talla)"
+      >
+        {{talla.talla}}  
+      </div>
+  </div>
 </div>

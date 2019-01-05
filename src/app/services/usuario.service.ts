@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { Usuario } from '../models/usuario';
-
 import {HttpClient} from '@angular/common/http';
 
 
@@ -10,11 +8,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UsuarioService {
 
-  selectedusuario: Usuario = new Usuario (); 
-  constructor(private http:HttpClient) { }
+  selectedusuario: Usuario = new Usuario ();
+  constructor(private http: HttpClient) { }
 
-insertusuario(pUsuario: Usuario)
-{
+insertusuario(pUsuario: Usuario) {
   const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com', {
       correo: pUsuario.correo,
       contrasenia: pUsuario.contrasenia,
@@ -24,13 +21,10 @@ insertusuario(pUsuario: Usuario)
       .subscribe(
         res => {
           console.log(res);
-          
         },
         err => {
-          console.log("Error occured");
+          console.log('Error occured');
         }
       );
  }
-
-
 }

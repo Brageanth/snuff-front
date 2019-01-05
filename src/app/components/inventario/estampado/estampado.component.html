@@ -1,31 +1,36 @@
-<h3 class="text-center ff-lazer text-white mt-3">DISEÑO</h3>
-<div class="row row-form-compra pl-5 w-75 mx-auto mt-3 mb-2">
-  <div class="col-sm-12">
-    <img
-      src="http://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagenPrenda}}"
-      class="form-check-label img-fluid w-100"
-    >
-  </div>
+<div *ngIf="!cargo" class="text-center img-fluid h-100">
+    <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
 </div>
-<div class="row pl-5 w-75 row-form-compra mx-auto nowrap">
-  <div 
-    class="col-2 fs-6" 
-    *ngFor="let estampado of estampadoList"
-  >
-    <img
-      src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}"
-      class="form-check-label img-fluid w-100"
-      (click)="activeSlide(estampado)"
-    >
-  </div>
-  <div class="scroll-downs">
-    <div class="mousey">
-      <div class="scroller"></div>
+<div *ngIf="cargo">
+  <h3 class="text-center ff-lazer text-white mt-3">DISEÑO</h3>
+  <div class="row row-form-compra pl-5 w-75 mx-auto mt-3 mb-2">
+    <div class="col-sm-12">
+      <img
+        src="http://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagenPrenda}}"
+        class="form-check-label img-fluid w-100"
+      >
     </div>
   </div>
-</div>
-<div class="text-center">
-  <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarEstampado()">
-    Siguiente
-  </button>
+  <div class="row pl-5 w-75 row-form-compra mx-auto nowrap">
+    <div 
+      class="col-2 fs-6" 
+      *ngFor="let estampado of estampadoList"
+    >
+      <img
+        src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}"
+        class="form-check-label img-fluid w-100"
+        (click)="activeSlide(estampado)"
+      >
+    </div>
+    <div class="scroll-downs">
+      <div class="mousey">
+        <div class="scroller"></div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarEstampado()">
+      Siguiente
+    </button>
+  </div>
 </div>
