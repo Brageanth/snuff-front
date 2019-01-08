@@ -7,12 +7,13 @@
     <h4 class="text-center mt-0 ff-espacio text-white">PASOS</h4>
     <h3 class="text-center ff-lazer text-white mt-3">ELIJE LA PRENDA</h3>
     <div class="row row-form-compra w-75 mx-auto mt-4">
-        <div class="col-sm-6" *ngFor="let prenda of prendasList">
+        <div class="col-sm-6 active-border p-0 hover-pointer hover-border" *ngFor="let prenda of prendasList">
             <img
                 src="http://pruebasbrageanth.pythonanywhere.com{{prenda.imagen}}"
                 class="form-check-label img-fluid w-100"
                 (click)="guardarPrenda(prenda)"
             >
+            <i class="fas fa-check text-white bg-amarillo pl-1 pb-1 active-check"></i>
         </div>
     </div>
 </div>

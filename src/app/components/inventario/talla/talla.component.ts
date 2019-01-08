@@ -26,8 +26,11 @@ export class TallaComponent implements OnInit {
 
     for (const talla of ress) {
       if (talla.cantidad > 0) {
-        if (talla.prenda === this.prenda.id) {
-          if (talla.color === this.color.id) {
+        console.log(talla);
+        console.log(this.prenda);
+        console.log(this.color);
+        if (talla.prenda === this.prenda.tipo) {
+          if (talla.color === this.color.color) {
             this.tallaList.push(talla);
           }
         }

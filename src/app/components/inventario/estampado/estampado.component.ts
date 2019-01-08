@@ -29,7 +29,7 @@ export class EstampadoComponent implements OnInit {
 
     for (const estampado of ress) {
       if (estampado.cantidad > 0) {
-        if (estampado.prenda === this.prenda.id) {
+        if (estampado.prenda === this.prenda.tipo) {
           if (estampado.stock === true) {
             this.estampadoList.push(estampado);
             if (i === 0) {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Compra } from '../models/compra';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CompraService {
 
-  selectedusuario: Compra = new Compra ();
+  selectedcompra: Compra = new Compra ();
   constructor(private http: HttpClient) { }
 
 insertcompra(pCompra: Compra) {

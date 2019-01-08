@@ -16,6 +16,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   getUsuarios() {
+    console.log(2);
     return new Promise(resolve => {
       setTimeout(() => {
         resolve((this.http.get('http://pruebasbrageanth.pythonanywhere.com').toPromise().then(

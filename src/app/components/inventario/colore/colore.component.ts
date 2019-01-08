@@ -24,7 +24,7 @@ export class ColoreComponent implements OnInit {
     let i = 0;
     for (const color of ress) {
       if (color.cantidad > 0) {
-        if (color.prenda === this.prenda.id) {
+        if (color.prenda === this.prenda.tipo) {
           this.colorList.push(color);
           if (i === 0) {
             this.colorActive = color;

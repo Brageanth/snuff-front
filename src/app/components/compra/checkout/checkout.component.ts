@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Compra } from 'src/app/models/compra';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,19 +13,23 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class CheckoutComponent implements OnInit {
 
-  token: number;
+  token: string;
   compraActual: Compra;
   cargo: boolean;
+  imgCompra: string;
+  usuario: any;
+  users: any;
 
   constructor(
     private compraService: CompraService,
     private cookieService: CookieService,
     private router: Router,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private loginService: LoginService
   ) { }
 
   async ngOnInit() {
-    this.token = +this.cookieService.get('Token');
+    this.token = this.cookieService.get('Token');
     if (!this.token) {
       this.router.navigate(['/login']);
     }
@@ -41,7 +46,19 @@ export class CheckoutComponent implements OnInit {
     if (!this.compraActual) {
       this.router.navigate(['/compra']);
     }
+    this.imgCompra = this.cookieService.get('imgCompra');
+    this.users = await this.loginService.getUsuarios();
+    this.usuario = this.buscarUser(this.token);
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
+    console.log(this.usuario);
+  }
+
+  buscarUser(correo: string) {
+    for (const user of this.users) {
+      if (correo === user.correo) {
+        return user;
+      }
+    }
   }
 }

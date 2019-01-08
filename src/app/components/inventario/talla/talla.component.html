@@ -14,10 +14,12 @@
   </div>
   <div class="row pl-5 w-75 mx-auto">
       <div 
-        class="col-4 fs-4 bg-white text-center m-3" 
-        *ngFor="let talla of tallaList" 
+        class="col-4 fs-4 bg-white text-center m-3 active-border hover-pointer hover-border" 
+        *ngFor="let talla of tallaList; let i = index" 
         (click)="guardarTalla(talla)"
+        tabindex="{{i}}"
       >
+        <i class="fas fa-check text-white bg-amarillo pl-1 pb-1 active-check fs-1"></i>
         {{talla.talla}}  
       </div>
   </div>

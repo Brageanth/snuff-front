@@ -23,7 +23,7 @@ export class CompraComponent implements OnInit {
   public talla: Talla;
   public estampado: Estampado;
   slides = [true, false, false, false, false];
-  token: number;
+  token: string;
   users: any;
   userActive: Usuario;
 
@@ -35,7 +35,7 @@ export class CompraComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.token = +this.cookieService.get('Token');
+    this.token = this.cookieService.get('Token');
     if (!this.token) {
       this.router.navigate(['/login']);
     }
@@ -44,13 +44,13 @@ export class CompraComponent implements OnInit {
 
   onSubmit(checkout: boolean) {
     const compra = new Compra;
-    compra.color = this.color.id;
+    compra.color = this.color.color;
     compra.entregada = false;
-    compra.estampado = this.estampado.id;
+    compra.estampado = this.estampado.nombre;
     compra.fabricada = false;
     compra.pagado = false;
     compra.precio = this.prenda.precio + 30900;
-    compra.prenda = this.prenda.id;
+    compra.prenda = this.prenda.tipo;
     compra.talla = this.talla.id;
     compra.usuario = this.token;
     compra.cantidad = 1;
@@ -63,7 +63,7 @@ export class CompraComponent implements OnInit {
       this.compraService.insertcompra(compra);
       this.router.navigate(['/']);
     }
-    console.log(compra);
+    this.cookieService.set( 'imgCompra', this.prenda.imagen, 1, '/' );
   }
 
   getPrenda(prendaform: any) {

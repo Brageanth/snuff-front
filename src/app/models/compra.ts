@@ -1,9 +1,9 @@
 export class Compra {
-    prenda: number;
-    color: number;
+    prenda: string;
+    color: string;
     talla: number;
-    estampado: number;
-    usuario: number;
+    estampado: string;
+    usuario: string;
     cantidad: number;
     precio: number;
     fabricada: boolean;

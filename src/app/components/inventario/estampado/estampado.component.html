@@ -13,14 +13,16 @@
   </div>
   <div class="row pl-5 w-75 row-form-compra mx-auto nowrap">
     <div 
-      class="col-2 fs-6" 
-      *ngFor="let estampado of estampadoList"
+      class="col-2 active-border focus-border p-0 ml-3 mr-3 mt-2 mb-2 hover-pointer hover-border" 
+      *ngFor="let estampado of estampadoList; let i = index"
+      tabindex="{{i}}"
     >
       <img
         src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}"
         class="form-check-label img-fluid w-100"
         (click)="activeSlide(estampado)"
       >
+      <i class="fas fa-check text-white bg-amarillo pl-1 pb-1 active-check"></i>
     </div>
     <div class="scroll-downs">
       <div class="mousey">
@@ -29,7 +31,7 @@
     </div>
   </div>
   <div class="text-center">
-    <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarEstampado()">
+    <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2 hover-pointer" (click)="guardarEstampado()">
       Siguiente
     </button>
   </div>

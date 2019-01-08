@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    console.log(1);
     this.users = await this.loginService.getUsuarios();
     if (this.cookieService.check('Token')) {
       this.token = this.cookieService.get('Token');
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
     const userLogin = this.buscarUser(loginForm.value.correo);
     if (userLogin) {
       if (userLogin.contrasenia === loginForm.value.contrasenia) {
-        this.cookieService.set( 'Token', userLogin.id, 1, '/' );
+        this.cookieService.set( 'Token', userLogin.correo, 1, '/' );
         this.router.navigate(['/compra']);
       } else {
         this.errorPassword = 'Contraseña incorrecta';

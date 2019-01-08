@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'snuff-front';
   activeNav = false;
   homeNav = true;
-  token: number;
+  token: string;
   empresaList: Empresa;
   cargo = false;
   numeroCarrito = 0;
@@ -33,7 +33,7 @@ export class AppComponent {
   }
 
   getToken() {
-    this.token = +this.cookieService.get('Token');
+    this.token = this.cookieService.get('Token');
   }
 
   async getNumeroCarrito() {
@@ -43,10 +43,8 @@ export class AppComponent {
         if (!compra.pagado) {
           if (compra.carrito) {
             this.numeroCarrito++;
-            console.log('una');
           }
         }
-        console.log('dos');
       }
     }
   }

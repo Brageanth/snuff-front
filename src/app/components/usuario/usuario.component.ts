@@ -29,5 +29,6 @@ export class UsuarioComponent implements OnInit {
 
   onSubmit(usuarioform: NgForm) {
     this.usuarioService.insertusuario(usuarioform.value);
+    this.router.navigate(['/login']);
   }
 }

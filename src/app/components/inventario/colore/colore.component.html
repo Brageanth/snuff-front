@@ -12,15 +12,18 @@
         </div>
         <div class="col-sm-2">
             <div 
-                class="col-sm-12 m-2"
-                *ngFor="let color of colorList" 
-                [style.background]="color.hexadecimal" 
-                [style.height]="altoCuadro+'vh'" 
-                (click)="activeSlide(color)"></div>
+                class="col-sm-12 m-2 active-border focus-border hover-pointer hover-border"
+                *ngFor="let color of colorList; let i = index" 
+                [style.background]="color.hexadecimal"
+                [style.height]="altoCuadro+'vh'"
+                (click)="activeSlide(color)"
+                tabindex="{{i}}">
+                <i class="fas fa-check text-white bg-amarillo pl-1 pb-1 active-check"></i>
+            </div>
         </div>
     </div>
     <div class="text-center mt-4">
-        <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2" (click)="guardarColor()">
+        <button class="ff-kanit bg-transparent font-weight-bold border-transparent text-white fs-2 hover-pointer" (click)="guardarColor()">
             SIGUIENTE
         </button>
     </div>
