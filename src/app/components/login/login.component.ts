@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.users = await this.loginService.getUsuarios();
     if (this.cookieService.check('Token')) {
       this.token = this.cookieService.get('Token');
-      this.router.navigate(['/compra']);
+      this.router.navigate(['/']);
     }
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     if (userLogin) {
       if (userLogin.contrasenia === loginForm.value.contrasenia) {
         this.cookieService.set( 'Token', userLogin.correo, 1, '/' );
-        this.router.navigate(['/compra']);
+        this.router.navigate(['/']);
       } else {
         this.errorPassword = 'Contraseña incorrecta';
       }

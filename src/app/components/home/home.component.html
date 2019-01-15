@@ -1,5 +1,5 @@
 <div class="container-fluid bg-texture-black p-0">
-  <div *ngIf="!cargo" class="text-center img-fluid h-100">
+  <div *ngIf="!cargo" class="text-center img-fluid h-100 cursor-progress">
     <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
   </div>
 
@@ -10,7 +10,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let estampado of estampadoList" [ngClass]="{'active':activeSlide(estampado)}">
-          <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPreview}}" class="d-block w-100" alt="...">
+          <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPreview}}" class="d-block w-100 animation-zoom-in" alt="...">
         </div>
       </div>
     </div>
