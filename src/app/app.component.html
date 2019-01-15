@@ -1,11 +1,11 @@
-<nav class="navbar navbar-light bg-light navbar-expand-lg ff-kanit collapse fixed-top" id="navbarNav" *ngIf="cargo">
+<nav class="navbar navbar-light bg-light navbar-expand-lg ff-kanit collapse fixed-top transition-cubic" id="navbarNav" *ngIf="cargo">
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="bg-white">
             <a class="navbar-brand ml-5 mr-5" href="#">
                 <img src="../../../assets/img/oso.png" width="25" height="25" alt="Logo">
             </a>
-            <button type="button" class="bg-transparent border-transparent" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="navActive()">
-                <i class="fas fa-times text-dark"></i>
+            <button type="button" class="bg-transparent border-transparent hover-pointer" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="navActive()">
+                <i class="fas fa-times text-dark hover-amarillo"></i>
             </button>
         </div> 
         <ul class="navbar-nav ml-auto row w-50 text-center">
@@ -21,12 +21,12 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" *ngIf="token">
-                <a class="nav-link" href="#">
+                <a class="nav-link" [routerLink]="['/coche']">
                     <img src="../../../assets/img/carrito.png" width="25" height="25" alt="Carrito">
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="token?['/compra']:['/login']">
+                <a class="nav-link" [routerLink]="token?['/perfil']:['/login']">
                     <img src="../../../assets/img/user.png" width="25" height="25" alt="User">
                 </a>
             </li>
@@ -38,8 +38,8 @@
         <a class="navbar-brand ml-5 mr-5" href="#">
             <img src="../../../assets/img/oso.png" width="25" height="25" alt="Logo">
         </a>
-        <button type="button" class="bg-transparent border-transparent" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="navActive()">
-            <i class="fas fa-bars text-dark"></i>
+        <button type="button" class="bg-transparent border-transparent hover-pointer" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="navActive()">
+            <i class="fas fa-th text-dark hover-amarillo"></i>
         </button>
     </div>
     <div *ngIf="homeNav">
@@ -70,7 +70,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="token?['/compra']:['/login']">
+            <a class="nav-link" [routerLink]="token?['/perfil']:['/login']">
                 <img src="../../../assets/img/user-white.png" width="25" height="25" alt="User">
             </a>
         </li>
