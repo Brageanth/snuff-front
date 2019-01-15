@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { LoginService } from 'src/app/services/login.service';
 
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
