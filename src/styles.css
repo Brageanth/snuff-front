@@ -116,6 +116,9 @@
 .h-65 {
     height: 65vh;
 }
+.h-80 {
+    height: 80vh;
+}
 .h-91{
     height: 91vh;
 }
@@ -301,6 +304,12 @@
 }
 .ox-scroll {
     overflow-x: scroll;
+}
+.ox-hidden{
+    overflow-x: hidden;
+}
+.oy-scroll {
+    overflow-y: scroll;
 }
 
 /* Wrap */

@@ -22,6 +22,6 @@ export class PrendaService {
           }
         ));
       }, 2000);
-    });    
+    });
   }
 }

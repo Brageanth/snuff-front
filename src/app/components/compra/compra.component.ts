@@ -54,6 +54,7 @@ export class CompraComponent implements OnInit {
     compra.talla = this.talla.id;
     compra.usuario = this.token;
     compra.cantidad = 1;
+    compra.imagen = this.estampado.imagenPrenda;
     if (checkout) {
       compra.carrito = false;
       this.compraService.insertcompra(compra);
@@ -61,7 +62,7 @@ export class CompraComponent implements OnInit {
     } else {
       compra.carrito = true;
       this.compraService.insertcompra(compra);
-      this.router.navigate(['/']);
+        this.router.navigate(['/']);
     }
     this.cookieService.set( 'imgCompra', this.prenda.imagen, 1, '/' );
   }
