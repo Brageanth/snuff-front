@@ -1,0 +1,29 @@
+<div class="container-fluid bg-black h-100">
+  <h2 class="text-center ff-chunkfive text-white pt-2">
+    <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
+      COCHE
+    </div>
+  </h2>
+  <div class='oy-scroll ox-hidden mlr-25 bg-texture-white text-black ff-kanit h-80'>
+    <div class="row m-0">
+      <div class="col-sm-6 mt-5 pl-5" *ngFor="let compra of carrazo">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="http://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+              {{compra.prenda}}
+            </div>
+            <div class="row">
+              {{compra.estampado}}
+            </div>
+            <div class="row">
+              {{compra.tallaNombre}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
