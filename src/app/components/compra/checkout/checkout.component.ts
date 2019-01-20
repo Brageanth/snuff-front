@@ -51,7 +51,6 @@ export class CheckoutComponent implements OnInit {
     this.usuario = this.buscarUser(this.token);
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
-    console.log(this.usuario);
   }
 
   buscarUser(correo: string) {
