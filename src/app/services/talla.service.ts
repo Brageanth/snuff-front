@@ -21,6 +21,6 @@ export class TallaService {
           }
         ));
       }, 2000);
-    });    
+    });
   }
-} 
+}

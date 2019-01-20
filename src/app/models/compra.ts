@@ -10,4 +10,6 @@ export class Compra {
     entregada: boolean;
     carrito: boolean;
     pagado: boolean;
+    imagen: string;
+    tallaNombre: string;
 }

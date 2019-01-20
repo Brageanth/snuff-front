@@ -305,6 +305,12 @@
 .ox-scroll {
     overflow-x: scroll;
 }
+.ox-hidden{
+    overflow-x: hidden;
+}
+.oy-scroll {
+    overflow-y: scroll;
+}
 
 /* Wrap */
 .nowrap{

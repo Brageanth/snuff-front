@@ -24,7 +24,8 @@ insertcompra(pCompra: Compra) {
       fabricada: pCompra.fabricada,
       entregada: pCompra.entregada,
       carrito: pCompra.carrito,
-      pagado: pCompra.pagado
+      pagado: pCompra.pagado,
+      imagen: pCompra.imagen
     })
       .subscribe(
         res => {

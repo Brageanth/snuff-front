@@ -22,11 +22,8 @@ import { CompraComponent } from './components/compra/compra.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/compra/checkout/checkout.component';
-<<<<<<< HEAD
-import { CocheComponent } from './components/compra/coche/coche.component';
-=======
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
->>>>>>> 22818c8e6da6620369a0b7443d1c4b35dfac569e
+import { CocheComponent } from './components/compra/coche/coche.component';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
@@ -34,11 +31,8 @@ const appRoutes: Routes = [
   { path: 'compra', component: CompraComponent },
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },
-<<<<<<< HEAD
-  { path: 'coche', component: CocheComponent }
-=======
   { path: 'perfil', component: PerfilComponent },
->>>>>>> 22818c8e6da6620369a0b7443d1c4b35dfac569e
+  { path: 'coche' , component: CocheComponent}
 ];
 
 
@@ -55,11 +49,8 @@ const appRoutes: Routes = [
     CompraComponent,
     HomeComponent,
     CheckoutComponent,
-<<<<<<< HEAD
+    PerfilComponent,
     CocheComponent
-=======
-    PerfilComponent
->>>>>>> 22818c8e6da6620369a0b7443d1c4b35dfac569e
   ],
   imports: [HttpClientModule,
     BrowserModule,
