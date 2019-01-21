@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Compra } from 'src/app/models/compra';
 import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
+import { ColoreService } from 'src/app/services/colore.service';
 
 @Component({
   selector: 'app-coche',
@@ -26,7 +27,8 @@ export class CocheComponent implements OnInit {
     private cookieService: CookieService,
     private router: Router,
     private appComponent: AppComponent,
-    private tallaService: TallaService
+    private tallaService: TallaService,
+    private colorService: ColoreService
   ) { }
 
   async ngOnInit() {
@@ -37,6 +39,7 @@ export class CocheComponent implements OnInit {
 
     const res = <any> await this.compraService.getCompras();
     const tal = <any> await this.tallaService.getTalla();
+    const col = <any> await this.colorService.getColor();
     for (const compra of res) {
       if (this.token === compra.usuario) {
         if (!compra.pagado) {
@@ -48,6 +51,11 @@ export class CocheComponent implements OnInit {
       for (const talla of tal) {
         if (compra.talla === talla.id) {
           compra.tallaNombre = talla.talla;
+        }
+      }
+      for (const color of col){
+        if(compra.color === color.color){
+          compra.colorHexadecimal = color.hexadecimal;
         }
       }
     }

@@ -107,8 +107,14 @@
 }
 
 /* Height */
+.h-2{
+    height: 2vh;
+}
 .h-10{
     height: 9vh;
+}
+.h-30{
+    height: 30vh;
 }
 .h-60 {
     height: 60vh;
