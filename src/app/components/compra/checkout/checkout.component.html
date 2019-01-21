@@ -16,7 +16,7 @@
     </div>
     <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)" class="w-100 container-fluid m-0"> 
       <div class="row">
-        <div class="col-md-4 plr-5">
+        <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
           <div class="row" *ngFor="let compra of compras">
             <div class="col-sm-6">
               <img src="http://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
@@ -46,9 +46,8 @@
                         [(ngModel)]="compraService.selectedcompra.cantidad"
                         placeholder="1"
                         min="1"
-                        max="{{cantidad}}"
+                        max="{{compra.cantidadDisponible}}"
                       >
-                      {{this.cantidad}}
                     </div>
                   </div>
                 </form>
@@ -131,7 +130,7 @@
               </div>
             </div>
           </div>
-          <div class="row bg-black text-white pt-2">
+          <div class="row bg-black text-white pt-2 rounded-left-1">
             <h4 class="col-md-12">
               METODO DE PAGO
             </h4>
@@ -139,11 +138,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8">
-
-        </div>
-        <div class="col-md-4">
-          
+        <div class="col-md-12 text-right">
+          <img src="../../../../assets/img/pig.png" alt="">
         </div>
       </div>
     </form>

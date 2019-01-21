@@ -110,6 +110,9 @@
 .h-10{
     height: 9vh;
 }
+.h-50 {
+    height: 50vh;
+}
 .h-60 {
     height: 60vh;
 }
@@ -261,6 +264,10 @@
 /* Roundeds */
 .rounded-4{
     border-radius: 4vh;
+}
+.rounded-left-1{
+    border-bottom-left-radius: 1vh;
+    border-top-left-radius: 1vh;
 }
 
 /* Background */
