@@ -12,4 +12,5 @@ export class Compra {
     pagado: boolean;
     imagen: string;
     tallaNombre: string;
+    colorHexadecimal: string;
 }
