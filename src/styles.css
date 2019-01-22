@@ -113,6 +113,9 @@
 .h-10{
     height: 9vh;
 }
+.h-25 {
+    height: 25vh;
+}
 .h-30{
     height: 30vh;
 }
@@ -135,7 +138,15 @@
     height: 100vh!important;
 }
 
+.mxh-58 {
+    max-height: 58vh;
+}
+
 /* Max-Min Height */
+.mh-60 {
+    max-height: 60vh;
+    min-height: 60vh;
+}
 .mh-65 {
     max-height: 65vh;
     min-height: 65vh;
