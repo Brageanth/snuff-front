@@ -37,6 +37,10 @@ insertcompra(pCompra: Compra) {
       );
  }
 
+ sendCompra(pCompra: Compra) {
+
+ }
+
  getCompras() {
   return new Promise(resolve => {
     setTimeout(() => {

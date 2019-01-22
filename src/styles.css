@@ -110,6 +110,9 @@
 .h-10{
     height: 9vh;
 }
+.h-25 {
+    height: 25vh;
+}
 .h-50 {
     height: 50vh;
 }

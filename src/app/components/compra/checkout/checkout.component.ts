@@ -7,6 +7,7 @@ import { AppComponent } from 'src/app/app.component';
 import { LoginService } from 'src/app/services/login.service';
 import { TallaService } from 'src/app/services/talla.service';
 import { EstampadoService } from 'src/app/services/estampado.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +18,6 @@ import { EstampadoService } from 'src/app/services/estampado.service';
 export class CheckoutComponent implements OnInit {
 
   token: string;
-  compraActual: Compra;
   cargo: boolean;
   imgCompra: string;
   usuario: any;
@@ -76,5 +76,9 @@ export class CheckoutComponent implements OnInit {
         return user;
       }
     }
+  }
+
+  onSubmit(updateForm: NgForm) {
+    this.compraService.sendCompra(updateForm.value);
   }
 }
