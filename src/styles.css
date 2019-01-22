@@ -107,11 +107,19 @@
 }
 
 /* Height */
+.h-3{
+    height: 3vh;
+}
 .h-10{
     height: 9vh;
 }
+<<<<<<< HEAD
 .h-25 {
     height: 25vh;
+=======
+.h-30{
+    height: 30vh;
+>>>>>>> ebce49c4e977b9d52513c5936a2a83bdf3c8afea
 }
 .h-50 {
     height: 50vh;

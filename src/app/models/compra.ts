@@ -14,4 +14,5 @@ export class Compra {
     tallaNombre: string;
     colorHexadecimal: string;
     cantidadDisponible: number;
+    id: number;
 }
