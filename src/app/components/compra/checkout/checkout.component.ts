@@ -5,6 +5,8 @@ import { Compra } from 'src/app/models/compra';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { LoginService } from 'src/app/services/login.service';
+import { TallaService } from 'src/app/services/talla.service';
+import { EstampadoService } from 'src/app/services/estampado.service';
 
 
 @Component({
@@ -20,13 +22,16 @@ export class CheckoutComponent implements OnInit {
   imgCompra: string;
   usuario: any;
   users: any;
+  compras: Array<Compra> = [];
 
   constructor(
     private compraService: CompraService,
     private cookieService: CookieService,
     private router: Router,
     private appComponent: AppComponent,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private tallaService: TallaService,
+    private estampadoService: EstampadoService
   ) { }
 
   async ngOnInit() {
@@ -35,19 +40,30 @@ export class CheckoutComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     const res = <any> await this.compraService.getCompras();
+    const tal = <any> await this.tallaService.getTalla();
+    const est = <any> await this.estampadoService.getEstampado();
     for (const compra of res) {
       if (this.token === compra.usuario) {
         if (!compra.pagado) {
           if (!compra.carrito) {
-            this.compraActual = compra;
+            this.compras.push(compra);
           }
         }
       }
+      for (const talla of tal) {
+        if (compra.talla === talla.id) {
+          compra.tallaNombre = 'talla ' + talla.talla;
+        }
+      }
+      for (const estampado of est) {
+        if (compra.estampado === estampado.nombre) {
+          compra.cantidadDisponible = estampado.cantidad;
+        }
+      }
     }
-    if (!this.compraActual) {
+    if (!this.compras) {
       this.router.navigate(['/compra']);
     }
-    this.imgCompra = this.cookieService.get('imgCompra');
     this.users = await this.loginService.getUsuarios();
     this.usuario = this.buscarUser(this.token);
     this.cargo = true;

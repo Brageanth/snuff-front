@@ -16,8 +16,44 @@
     </div>
     <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)" class="w-100 container-fluid m-0"> 
       <div class="row">
-        <div class="col-md-4 plr-5">
-          <img src="http://pruebasbrageanth.pythonanywhere.com{{imgCompra}}" alt="Imagen Prenda" *ngIf="imgCompra" class="img-fluid">
+        <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
+          <div class="row" *ngFor="let compra of compras">
+            <div class="col-sm-6">
+              <img src="http://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                {{compra.estampado}}
+              </div>
+              <div class="row">
+                {{compra.tallaNombre}}
+              </div>
+              <div class="row">
+                $ {{compra.precio}}
+              </div>
+              <div class="row">
+                cantidad
+              </div>
+              <div class="row">
+                <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm)">
+                  <div class="form-group row">
+                    <div class="col">
+                      <input
+                        type="number"
+                        class="form-control bg-transparent"
+                        name="cantidad"
+                        #cantidad="ngModel"
+                        [(ngModel)]="compraService.selectedcompra.cantidad"
+                        placeholder="1"
+                        min="1"
+                        max="{{compra.cantidadDisponible}}"
+                      >
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-8 container-fluid p-0">
           <div class="row">
@@ -94,7 +130,7 @@
               </div>
             </div>
           </div>
-          <div class="row bg-black text-white pt-2">
+          <div class="row bg-black text-white pt-2 rounded-left-1">
             <h4 class="col-md-12">
               METODO DE PAGO
             </h4>
@@ -102,11 +138,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8">
-
-        </div>
-        <div class="col-md-4">
-          
+        <div class="col-md-12 text-right">
+          <img src="../../../../assets/img/pig.png" alt="">
         </div>
       </div>
     </form>

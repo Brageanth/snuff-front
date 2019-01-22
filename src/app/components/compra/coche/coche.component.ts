@@ -7,6 +7,7 @@ import { Compra } from 'src/app/models/compra';
 import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
+import { EstampadoService } from 'src/app/services/estampado.service';
 
 @Component({
   selector: 'app-coche',
@@ -21,6 +22,8 @@ export class CocheComponent implements OnInit {
   carrazo: Array<Compra> = [];
   cuadro: Array<Estampado> = [];
   ropita: string;
+  subtotal = 0;
+  envio = 2500;
 
   constructor(
     private compraService: CompraService,
@@ -28,7 +31,8 @@ export class CocheComponent implements OnInit {
     private router: Router,
     private appComponent: AppComponent,
     private tallaService: TallaService,
-    private colorService: ColoreService
+    private colorService: ColoreService,
+    private estampadoService: EstampadoService
   ) { }
 
   async ngOnInit() {
@@ -40,11 +44,13 @@ export class CocheComponent implements OnInit {
     const res = <any> await this.compraService.getCompras();
     const tal = <any> await this.tallaService.getTalla();
     const col = <any> await this.colorService.getColor();
+    const est = <any> await this.estampadoService.getEstampado();
     for (const compra of res) {
       if (this.token === compra.usuario) {
         if (!compra.pagado) {
           if (compra.carrito) {
             this.carrazo.push(compra);
+            this.subtotal += compra.precio;
           }
         }
       }
@@ -56,6 +62,11 @@ export class CocheComponent implements OnInit {
       for (const color of col){
         if(compra.color === color.color){
           compra.colorHexadecimal = color.hexadecimal;
+        }
+      }
+      for (const estampado of est) {
+        if (compra.estampado === estampado.nombre) {
+          compra.cantidadDisponible = estampado.cantidad;
         }
       }
     }
