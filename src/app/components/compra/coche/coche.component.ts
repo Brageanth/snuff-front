@@ -9,6 +9,7 @@ import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { environment } from 'src/environments/environment';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-coche',
@@ -76,5 +77,8 @@ export class CocheComponent implements OnInit {
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
     this.total = this.subtotal + this.envio;
+  }
+  onSubmit(updateForm: NgForm) {
+    this.router.navigate(['/checkout']);
   }
 }
