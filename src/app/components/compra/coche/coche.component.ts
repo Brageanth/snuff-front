@@ -8,6 +8,7 @@ import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
 import { EstampadoService } from 'src/app/services/estampado.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-coche',
@@ -24,6 +25,7 @@ export class CocheComponent implements OnInit {
   ropita: string;
   subtotal = 0;
   envio = 2500;
+  total = 0;
 
   constructor(
     private compraService: CompraService,
@@ -73,5 +75,6 @@ export class CocheComponent implements OnInit {
 
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
+    this.total = this.subtotal + this.envio;
   }
 }
