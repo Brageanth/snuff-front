@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Compra } from '../models/compra';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 @Injectable({
   providedIn: 'root'
 
 })
+
 export class CompraService {
 
   selectedcompra: Compra = new Compra ();
@@ -52,6 +55,29 @@ insertcompra(pCompra: Compra) {
           console.log(err);
         }
       )));
+    }, 2000);
+  });
+ }
+
+ getBancos() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve((this.http.post('https://sandbox.api.payulatam.com/reports-api/4.0/service.cgi', {
+        "test": false,
+        "language": "es",
+        "command": "PING",
+        "merchant": {
+           "apiLogin": "pRRXKOl8ikMmt9u",
+           "apiKey": "4Vj8eK4rloUd272L48hsrarnUA"
+        }
+     }, { headers: headers }).toPromise().then(
+          res => {
+            return res;
+          },
+          err => {
+            console.log(err);
+          }
+        )));
     }, 2000);
   });
  }

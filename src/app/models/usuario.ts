@@ -4,4 +4,5 @@ export class Usuario {
     contrasenia: string;
     celular: number;
     direccion: string;
+    confirmar: string;
 }

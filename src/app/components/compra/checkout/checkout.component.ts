@@ -17,15 +17,30 @@ import { NgForm } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
+  DEBITO = 'debito';
+  CREDITO = 'credito';
+  EFECTIVO = 'efectivo';
+  CONTRA_ENTREGA = 'contraEntrega';
+  ENVIO = 2500;
+
   token: string;
   cargo: boolean;
   imgCompra: string;
   usuario: any;
   users: any;
   compras: Array<Compra> = [];
+  pig = '../../../../assets/img/pig.png';
+  debito = false;
+  tarjeta = '../../../../assets/img/tarjeta.png';
+  credito = false;
+  money = '../../../../assets/img/money.png';
+  efectivo = false;
+  total = 0;
+  subtotal = 0;
+  bancos = [];
 
   constructor(
-    private compraService: CompraService,
+    public compraService: CompraService,
     private cookieService: CookieService,
     private router: Router,
     private appComponent: AppComponent,
@@ -42,11 +57,15 @@ export class CheckoutComponent implements OnInit {
     const res = <any> await this.compraService.getCompras();
     const tal = <any> await this.tallaService.getTalla();
     const est = <any> await this.estampadoService.getEstampado();
+    const ban = <any> await this.compraService.getBancos();
+    console.log(ban);
+    
     for (const compra of res) {
       if (this.token === compra.usuario) {
         if (!compra.pagado) {
           if (!compra.carrito) {
             this.compras.push(compra);
+            this.subtotal += compra.precio;
           }
         }
       }
@@ -68,6 +87,7 @@ export class CheckoutComponent implements OnInit {
     this.usuario = this.buscarUser(this.token);
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
+    this.total = this.subtotal + this.ENVIO;
   }
 
   buscarUser(correo: string) {
@@ -80,5 +100,30 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(updateForm: NgForm) {
     this.compraService.sendCompra(updateForm.value);
+  }
+
+  activeMetodoPago(pMetodo: string) {
+    if (pMetodo === this.DEBITO) {
+      this.pig = '../../../../assets/img/pig-select.png';
+      this.tarjeta = '../../../../assets/img/tarjeta.png';
+      this.money = '../../../../assets/img/money.png';
+      this.debito = true;
+      this.credito = false;
+      this.efectivo = false;
+    } else if (pMetodo === this.CREDITO) {
+      this.pig = '../../../../assets/img/pig.png';
+      this.tarjeta = '../../../../assets/img/tarjeta-select.png';
+      this.money = '../../../../assets/img/money.png';
+      this.credito = true;
+      this.debito = false;
+      this.efectivo = false;
+    } else {
+      this.pig = '../../../../assets/img/pig.png';
+      this.tarjeta = '../../../../assets/img/tarjeta.png';
+      this.money = '../../../../assets/img/money-select.png';
+      this.efectivo = true;
+      this.credito = false;
+      this.debito = false;
+    }
   }
 }

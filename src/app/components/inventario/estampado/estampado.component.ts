@@ -35,10 +35,10 @@ export class EstampadoComponent implements OnInit {
             if (i === 0) {
               this.estampadoActive = estampado;
             }
+            i++;
           }
         }
       }
-      i++;
     }
     this.cargo = true;
   }

@@ -14,7 +14,7 @@ export class UsuarioComponent implements OnInit {
 
 
   constructor(
-    private usuarioService: UsuarioService,
+    public usuarioService: UsuarioService,
     private appComponent: AppComponent,
     private cookieService: CookieService,
     private router: Router
