@@ -5,4 +5,8 @@ export class Usuario {
     celular: number;
     direccion: string;
     confirmar: string;
+    nombre: string;
+    apellido: string;
+    codigoPostal: number;
+    cedula: number;
 }

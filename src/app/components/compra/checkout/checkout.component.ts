@@ -8,6 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { TallaService } from 'src/app/services/talla.service';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { NgForm } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 @Component({
@@ -46,7 +47,8 @@ export class CheckoutComponent implements OnInit {
     private appComponent: AppComponent,
     private loginService: LoginService,
     private tallaService: TallaService,
-    private estampadoService: EstampadoService
+    private estampadoService: EstampadoService,
+    private usuarioService: UsuarioService
   ) { }
 
   async ngOnInit() {

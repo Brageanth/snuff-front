@@ -54,7 +54,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="nombre"
                   #nombre="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.nombre"
+                  [(ngModel)]="usuarioService.selectedusuario.nombre"
                 >
               </div>
               <div class="form-group">
@@ -64,7 +64,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="direccion"
                   #direccion="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.direccion"
+                  [(ngModel)]="usuarioService.selectedusuario.direccion"
                   placeholder="{{usuario.direccion}}"
                   value="{{usuario.direccion}}"
                   *ngIf="usuario"
@@ -78,7 +78,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="celular"
                   #celular="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.celular"
+                  [(ngModel)]="usuarioService.selectedusuario.celular"
                   placeholder="{{usuario.celular}}"
                   value="{{usuario.celular}}"
                   *ngIf="usuario"
@@ -93,7 +93,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="apellido"
                   #apellido="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.apellido"
+                  [(ngModel)]="usuarioService.selectedusuario.apellido"
                 >
               </div>
               <div class="form-group">
@@ -103,7 +103,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="codigoPostal"
                   #codigoPostal="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.codigoPostal"
+                  [(ngModel)]="usuarioService.selectedusuario.codigoPostal"
                 >
                 <small id="codigoPostalHelp" class="form-text text-muted">CONSULTA TU CODIGO POSTAL <a href="http://visor.codigopostal.gov.co/472/visor/" target="_blank">aqui</a></small>
               </div> 
@@ -114,7 +114,7 @@
                   class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
                   name="cedula"
                   #cedula="ngModel"
-                  [(ngModel)]="compraService.selectedcompra.cedula"
+                  [(ngModel)]="usuarioService.selectedusuario.cedula"
                 >
               </div>
             </div>

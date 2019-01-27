@@ -318,7 +318,7 @@
     background-size: 100%, 0;
 }    
 .bg-texture-white{
-    background: url(./assets/img/textura-blanca.png), rgba(255, 255, 255, 1);
+    background: url('./assets/img/textura-blanca.png'), rgba(255, 255, 255, 1);
     background-size: 100%, 0;
 }
 .bg-amarillo {
