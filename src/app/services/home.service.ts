@@ -11,7 +11,7 @@ export class HomeService {
   getCampania() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/campania').toPromise().then(
+        resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/campania').toPromise().then(
           res => {
             return res;
           },
@@ -26,7 +26,7 @@ export class HomeService {
   getEmpresa() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/empresa').toPromise().then(
+        resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/empresa').toPromise().then(
           res => {
             return res;
           },
