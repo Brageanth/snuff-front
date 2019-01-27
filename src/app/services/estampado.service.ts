@@ -15,7 +15,7 @@ export class EstampadoService {
   getEstampado() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/inventario/estampado').toPromise().then(
+        resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/inventario/estampado').toPromise().then(
           res => {
             this.estampadoList = <any>res;
             return res;
