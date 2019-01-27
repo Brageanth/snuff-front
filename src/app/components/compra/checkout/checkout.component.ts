@@ -48,7 +48,7 @@ export class CheckoutComponent implements OnInit {
     private loginService: LoginService,
     private tallaService: TallaService,
     private estampadoService: EstampadoService,
-    private usuarioService: UsuarioService
+    public usuarioService: UsuarioService
   ) { }
 
   async ngOnInit() {
