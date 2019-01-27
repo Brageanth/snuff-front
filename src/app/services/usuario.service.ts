@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
 insertusuario(pUsuario: Usuario) {
-  const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com', {
+  const req = this.http.post('https://pruebasbrageanth.pythonanywhere.com', {
       correo: pUsuario.correo,
       contrasenia: pUsuario.contrasenia,
       celular: pUsuario.celular,

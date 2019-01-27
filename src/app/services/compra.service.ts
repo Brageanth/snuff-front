@@ -16,7 +16,7 @@ export class CompraService {
 
 insertcompra(pCompra: Compra) {
   console.log(pCompra);
-  const req = this.http.post('http://pruebasbrageanth.pythonanywhere.com/compra/', {
+  const req = this.http.post('https://pruebasbrageanth.pythonanywhere.com/compra/', {
       prenda: pCompra.prenda,
       color: pCompra.color,
       talla: pCompra.talla,
@@ -47,7 +47,7 @@ insertcompra(pCompra: Compra) {
  getCompras() {
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve((this.http.get('http://pruebasbrageanth.pythonanywhere.com/compra').toPromise().then(
+      resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com/compra').toPromise().then(
         res => {
           return res;
         },

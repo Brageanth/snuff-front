@@ -11,7 +11,7 @@ export class ColoreService {
   getColor() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this.http.get('http://pruebasbrageanth.pythonanywhere.com/inventario/color').toPromise().then(
+        resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/inventario/color').toPromise().then(
           res => {
             return res;
           },

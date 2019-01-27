@@ -18,7 +18,7 @@ export class LoginService {
   getUsuarios() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve((this.http.get('http://pruebasbrageanth.pythonanywhere.com').toPromise().then(
+        resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com').toPromise().then(
           res => {
             return res;
           },
@@ -33,7 +33,7 @@ export class LoginService {
   resetPassword(pReset: Reset) {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve((this.http.post('http://pruebasbrageanth.pythonanywhere.com/reset', {
+        resolve((this.http.post('https://pruebasbrageanth.pythonanywhere.com/reset', {
           correo: pReset.resetCorreo,
         }).toPromise().then(
             res => {
@@ -48,7 +48,7 @@ export class LoginService {
   }
 
   updatePassword(user: any) {
-    return this.http.put('http://pruebasbrageanth.pythonanywhere.com/resetPassword' + user.id, user)
+    return this.http.put('https://pruebasbrageanth.pythonanywhere.com/resetPassword' + user.id, user)
     .subscribe(
       res => {
         console.log(res);
