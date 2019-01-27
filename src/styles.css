@@ -311,7 +311,7 @@
     background-color: black;
 }
 .bg-yellow {
-    background-color: var(--amarillo);
+    background-color: #E5B222;
 }
 .bg-texture-black{
     background: url(./assets/img/textura.png), rgba(0, 0, 0, 0.89);

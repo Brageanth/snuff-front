@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PrendaService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getprenda() { 
+  getprenda() {
 
     return new Promise(resolve => {
       setTimeout(() => {
