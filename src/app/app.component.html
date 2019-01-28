@@ -30,8 +30,8 @@
                     <img src="../../../assets/img/user.png" width="25" height="25" alt="User">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="token?['/perfil']:['/login']">VER PERFIL</a>
-                    <a class="dropdown-item" (click)="">CERRAR SESION</a>
+                    <a class="dropdown-item" [routerLink]="['/perfil']">VER PERFIL</a>
+                    <a class="dropdown-item" (click)="logOut()">CERRAR SESION</a>
                 </div>
             </li>
         </ul>
