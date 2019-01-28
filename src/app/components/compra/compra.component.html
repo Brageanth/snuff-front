@@ -34,29 +34,34 @@
         ></app-estampado>
       </div>
       <div class="carousel-item ff-lazer text-white fs-2" [ngClass]="{'active':this.slides[4]}">
-        <div class="row pt-25">
+        <div class="row mlr-25 row-div-compra mt-5">
+          <div class="col-md-12">
+            <img src="https://pruebasbrageanth.pythonanywhere.com{{estampado.imagenPrenda}}" alt="" class="img-fluid w-100" *ngIf="estampado">
+          </div>
+        </div>
+        <div class="row mt-5 fs-1">
           <div class="col-md-6 hover-pointer" (click)="onSubmit(true)">
             <div class="row">
               <div class="col-8 ml-auto text-center">
-                COMPRAR AHORA
+                <img src="../../../assets/img/billete.png" alt="Billete" class="w-25">
               </div>
             </div>
             <div class="row">
               <div class="col-8 ml-auto text-center">
-                <img src="../../../assets/img/billete.png" alt="Billete" class="w-50">
+                COMPRAR AHORA
               </div>
             </div>
           </div>
           <div class="col-md-6 hover-pointer" (click)="onSubmit(false)">
             <div class="row">
               <div class="col-8 mr-auto text-center">
-                AGREGAR AL COCHE
+                <img src="../../../assets/img/carrito-white.png" alt="Coche" class="w-15">
               </div>
             </div>
             <div class="row">
-                <div class="col-8 mr-auto text-center">
-                  <img src="../../../assets/img/carrito-white.png" alt="Coche" class="w-35">
-                </div>
+              <div class="col-8 mr-auto text-center">
+                AGREGAR AL COCHE
+              </div>
             </div>
           </div>
         </div>
