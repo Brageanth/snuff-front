@@ -81,6 +81,8 @@ export class CocheComponent implements OnInit {
     this.router.navigate(['/checkout']);
   }
   updateSubtotal(pId:number , pCantidad:number){
+    console.log(pCantidad);
+    
     const compra = this.buscarCompra (pId)
     this.subtotal -= (compra.precio * compra.cantidad);
     this.subtotal += (compra.precio * pCantidad);
