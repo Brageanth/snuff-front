@@ -60,4 +60,10 @@ export class AppComponent {
     await this.getNumeroCarrito();
     this.cargo = pCargo;
   }
+
+
+  logOut() {
+    this.cookieService.delete('Token');
+    this.router.navigate(['/']);
+  }
 }

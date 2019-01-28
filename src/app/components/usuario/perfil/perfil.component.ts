@@ -22,9 +22,4 @@ export class PerfilComponent implements OnInit {
     }
     this.appComponent.typeNav(true);
   }
-
-  logOut() {
-    this.cookieService.delete('Token');
-    this.router.navigate(['/']);
-  }
 }

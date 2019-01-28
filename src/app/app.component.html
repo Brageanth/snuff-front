@@ -25,10 +25,14 @@
                     <img src="../../../assets/img/carrito.png" width="25" height="25" alt="Carrito">
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="token?['/perfil']:['/login']">
+            <li class="nav-item dropdown bg-transparent text-white fs-1">
+                <a class="nav-link dropdown-toggle" [routerLink]="token?['/#']:['/login']" id="perfilDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <img src="../../../assets/img/user.png" width="25" height="25" alt="User">
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="token?['/perfil']:['/login']">VER PERFIL</a>
+                    <a class="dropdown-item" (click)="">CERRAR SESION</a>
+                </div>
             </li>
         </ul>
     </div>
