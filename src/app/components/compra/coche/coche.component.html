@@ -36,7 +36,7 @@
                     class="w-70 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
                     name="cantidad{{compra.id}}"
                     #{{compra.id}}="ngModel"
-                    (change)="updateSubtotal(compra.id, this.value)"
+                    (change)="updateSubtotal(compra.id, this[compra.id].value)"
                     [(ngModel)]="compraService.selectedcompra.cantidad+compra.id"
                     placeholder="{{compra.cantidad}}"
                     min="0"
