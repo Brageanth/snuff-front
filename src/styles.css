@@ -37,6 +37,7 @@
 /* Roots */
 :root {
     --amarillo: #c19c38;
+    --amarilloFondo: #e5b222;
 }
 
 /* Focus */
@@ -311,7 +312,7 @@
     background-color: black;
 }
 .bg-yellow {
-    background-color: #E5B222;
+    background-color: var(--amarilloFondo);
 }
 /* a */
 .bg-texture-black{
