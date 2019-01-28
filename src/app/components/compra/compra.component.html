@@ -35,7 +35,7 @@
       </div>
       <div class="carousel-item ff-lazer text-white fs-2" [ngClass]="{'active':this.slides[4]}">
         <div class="row">
-          <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}" alt="" class="img-fluid w-100">
+          <img src="http://pruebasbrageanth.pythonanywhere.com{{estampado.imagenEstampado}}" alt="" class="img-fluid w-100" *ngIf="estampado">
         </div>
         <div class="row">
           <div class="col-md-6 hover-pointer" (click)="onSubmit(true)">
