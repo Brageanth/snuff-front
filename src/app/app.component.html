@@ -31,7 +31,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right text-white bg-transparent" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item hover-bg-transparent text-white text-right" [routerLink]="['/perfil']">VER PERFIL</a>
-                    <a class="dropdown-item hover-bg-transparent text-white text-right" (click)="logOut()">CERRAR SESION</a>
+                    <a class="dropdown-item hover-bg-transparent text-white text-right hover-pointer" (click)="logOut()">CERRAR SESION</a>
                 </div>
             </li>
         </ul>
@@ -79,7 +79,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item hover-bg-transparent text-white text-right" [routerLink]="['/perfil']">VER PERFIL</a>
-                <a class="dropdown-item hover-bg-transparent text-white text-right" (click)="logOut()">CERRAR SESION</a>
+                <a class="dropdown-item hover-bg-transparent text-white text-right hover-pointer" (click)="logOut()">CERRAR SESION</a>
             </div>
         </li>
     </ul>
