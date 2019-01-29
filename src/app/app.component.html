@@ -73,10 +73,14 @@
                 <span class="bg-white rounded-circle p_8 fs_6 ff-lazer ptb_5 plr-1" *ngIf="numeroCarrito!=0">{{numeroCarrito}}</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="token?['/perfil']:['/login']">
-                <img src="../../../assets/img/user-white.png" width="25" height="25" alt="User">
+        <li class="nav-item dropdown bg-transparent text-white fs-1">
+            <a class="nav-link" [routerLink]="token?['/#']:['/login']" id="perfilDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../../../assets/img/user.png" width="25" height="25" alt="User">
             </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/perfil']">VER PERFIL</a>
+                <a class="dropdown-item" (click)="logOut()">CERRAR SESION</a>
+            </div>
         </li>
     </ul>
 </nav>
