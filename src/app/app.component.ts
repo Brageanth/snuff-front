@@ -61,9 +61,12 @@ export class AppComponent {
     this.cargo = pCargo;
   }
 
-
   logOut() {
     this.cookieService.delete('Token');
-    this.router.navigate(['/']);
+    if (this.router.url === '/') {
+      window.location.reload();
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }
