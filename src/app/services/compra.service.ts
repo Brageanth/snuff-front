@@ -81,4 +81,9 @@ insertcompra(pCompra: Compra) {
     }, 2000);
   });
  }
+ 
+ updateCompra (pCompra:Compra){
+   
+ }
+
 }
