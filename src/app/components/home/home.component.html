@@ -1,6 +1,18 @@
 <div class="container-fluid bg-texture-black p-0">
-  <div *ngIf="!cargo" class="text-center img-fluid h-100 cursor-progress">
-    <img src="../../../assets/img/oso.png" id="loadOso" class="mt-20">
+  <div *ngIf="!cargo" class="text-center">
+    <div class="cabeza mx-auto">
+      <div class="oreja rounded-circle">
+          <div class="oreja-interno rounded-circle"></div>
+      </div>
+      <div class="ojo rounded-circle"></div>
+      <div class="osico-top rounded">
+          <div class="nariz rounded-circle"></div>
+      </div>
+      <div class="osico-bottom"></div>
+      <div class="filtro-exterior">
+          <div class="filtro"></div>
+      </div>
+    </div>
   </div>
 
   <div *ngIf="cargo">
