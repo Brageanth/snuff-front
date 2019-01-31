@@ -204,6 +204,9 @@
 .hover-amarillo {
     transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
+.hover-bg-transparent:hover {
+    background: transparent;
+}
 
 /* Cursors */
 .cursor-progress {

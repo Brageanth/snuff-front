@@ -61,8 +61,8 @@ export class CocheComponent implements OnInit {
           compra.tallaNombre = talla.talla;
         }
       }
-      for (const color of col){
-        if(compra.color === color.color){
+      for (const color of col) {
+        if (compra.color === color.color) {
           compra.colorHexadecimal = color.hexadecimal;
         }
       }
