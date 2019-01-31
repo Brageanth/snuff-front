@@ -24,6 +24,10 @@ import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/compra/checkout/checkout.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { CocheComponent } from './components/compra/coche/coche.component';
+import { CineComponent } from './components/cine/cine.component';
+import { SeccionesComponent } from './components/secciones/secciones.component';
+import { MusicaComponent } from './components/secciones/musica/musica.component';
+import { PinturaComponent } from './components/secciones/pintura/pintura.component';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
@@ -50,7 +54,11 @@ const appRoutes: Routes = [
     HomeComponent,
     CheckoutComponent,
     PerfilComponent,
-    CocheComponent
+    CocheComponent,
+    CineComponent,
+    SeccionesComponent,
+    MusicaComponent,
+    PinturaComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,
