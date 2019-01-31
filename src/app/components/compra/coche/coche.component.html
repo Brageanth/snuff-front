@@ -33,12 +33,13 @@
                 <div class="col">
                   <input
                     type="number"
-                    class="w-25 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
+                    class="w-70 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
                     name="cantidad{{compra.id}}"
-                    #cantidad{{compra.id}}="ngModel"
+                    #{{compra.id}}="ngModel"
+                    (change)="updateSubtotal(compra.id, this[compra.id].value)"
                     [(ngModel)]="compraService.selectedcompra.cantidad+compra.id"
-                    placeholder="1"
-                    min="1"
+                    placeholder="{{compra.cantidad}}"
+                    min="0"
                     max="{{compra.cantidadDisponible}}"
                   >
                 </div>
@@ -74,8 +75,8 @@
         {{total}}
       </div>
     </div>
-    <div class="col-sm-2 bg-black text-white pt-2 rounded-left-4 mb-1">
-      <button type="submit" class="bg-transparent p-0 border-0">
+    <div class="col-sm-2 bg-yellow pt-2 rounded-left-4 mb-1 text-black ff-kanit">
+      <button type="submit" class="bg-transparent p-0 border-0 text-black ff-kanit">
         Comprar
       </button> 
     </div>

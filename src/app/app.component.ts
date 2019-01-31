@@ -60,4 +60,13 @@ export class AppComponent {
     await this.getNumeroCarrito();
     this.cargo = pCargo;
   }
+
+  logOut() {
+    this.cookieService.delete('Token');
+    if (this.router.url === '/') {
+      window.location.reload();
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 }

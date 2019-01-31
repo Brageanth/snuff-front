@@ -7,8 +7,7 @@ import { Compra } from 'src/app/models/compra';
 import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
-import { EstampadoService } from 'src/app/services/estampado.service';
-import { environment } from 'src/environments/environment';
+import { EstampadoService } from 'src/app/services/estampado.service'; 
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -53,7 +52,7 @@ export class CocheComponent implements OnInit {
         if (!compra.pagado) {
           if (compra.carrito) {
             this.carrazo.push(compra);
-            this.subtotal += compra.precio;
+            this.subtotal += (compra.precio * compra.cantidad);
           }
         }
       }
@@ -81,4 +80,24 @@ export class CocheComponent implements OnInit {
   onSubmit(updateForm: NgForm) {
     this.router.navigate(['/checkout']);
   }
+  updateSubtotal(pId:number , pCantidad:number){
+    console.log(pCantidad);
+    
+    const compra = this.buscarCompra (pId)
+    this.subtotal -= (compra.precio * compra.cantidad);
+    this.subtotal += (compra.precio * pCantidad);
+    compra.cantidad = pCantidad;
+  }
+  buscarCompra(pId:number){
+    for(const compra of this.carrazo){
+      if(compra.id === pId){
+        return compra;
+      }
+    }
+  }
+  updateCompra (pId:number , pCantidad:number){
+    const compra = this.buscarCompra (pId);
+    compra.cantidad = pCantidad;
+    this.compraService.updateCompra (compra);
+  } 
 }
