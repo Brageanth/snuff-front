@@ -80,19 +80,19 @@ export class CocheComponent implements OnInit {
     this.appComponent.typeNav(true);
     this.cargo = true;
   }
-  onSubmit(updateForm: NgForm) {
+  async onSubmit() {
     this.cargo = false;
     for (const compra of this.carrazo) {
       compra.carrito = false;
+      compra.precioTotal = compra.precioIndividual * compra.cantidad;
     }
-    this.compraService.updateCompra(this.carrazo);
-    // this.router.navigate(['/checkout']);
+    await this.compraService.updateCompra(this.carrazo);
+    this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {
     this.subtotal = 0;
     for (const compra of this.carrazo) {
-      console.log(compra.precio);
-      this.subtotal += (compra.precio * compra.cantidad);
+      this.subtotal += (compra.precioIndividual * compra.cantidad);
     }
     this.calcularTotal();
   }

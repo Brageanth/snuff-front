@@ -23,7 +23,8 @@ insertcompra(pCompra: Compra) {
       estampado: pCompra.estampado,
       usuario: pCompra.usuario,
       cantidad: pCompra.cantidad,
-      precio: pCompra.precio,
+      precio: pCompra.precioIndividual,
+      precioTotal: pCompra.precioTotal,
       fabricada: pCompra.fabricada,
       entregada: pCompra.entregada,
       carrito: pCompra.carrito,
@@ -59,12 +60,12 @@ insertcompra(pCompra: Compra) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve((this.http.post('https://sandbox.api.payulatam.com/reports-api/4.0/service.cgi', {
-        "test": false,
-        "language": "es",
-        "command": "PING",
-        "merchant": {
-           "apiLogin": "pRRXKOl8ikMmt9u",
-           "apiKey": "4Vj8eK4rloUd272L48hsrarnUA"
+        'test': false,
+        'language': 'es',
+        'command': 'PING',
+        'merchant': {
+           'apiLogin': 'pRRXKOl8ikMmt9u',
+           'apiKey': '4Vj8eK4rloUd272L48hsrarnUA'
         }
      }, { headers: headers }).toPromise().then(
           res => {
@@ -84,7 +85,6 @@ insertcompra(pCompra: Compra) {
         setTimeout(() => {
           resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/' + compra.id, compra).toPromise().then(
               res => {
-                console.log(res);
               },
               err => {
                 console.log(err);
@@ -93,5 +93,6 @@ insertcompra(pCompra: Compra) {
         }, 2000);
       });
     }
+    return true;
  }
 }
