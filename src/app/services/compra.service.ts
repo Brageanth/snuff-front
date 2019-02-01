@@ -67,7 +67,7 @@ insertcompra(pCompra: Compra) {
            'apiLogin': 'pRRXKOl8ikMmt9u',
            'apiKey': '4Vj8eK4rloUd272L48hsrarnUA'
         }
-     }, { headers: headers }).toPromise().then(
+     }, { headers: {'content-type': 'application/json', 'Accept': 'application/json'}}).toPromise().then(
           res => {
             return res;
           },
