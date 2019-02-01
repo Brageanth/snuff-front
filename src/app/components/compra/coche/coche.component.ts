@@ -80,24 +80,23 @@ export class CocheComponent implements OnInit {
   onSubmit(updateForm: NgForm) {
     this.router.navigate(['/checkout']);
   }
-  updateSubtotal(pId:number , pCantidad:number){
+  updateSubtotal(pId: number , pCantidad: number) {
     console.log(pCantidad);
-    
-    const compra = this.buscarCompra (pId)
+    const compra = this.buscarCompra (pId);
     this.subtotal -= (compra.precio * compra.cantidad);
     this.subtotal += (compra.precio * pCantidad);
     compra.cantidad = pCantidad;
   }
-  buscarCompra(pId:number){
-    for(const compra of this.carrazo){
-      if(compra.id === pId){
+  buscarCompra(pId: number) {
+    for (const compra of this.carrazo){
+      if (compra.id === pId) {
         return compra;
       }
     }
   }
-  updateCompra (pId:number , pCantidad:number){
+  updateCompra (pId: number , pCantidad: number) {
     const compra = this.buscarCompra (pId);
     compra.cantidad = pCantidad;
     this.compraService.updateCompra (compra);
-  } 
+  }
 }
