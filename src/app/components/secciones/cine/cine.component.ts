@@ -8,12 +8,16 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class CineComponent implements OnInit {
 
+  cargo: boolean;
+
   constructor(
     private appComponent: AppComponent
 
   ) { }
 
   ngOnInit() {
+    this.cargo = true;
+    this.appComponent.typeNav(this.cargo);
   }
 
 }
