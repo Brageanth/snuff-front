@@ -62,8 +62,21 @@ insertcompra(pCompra: Compra) {
     }, 2000);
   });
  }
- 
- updateCompra (pCompras?: Array<Compra>, pCompra?: Compra){
-    
+
+ updateCompra (pCompras?: Array<Compra>) {
+    for (const compra of pCompras) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/', compra).toPromise().then(
+              res => {
+                return res;
+              },
+              err => {
+                console.log(err);
+              }
+            )));
+        }, 2000);
+      });
+    }
  }
 }
