@@ -104,11 +104,4 @@ export class CocheComponent implements OnInit {
   calcularTotal() {
     this.total = this.subtotal + ENVIO;
   }
-  buscarCompra(pId: number) {
-    for (const compra of this.carrazo) {
-      if (compra.id === pId) {
-        return compra;
-      }
-    }
-  }
 }

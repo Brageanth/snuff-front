@@ -5,7 +5,7 @@
     </div>
   </h2>
   <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
-    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)" class="w-100 container-fluid m-0"> 
+    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()" class="w-100 container-fluid m-0"> 
       <div class="row">
         <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
           <div class="row mxh-25" *ngFor="let compra of compras">
@@ -20,7 +20,7 @@
                 {{compra.tallaNombre}}
               </div>
               <div class="row">
-                $ {{compra.precio}}
+                $ {{compra.precio_individual}}
               </div>
               <div class="row">
                 cantidad
@@ -32,10 +32,11 @@
                       type="number"
                       class="form-control bg-transparent border border-dark ff-kanit"
                       name="cantidad"
-                      #cantidad="ngModel"
-                      [(ngModel)]="compraService.selectedcompra.cantidad"
-                      placeholder="1"
-                      min="1"
+                      #cantidad{{compra.id}}="ngModel"
+                      (change)="calcularSubtotal()"
+                      [(ngModel)]="compra.cantidad"
+                      placeholder="{{compra.cantidad}}"
+                      min="0"
                       max="{{compra.cantidadDisponible}}"
                     >
                   </div>
