@@ -10,13 +10,13 @@ import { ColoreService } from 'src/app/services/colore.service';
 import { EstampadoService } from 'src/app/services/estampado.service'; 
 import { NgForm } from '@angular/forms';
 
+const ENVIO = 2500;
+
 @Component({
   selector: 'app-coche',
   templateUrl: './coche.component.html',
   styleUrls: ['./coche.component.css']
 })
-
-  const ENVIO = 2500;
 
 export class CocheComponent implements OnInit {
 
