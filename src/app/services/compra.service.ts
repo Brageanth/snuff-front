@@ -69,7 +69,7 @@ insertcompra(pCompra: Compra) {
         }
      }, { headers: {'content-type': 'application/json', 'Accept': 'application/json'}}).toPromise().then(
           res => {
-            return res;
+            console.log(res);
           },
           err => {
             console.log(err);
