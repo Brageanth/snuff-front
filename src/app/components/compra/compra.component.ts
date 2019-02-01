@@ -50,8 +50,8 @@ export class CompraComponent implements OnInit {
     compra.fabricada = false;
     compra.pagado = false;
     compra.cantidad = 1;
-    compra.precioIndividual = this.prenda.precio + 30900;
-    compra.precioTotal = compra.precioIndividual * compra.cantidad;
+    compra.precio_individual = this.prenda.precio + 30900;
+    compra.precio_total = compra.precio_individual * compra.cantidad;
     compra.prenda = this.prenda.tipo;
     compra.talla = this.talla.id;
     compra.usuario = this.token;
