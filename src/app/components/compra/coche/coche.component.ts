@@ -86,7 +86,7 @@ export class CocheComponent implements OnInit {
       compra.carrito = false;
     }
     this.compraService.updateCompra(this.carrazo);
-    this.router.navigate(['/checkout']);
+    //this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {
     this.subtotal = 0;
@@ -99,7 +99,7 @@ export class CocheComponent implements OnInit {
     this.total = this.subtotal + ENVIO;
   }
   buscarCompra(pId: number) {
-    for (const compra of this.carrazo){
+    for (const compra of this.carrazo) {
       if (compra.id === pId) {
         return compra;
       }
