@@ -26,6 +26,7 @@ export class CocheComponent implements OnInit {
   subtotal = 0;
   envio = 2500;
   total = 0;
+  selectedCompra: Compra;
 
   constructor(
     private compraService: CompraService,
@@ -52,7 +53,6 @@ export class CocheComponent implements OnInit {
         if (!compra.pagado) {
           if (compra.carrito) {
             this.carrazo.push(compra);
-            this.subtotal += (compra.precio * compra.cantidad);
           }
         }
       }
@@ -74,11 +74,17 @@ export class CocheComponent implements OnInit {
     }
 
     this.cargo = true;
-    this.appComponent.typeNav(this.cargo);
+    this.calcularSubtotal();
     this.total = this.subtotal + this.envio;
+    this.appComponent.typeNav(this.cargo);
   }
   onSubmit(updateForm: NgForm) {
     this.router.navigate(['/checkout']);
+  }
+  calcularSubtotal() {
+    for (const compra of this.carrazo) {
+      this.subtotal += (compra.precio * compra.cantidad);
+    }
   }
   updateSubtotal(pId: number , pCantidad: number) {
     console.log(pCantidad);
