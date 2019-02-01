@@ -15,6 +15,9 @@ import { NgForm } from '@angular/forms';
   templateUrl: './coche.component.html',
   styleUrls: ['./coche.component.css']
 })
+
+  const ENVIO = 2500;
+
 export class CocheComponent implements OnInit {
 
   token: string;
@@ -24,7 +27,6 @@ export class CocheComponent implements OnInit {
   cuadro: Array<Estampado> = [];
   ropita: string;
   subtotal = 0;
-  envio = 2500;
   total = 0;
   selectedCompra: Compra;
 
@@ -85,10 +87,10 @@ export class CocheComponent implements OnInit {
     for (const compra of this.carrazo) {
       this.subtotal += (compra.precio * compra.cantidad);
     }
-    this.calculartotal();
+    this.calcularTotal();
   }
   calcularTotal() {
-    this.total = this.subtotal + this.envio;
+    this.total = this.subtotal + ENVIO;
   }
   buscarCompra(pId: number) {
     for (const compra of this.carrazo){
