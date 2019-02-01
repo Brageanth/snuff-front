@@ -49,11 +49,12 @@ export class CompraComponent implements OnInit {
     compra.estampado = this.estampado.nombre;
     compra.fabricada = false;
     compra.pagado = false;
-    compra.precio = this.prenda.precio + 30900;
+    compra.cantidad = 1;
+    compra.precio_individual = this.prenda.precio + 30900;
+    compra.precio_total = compra.precio_individual * compra.cantidad;
     compra.prenda = this.prenda.tipo;
     compra.talla = this.talla.id;
     compra.usuario = this.token;
-    compra.cantidad = 1;
     compra.imagen = this.estampado.imagenPrenda;
     if (checkout) {
       compra.carrito = false;

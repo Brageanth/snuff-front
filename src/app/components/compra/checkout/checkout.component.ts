@@ -10,6 +10,11 @@ import { EstampadoService } from 'src/app/services/estampado.service';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+const DEBITO = 'debito';
+const CREDITO = 'credito';
+const EFECTIVO = 'efectivo';
+const CONTRA_ENTREGA = 'contraEntrega';
+const ENVIO = 2500;
 
 @Component({
   selector: 'app-checkout',
@@ -18,11 +23,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  DEBITO = 'debito';
-  CREDITO = 'credito';
-  EFECTIVO = 'efectivo';
-  CONTRA_ENTREGA = 'contraEntrega';
-  ENVIO = 2500;
+  DEBITO = DEBITO;
+  CREDITO = CREDITO;
+  EFECTIVO = EFECTIVO;
+  CONTRA_ENTREGA = CONTRA_ENTREGA;
+  ENVIO = ENVIO;
 
   token: string;
   cargo: boolean;
@@ -61,13 +66,11 @@ export class CheckoutComponent implements OnInit {
     const est = <any> await this.estampadoService.getEstampado();
     const ban = <any> await this.compraService.getBancos();
     console.log(ban);
-    
     for (const compra of res) {
       if (this.token === compra.usuario) {
         if (!compra.pagado) {
           if (!compra.carrito) {
             this.compras.push(compra);
-            this.subtotal += compra.precio;
           }
         }
       }
@@ -87,9 +90,10 @@ export class CheckoutComponent implements OnInit {
     }
     this.users = await this.loginService.getUsuarios();
     this.usuario = this.buscarUser(this.token);
+    this.appComponent.typeNav(true);
+    this.calcularSubtotal();
+    this.calcularTotal();
     this.cargo = true;
-    this.appComponent.typeNav(this.cargo);
-    this.total = this.subtotal + this.ENVIO;
   }
 
   buscarUser(correo: string) {
@@ -100,19 +104,39 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  onSubmit(updateForm: NgForm) {
-    this.compraService.sendCompra(updateForm.value);
+  async onSubmit() {
+    this.cargo = false;
+    for (const compra of this.compras) {
+      if (compra.cantidad > 0) {
+        compra.carrito = false;
+        compra.precio_total = compra.precio_individual * compra.cantidad;
+        await this.compraService.updateCompra(compra);
+      } else {
+        await this.compraService.deleteCompra(compra);
+      }
+    }
+    this.router.navigate(['/checkout']);
   }
-
+  calcularSubtotal() {
+    this.subtotal = 0;
+    for (const compra of this.compras) {
+      console.log(compra.precio_individual);
+      this.subtotal += (compra.precio_individual * compra.cantidad);
+    }
+    this.calcularTotal();
+  }
+  calcularTotal() {
+    this.total = this.subtotal + ENVIO;
+  }
   activeMetodoPago(pMetodo: string) {
-    if (pMetodo === this.DEBITO) {
+    if (pMetodo === DEBITO) {
       this.pig = '../../../../assets/img/pig-select.png';
       this.tarjeta = '../../../../assets/img/tarjeta.png';
       this.money = '../../../../assets/img/money.png';
       this.debito = true;
       this.credito = false;
       this.efectivo = false;
-    } else if (pMetodo === this.CREDITO) {
+    } else if (pMetodo === CREDITO) {
       this.pig = '../../../../assets/img/pig.png';
       this.tarjeta = '../../../../assets/img/tarjeta-select.png';
       this.money = '../../../../assets/img/money.png';

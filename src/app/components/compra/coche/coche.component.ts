@@ -7,16 +7,20 @@ import { Compra } from 'src/app/models/compra';
 import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
-import { EstampadoService } from 'src/app/services/estampado.service'; 
+import { EstampadoService } from 'src/app/services/estampado.service';
 import { NgForm } from '@angular/forms';
+
+const ENVIO = 2500;
 
 @Component({
   selector: 'app-coche',
   templateUrl: './coche.component.html',
   styleUrls: ['./coche.component.css']
 })
+
 export class CocheComponent implements OnInit {
 
+  ENVIO = ENVIO;
   token: string;
   cargo: boolean;
   usuario: any;
@@ -24,8 +28,8 @@ export class CocheComponent implements OnInit {
   cuadro: Array<Estampado> = [];
   ropita: string;
   subtotal = 0;
-  envio = 2500;
   total = 0;
+  selectedCompra: Compra;
 
   constructor(
     private compraService: CompraService,
@@ -52,7 +56,6 @@ export class CocheComponent implements OnInit {
         if (!compra.pagado) {
           if (compra.carrito) {
             this.carrazo.push(compra);
-            this.subtotal += (compra.precio * compra.cantidad);
           }
         }
       }
@@ -72,31 +75,33 @@ export class CocheComponent implements OnInit {
         }
       }
     }
-
+    this.calcularSubtotal();
+    this.calcularTotal();
+    this.appComponent.typeNav(true);
     this.cargo = true;
-    this.appComponent.typeNav(this.cargo);
-    this.total = this.subtotal + this.envio;
   }
-  onSubmit(updateForm: NgForm) {
-    this.router.navigate(['/checkout']);
-  }
-  updateSubtotal(pId: number , pCantidad: number) {
-    console.log(pCantidad);
-    const compra = this.buscarCompra (pId);
-    this.subtotal -= (compra.precio * compra.cantidad);
-    this.subtotal += (compra.precio * pCantidad);
-    compra.cantidad = pCantidad;
-  }
-  buscarCompra(pId: number) {
-    for (const compra of this.carrazo){
-      if (compra.id === pId) {
-        return compra;
+  async onSubmit() {
+    this.cargo = false;
+    for (const compra of this.carrazo) {
+      if (compra.cantidad > 0) {
+        compra.carrito = false;
+        compra.precio_total = compra.precio_individual * compra.cantidad;
+        await this.compraService.updateCompra(compra);
+      } else {
+        await this.compraService.deleteCompra(compra);
       }
     }
+    this.router.navigate(['/checkout']);
   }
-  updateCompra (pId: number , pCantidad: number) {
-    const compra = this.buscarCompra (pId);
-    compra.cantidad = pCantidad;
-    this.compraService.updateCompra (compra);
+  calcularSubtotal() {
+    this.subtotal = 0;
+    for (const compra of this.carrazo) {
+      console.log(compra.precio_individual);
+      this.subtotal += (compra.precio_individual * compra.cantidad);
+    }
+    this.calcularTotal();
+  }
+  calcularTotal() {
+    this.total = this.subtotal + ENVIO;
   }
 }

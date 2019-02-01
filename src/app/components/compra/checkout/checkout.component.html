@@ -1,11 +1,26 @@
 <div class="container-fluid bg-yellow h-100">
+  <div *ngIf="!cargo" class="text-center h-100v pt-25">
+    <div class="cabeza mx-auto">
+      <div class="oreja rounded-circle">
+          <div class="oreja-interno rounded-circle"></div>
+      </div>
+      <div class="ojo rounded-circle"></div>
+      <div class="osico-top rounded">
+          <div class="nariz rounded-circle"></div>
+      </div>
+      <div class="osico-bottom"></div>
+      <div class="filtro-exterior">
+          <div class="filtro"></div>
+      </div>
+    </div>
+  </div>
   <h2 class="text-center ff-chunkfive text-white pt-2">
     <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
       TIENDA
     </div>
   </h2>
   <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
-    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)" class="w-100 container-fluid m-0"> 
+    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()" class="w-100 container-fluid m-0"> 
       <div class="row">
         <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
           <div class="row mxh-25" *ngFor="let compra of compras">
@@ -20,7 +35,7 @@
                 {{compra.tallaNombre}}
               </div>
               <div class="row">
-                $ {{compra.precio}}
+                $ {{compra.precio_individual}}
               </div>
               <div class="row">
                 cantidad
@@ -31,11 +46,12 @@
                     <input
                       type="number"
                       class="form-control bg-transparent border border-dark ff-kanit"
-                      name="cantidad"
-                      #cantidad="ngModel"
-                      [(ngModel)]="compraService.selectedcompra.cantidad"
-                      placeholder="1"
-                      min="1"
+                      name="cantidad{{compra.id}}"
+                      #cantidad{{compra.id}}="ngModel"
+                      (change)="calcularSubtotal()"
+                      [(ngModel)]="compra.cantidad"
+                      placeholder="{{compra.cantidad}}"
+                      min="0"
                       max="{{compra.cantidadDisponible}}"
                     >
                   </div>
@@ -128,9 +144,9 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-right">
-          <img src="{{ pig }}" alt="cerdito" class="m-3 hover-pointer" (click)="activeMetodoPago(DEBITO)">
-          <img src="{{ tarjeta }}" alt="tarjeta" class="m-3 hover-pointer" (click)="activeMetodoPago(CREDITO)">
-          <img src="{{ money }}" alt="billete" class="m-3 hover-pointer" (click)="activeMetodoPago(EFECTIVO)">
+          <img src="{{ pig }}" alt="cerdito" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(DEBITO)">
+          <img src="{{ tarjeta }}" alt="tarjeta" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(CREDITO)">
+          <img src="{{ money }}" alt="billete" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(EFECTIVO)">
         </div>
       </div>
       <div class="container-fluid" *ngIf="credito">
@@ -148,19 +164,19 @@
             </div>
             <div class="row">
               <div class="col-sm-3">
-                <img src="../../../../assets/img/visa.png" alt="visa">
+                <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
               </div>
               <div class="col-sm-2">
-                <img src="../../../../assets/img/master.png" alt="master">
+                <img src="../../../../assets/img/master.png" alt="master" class="img-fluid">
               </div>
               <div class="col-sm-4">
-                <img src="../../../../assets/img/diners.png" alt="master">
+                <img src="../../../../assets/img/diners.png" alt="diners club" class="img-fluid">
               </div>
               <div class="col-sm-1">
-                <img src="../../../../assets/img/american.png" alt="master">
+                <img src="../../../../assets/img/american.png" alt="american express" class="img-fluid">
               </div>
               <div class="col-sm-1">
-                <img src="../../../../assets/img/codensa.png" alt="master">
+                <img src="../../../../assets/img/codensa.png" alt="codensa" class="img-fluid">
               </div>
             </div>
           </div>
@@ -170,7 +186,7 @@
             </div>
             <div class="row">
               <div class="col-sm-3">
-                <img src="../../../../assets/img/visa.png" alt="visa">
+                <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
               </div>
             </div>
           </div>
@@ -234,13 +250,13 @@
         </div>
       </div>
       <div class="row mt-4 mb-2">
-        <div class="col-sm-1 ml-auto">SUBTOTAL</div>
+        <div class="col-sm-2 ml-auto">SUBTOTAL</div>
         <div class="col-sm-1">{{subtotal}}</div>
         <div class="col-sm-1">ENVIO</div>
         <div class="col-sm-1">{{ENVIO}}</div>
         <div class="col-sm-1">TOTAL</div>
         <div class="col-sm-1">{{total}}</div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <button type="submit" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
             COMPRAR
           </button>

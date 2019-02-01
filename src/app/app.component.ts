@@ -37,6 +37,7 @@ export class AppComponent {
   }
 
   async getNumeroCarrito() {
+    this.numeroCarrito = 0;
     const res = <any> await this.compraService.getCompras();
     for (const compra of res) {
       if (this.token === compra.usuario) {

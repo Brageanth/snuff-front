@@ -23,7 +23,8 @@ insertcompra(pCompra: Compra) {
       estampado: pCompra.estampado,
       usuario: pCompra.usuario,
       cantidad: pCompra.cantidad,
-      precio: pCompra.precio,
+      precio_individual: pCompra.precio_individual,
+      precio_total: pCompra.precio_total,
       fabricada: pCompra.fabricada,
       entregada: pCompra.entregada,
       carrito: pCompra.carrito,
@@ -40,37 +41,33 @@ insertcompra(pCompra: Compra) {
       );
  }
 
- sendCompra(pCompra: Compra) {
-
- }
-
  getCompras() {
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com/compra').toPromise().then(
+      resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/compra/').toPromise().then(
         res => {
           return res;
         },
         err => {
           console.log(err);
         }
-      )));
+      ));
     }, 2000);
   });
- }
+}
 
  getBancos() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve((this.http.post('https://sandbox.api.payulatam.com/reports-api/4.0/service.cgi', {
-        "test": false,
-        "language": "es",
-        "command": "PING",
-        "merchant": {
-           "apiLogin": "pRRXKOl8ikMmt9u",
-           "apiKey": "4Vj8eK4rloUd272L48hsrarnUA"
+        'test': false,
+        'language': 'es',
+        'command': 'PING',
+        'merchant': {
+           'apiLogin': 'pRRXKOl8ikMmt9u',
+           'apiKey': '4Vj8eK4rloUd272L48hsrarnUA'
         }
-     }, { headers: headers }).toPromise().then(
+     }, { headers: {'content-type': 'application/json', 'Accept': 'application/json'}}).toPromise().then(
           res => {
             return res;
           },
@@ -81,9 +78,34 @@ insertcompra(pCompra: Compra) {
     }, 2000);
   });
  }
- 
- updateCompra (pCompra:Compra){
-   
+
+ updateCompra (pCompra: Compra) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/' + pCompra.id, pCompra).toPromise().then(
+            res => {
+              return res;
+            },
+            err => {
+              console.log(err);
+            }
+          )));
+      }, 2000);
+    });
  }
 
+ deleteCompra (pCompra: Compra) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve((this.http.delete('https://pruebasbrageanth.pythonanywhere.com/compra/' + pCompra.id).toPromise().then(
+          res => {
+            return res;
+          },
+          err => {
+            console.log(err);
+          }
+        )));
+    }, 2000);
+  });
+}
 }
