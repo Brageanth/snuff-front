@@ -82,7 +82,7 @@ insertcompra(pCompra: Compra) {
     for (const compra of pCompras) {
       return new Promise(resolve => {
         setTimeout(() => {
-          resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/', compra).toPromise().then(
+          resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/' + compra.id, compra).toPromise().then(
               res => {
                 console.log(res);
               },

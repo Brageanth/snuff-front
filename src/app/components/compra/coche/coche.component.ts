@@ -7,7 +7,7 @@ import { Compra } from 'src/app/models/compra';
 import { Estampado } from 'src/app/models/estampado';
 import { TallaService } from 'src/app/services/talla.service';
 import { ColoreService } from 'src/app/services/colore.service';
-import { EstampadoService } from 'src/app/services/estampado.service'; 
+import { EstampadoService } from 'src/app/services/estampado.service';
 import { NgForm } from '@angular/forms';
 
 const ENVIO = 2500;
@@ -86,11 +86,12 @@ export class CocheComponent implements OnInit {
       compra.carrito = false;
     }
     this.compraService.updateCompra(this.carrazo);
-    //this.router.navigate(['/checkout']);
+    // this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {
     this.subtotal = 0;
     for (const compra of this.carrazo) {
+      console.log(compra.precio);
       this.subtotal += (compra.precio * compra.cantidad);
     }
     this.calcularTotal();
