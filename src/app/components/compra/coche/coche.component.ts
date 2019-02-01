@@ -72,26 +72,23 @@ export class CocheComponent implements OnInit {
         }
       }
     }
-
-    this.cargo = true;
     this.calcularSubtotal();
-    this.total = this.subtotal + this.envio;
-    this.appComponent.typeNav(this.cargo);
+    this.calcularTotal();
+    this.appComponent.typeNav(true);
+    this.cargo = true;
   }
   onSubmit(updateForm: NgForm) {
     this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {
+    this.subtotal = 0;
     for (const compra of this.carrazo) {
       this.subtotal += (compra.precio * compra.cantidad);
     }
+    this.calculartotal();
   }
-  updateSubtotal(pId: number , pCantidad: number) {
-    console.log(pCantidad);
-    const compra = this.buscarCompra (pId);
-    this.subtotal -= (compra.precio * compra.cantidad);
-    this.subtotal += (compra.precio * pCantidad);
-    compra.cantidad = pCantidad;
+  calcularTotal() {
+    this.total = this.subtotal + this.envio;
   }
   buscarCompra(pId: number) {
     for (const compra of this.carrazo){
