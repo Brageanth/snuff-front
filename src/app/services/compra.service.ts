@@ -60,7 +60,7 @@ insertcompra(pCompra: Compra) {
   const headers = new HttpHeaders().set('content-type', 'application/json').set('Accept', 'application/json');
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve((this.http.post('https://sandbox.api.payulatam.com/reports-api/4.0/service.cgi', {
+      resolve((this.http.post('/reports-api/4.0/service.cgi', {
         'test': false,
         'language': 'es',
         'command': 'PING',
