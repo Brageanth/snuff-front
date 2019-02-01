@@ -85,9 +85,10 @@ export class CocheComponent implements OnInit {
     for (const compra of this.carrazo) {
       compra.carrito = false;
       compra.precioTotal = compra.precioIndividual * compra.cantidad;
+      console.log(compra);
     }
     await this.compraService.updateCompra(this.carrazo);
-    this.router.navigate(['/checkout']);
+    // this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {
     this.subtotal = 0;
