@@ -20,7 +20,7 @@ const ENVIO = 2500;
 
 export class CocheComponent implements OnInit {
 
-  ENVIO;
+  ENVIO = ENVIO;
   token: string;
   cargo: boolean;
   usuario: any;
