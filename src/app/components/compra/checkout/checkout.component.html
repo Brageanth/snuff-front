@@ -1,4 +1,19 @@
 <div class="container-fluid bg-yellow h-100">
+  <div *ngIf="!cargo" class="text-center h-100v pt-25">
+    <div class="cabeza mx-auto">
+      <div class="oreja rounded-circle">
+          <div class="oreja-interno rounded-circle"></div>
+      </div>
+      <div class="ojo rounded-circle"></div>
+      <div class="osico-top rounded">
+          <div class="nariz rounded-circle"></div>
+      </div>
+      <div class="osico-bottom"></div>
+      <div class="filtro-exterior">
+          <div class="filtro"></div>
+      </div>
+    </div>
+  </div>
   <h2 class="text-center ff-chunkfive text-white pt-2">
     <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
       TIENDA
@@ -235,13 +250,13 @@
         </div>
       </div>
       <div class="row mt-4 mb-2">
-        <div class="col-sm-1 ml-auto">SUBTOTAL</div>
+        <div class="col-sm-2 ml-auto">SUBTOTAL</div>
         <div class="col-sm-1">{{subtotal}}</div>
         <div class="col-sm-1">ENVIO</div>
         <div class="col-sm-1">{{ENVIO}}</div>
         <div class="col-sm-1">TOTAL</div>
         <div class="col-sm-1">{{total}}</div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <button type="submit" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
             COMPRAR
           </button>
