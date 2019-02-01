@@ -6,7 +6,7 @@
   </h2>
   <div class='oy-scroll ox-hidden mlr-25 bg-texture-white text-black ff-kanit h-80'>
     <div class="row m-0">
-      <div class="col-sm-6 mt-5 pl-5 h-30 oy-hidden ox-hidden" *ngFor="let compra of carrazo">
+      <div class="col-sm-6 mt-5 pl-5 h-30 oy-hidden ox-hidden" *ngFor="let compra of carrazo; let i = index">
         <div class="row">
           <div class="col-sm-6">
             <img src="http://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
@@ -35,8 +35,8 @@
                     type="number"
                     class="w-70 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
                     name="cantidad{{compra.id}}"
-                    #{{compra.id}}="ngModel"
-                    (change)="updateSubtotal(compra.id, this[compra.id].value)"
+                    #{{i}}="ngModel"
+                    (change)="updateSubtotal(compra.id, i)"
                     [(ngModel)]="compraService.selectedcompra.cantidad+compra.id"
                     placeholder="{{compra.cantidad}}"
                     min="0"
