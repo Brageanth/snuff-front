@@ -120,7 +120,6 @@ export class CheckoutComponent implements OnInit {
   calcularSubtotal() {
     this.subtotal = 0;
     for (const compra of this.compras) {
-      console.log(compra.precio_individual);
       this.subtotal += (compra.precio_individual * compra.cantidad);
     }
     this.calcularTotal();

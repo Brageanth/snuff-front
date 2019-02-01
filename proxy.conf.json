@@ -1,0 +1,7 @@
+{
+    "/reports-api/*": {
+        "target": "https://sandbox.api.payulatam.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
