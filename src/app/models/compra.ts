@@ -5,8 +5,8 @@ export class Compra {
     estampado: string;
     usuario: string;
     cantidad: number;
-    precioTotal: number;
-    precioIndividual: number;
+    precio_total: number;
+    precio_individual: number;
     fabricada: boolean;
     entregada: boolean;
     carrito: boolean;

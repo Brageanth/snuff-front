@@ -84,8 +84,8 @@ export class CocheComponent implements OnInit {
     this.cargo = false;
     for (const compra of this.carrazo) {
       compra.carrito = false;
-      compra.precioTotal = compra.precioIndividual * compra.cantidad;
-      console.log(compra.precioTotal);
+      compra.precio_total = compra.precio_individual * compra.cantidad;
+      console.log(compra.precio_total);
       console.log(await this.compraService.updateCompra(compra));
     }
     // this.router.navigate(['/checkout']);
@@ -93,7 +93,8 @@ export class CocheComponent implements OnInit {
   calcularSubtotal() {
     this.subtotal = 0;
     for (const compra of this.carrazo) {
-      this.subtotal += (compra.precioIndividual * compra.cantidad);
+      console.log(compra.precio_individual);
+      this.subtotal += (compra.precio_individual * compra.cantidad);
     }
     this.calcularTotal();
   }
