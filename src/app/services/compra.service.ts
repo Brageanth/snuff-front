@@ -40,6 +40,21 @@ insertcompra(pCompra: Compra) {
       );
  }
 
+ getCompras() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(this.http.get('https://pruebasbrageanth.pythonanywhere.com/compra/').toPromise().then(
+        res => {
+          return res;
+        },
+        err => {
+          console.log(err);
+        }
+      ));
+    }, 2000);
+  });
+}
+
  getBancos() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -69,7 +84,7 @@ insertcompra(pCompra: Compra) {
         setTimeout(() => {
           resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/compra/', compra).toPromise().then(
               res => {
-                return res;
+                console.log(res);
               },
               err => {
                 console.log(err);

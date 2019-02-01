@@ -101,7 +101,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(updateForm: NgForm) {
-    this.compraService.sendCompra(updateForm.value);
+    this.compraService.updateCompra(updateForm.value);
   }
 
   activeMetodoPago(pMetodo: string) {
