@@ -46,7 +46,7 @@
                     <input
                       type="number"
                       class="form-control bg-transparent border border-dark ff-kanit"
-                      name="cantidad"
+                      name="cantidad{{compra.id}}"
                       #cantidad{{compra.id}}="ngModel"
                       (change)="calcularSubtotal()"
                       [(ngModel)]="compra.cantidad"
@@ -170,13 +170,13 @@
                 <img src="../../../../assets/img/master.png" alt="master" class="img-fluid">
               </div>
               <div class="col-sm-4">
-                <img src="../../../../assets/img/diners.png" alt="master" class="img-fluid">
+                <img src="../../../../assets/img/diners.png" alt="diners club" class="img-fluid">
               </div>
               <div class="col-sm-1">
-                <img src="../../../../assets/img/american.png" alt="master" class="img-fluid">
+                <img src="../../../../assets/img/american.png" alt="american express" class="img-fluid">
               </div>
               <div class="col-sm-1">
-                <img src="../../../../assets/img/codensa.png" alt="master" class="img-fluid">
+                <img src="../../../../assets/img/codensa.png" alt="codensa" class="img-fluid">
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@
             </div>
             <div class="row">
               <div class="col-sm-3">
-                <img src="../../../../assets/img/visa.png" alt="visa">
+                <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
               </div>
             </div>
           </div>
