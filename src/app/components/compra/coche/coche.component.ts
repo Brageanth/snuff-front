@@ -81,6 +81,11 @@ export class CocheComponent implements OnInit {
     this.cargo = true;
   }
   onSubmit(updateForm: NgForm) {
+    this.cargo = false;
+    for (const compra of this.carrazo) {
+      compra.carrito = false;
+    }
+    this.compraService.updateCompra(this.carrazo);
     this.router.navigate(['/checkout']);
   }
   calcularSubtotal() {

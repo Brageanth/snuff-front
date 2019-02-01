@@ -40,25 +40,6 @@ insertcompra(pCompra: Compra) {
       );
  }
 
- sendCompra(pCompra: Compra) {
-
- }
-
- getCompras() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com/compra').toPromise().then(
-        res => {
-          return res;
-        },
-        err => {
-          console.log(err);
-        }
-      )));
-    }, 2000);
-  });
- }
-
  getBancos() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -82,8 +63,7 @@ insertcompra(pCompra: Compra) {
   });
  }
  
- updateCompra (pCompra:Compra){
-   
+ updateCompra (pCompras?: Array<Compra>, pCompra?: Compra){
+    
  }
-
 }
