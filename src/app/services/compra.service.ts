@@ -93,4 +93,19 @@ insertcompra(pCompra: Compra) {
       }, 2000);
     });
  }
+
+ deleteCompra (pCompra: Compra) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve((this.http.delete('https://pruebasbrageanth.pythonanywhere.com/compra/' + pCompra.id).toPromise().then(
+          res => {
+            return res;
+          },
+          err => {
+            console.log(err);
+          }
+        )));
+    }, 2000);
+  });
+}
 }
