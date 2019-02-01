@@ -105,9 +105,4 @@ export class CocheComponent implements OnInit {
       }
     }
   }
-  updateCompra (pId: number , pCantidad: number) {
-    const compra = this.buscarCompra (pId);
-    compra.cantidad = pCantidad;
-    this.compraService.updateCompra (compra);
-  }
 }
