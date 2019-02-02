@@ -10,4 +10,6 @@ export class Estampado {
     cantidad: number;
     imagenPrenda: string;
     imagenEstampado: string;
+    cancion: string;
+    video: string;
 }

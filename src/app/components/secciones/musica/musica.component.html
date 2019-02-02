@@ -1,3 +1,37 @@
-<p>
-  musica works!
-</p>
+<div class="container-fluid bg-black h-100">
+  <div *ngIf="!cargo" class="text-center h-100v pt-25">
+    <div class="cabeza mx-auto">
+      <div class="oreja rounded-circle">
+          <div class="oreja-interno rounded-circle"></div>
+      </div>
+      <div class="ojo rounded-circle"></div>
+      <div class="osico-top rounded">
+          <div class="nariz rounded-circle"></div>
+      </div>
+      <div class="osico-bottom"></div>
+      <div class="filtro-exterior">
+          <div class="filtro"></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="text-center ff-chunkfive text-white pt-2">
+    <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
+      MUSICA
+    </div>
+  </h2>
+  <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
+    <div class="row" *ngFor="let estampado of estampadosMusica">
+      <div class="row">
+        <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenPreview}}" alt="{{estampado.nombre}}">
+      </div>
+      <div class="row">
+        <audio controls>
+          <source src="https://pruebasbrageanth.pythonanywhere.com{{estampado.cancion}}" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="row">
+
+      </div>
+    </div>
+  </div>
+</div>
