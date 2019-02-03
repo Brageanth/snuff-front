@@ -14,6 +14,7 @@ export class MusicaComponent implements OnInit {
 
   estampadosMusica: Array<Estampado> = [];
   cargo = false;
+  imagen: string;
 
   constructor(
     private estampadoService: EstampadoService,
@@ -26,6 +27,9 @@ export class MusicaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
+        if (i === 0){
+          this.imagenActive(estampado.imagenGaleria0);
+        }
         i++;
       }
     }
@@ -33,4 +37,7 @@ export class MusicaComponent implements OnInit {
     this.cargo = true;
   }
 
+  imagenActive(pImagen: string) {
+    this.imagen = pImagen;
+  }
 }
