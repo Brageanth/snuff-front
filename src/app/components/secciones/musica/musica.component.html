@@ -22,15 +22,17 @@
   <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
     <div class="row" *ngFor="let estampado of estampadosMusica">
       <div class="row">
-        <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
+        <div class="col-md-6 mx-auto">
+          <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
+        </div>
       </div>
-      <div class="row">
+      <div class="row text-center">
         <audio controls>
           <source src="https://pruebasbrageanth.pythonanywhere.com{{estampado.cancion}}" type="audio/mpeg">
         </audio>
       </div>
       <div class="row">
-
+        <div class="col-md-5">{{estampado.nombre}}</div>
       </div>
     </div>
   </div>
