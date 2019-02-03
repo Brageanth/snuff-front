@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { Estampado } from 'src/app/models/estampado';
+import { AppComponent } from 'src/app/app.component';
 
 const MUSICA = 'Musica';
 
@@ -12,9 +13,11 @@ const MUSICA = 'Musica';
 export class MusicaComponent implements OnInit {
 
   estampadosMusica: Array<Estampado>;
+  cargo = false;
 
   constructor(
-    private estampadoService: EstampadoService
+    private estampadoService: EstampadoService,
+    private appComponent: AppComponent
   ) { }
 
   async ngOnInit() {
@@ -24,6 +27,8 @@ export class MusicaComponent implements OnInit {
         this.estampadosMusica.push(estampado);
       }
     }
+    this.appComponent.typeNav(true);
+    this.cargo = true;
   }
 
 }
