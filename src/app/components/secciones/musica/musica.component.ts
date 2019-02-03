@@ -22,13 +22,17 @@ export class MusicaComponent implements OnInit {
 
   async ngOnInit() {
     const res = <Estampado[]> await this.estampadoService.getEstampado();
+    let i = 0;
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
+        i++;
       }
     }
     this.appComponent.typeNav(true);
     this.cargo = true;
+    console.log(this.estampadosMusica);
+    
   }
 
 }
