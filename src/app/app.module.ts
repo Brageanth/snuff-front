@@ -37,7 +37,8 @@ const appRoutes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'coche' , component: CocheComponent},
-  { path: 'cine' , component: CineComponent}
+  { path: 'cine' , component: CineComponent},
+  { path: 'musica', component: MusicaComponent}
 ];
 
 

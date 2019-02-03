@@ -60,15 +60,7 @@ insertcompra(pCompra: Compra) {
   const headers = new HttpHeaders().set('content-type', 'application/json').set('Accept', 'application/json');
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve((this.http.post('/reports-api/4.0/service.cgi', {
-        'test': false,
-        'language': 'es',
-        'command': 'PING',
-        'merchant': {
-           'apiLogin': 'pRRXKOl8ikMmt9',
-           'apiKey': '4Vj8eK4rloUd272L48hsrarnUA'
-        }
-     }, { headers }).toPromise().then(
+      resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com/pagos/').toPromise().then(
           res => {
             console.log(res);
           },
