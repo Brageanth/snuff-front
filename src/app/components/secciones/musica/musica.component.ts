@@ -12,7 +12,7 @@ const MUSICA = 'Musica';
 })
 export class MusicaComponent implements OnInit {
 
-  estampadosMusica: Array<Estampado>;
+  estampadosMusica: Array<Estampado> = [];
   cargo = false;
 
   constructor(
