@@ -22,19 +22,27 @@
   <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
     <div class="container-fluid" *ngFor="let estampado of estampadosMusica">
       <div class="row h-30 oy-hidden">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto ox-hidden">
           <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
         </div>
       </div>
-      <div class="row text-center">
-        <audio controls>
-          <source src="https://pruebasbrageanth.pythonanywhere.com{{estampado.cancion}}" type="audio/mpeg">
-        </audio>
+      <div class="row">
+        <div class="col-md-3 mx-auto">
+          <audio controls>
+            <source src="https://pruebasbrageanth.pythonanywhere.com{{estampado.cancion}}" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-5">{{estampado.nombre}}</div>
-        <div class="col-md-1">
-          <a href=""></a>
+        <div class="col-md-5 text-uppercase ml-auto">{{estampado.nombre}}</div>
+        <div class="col-md-1 mr-auto dropright">
+          <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
         </div>
       </div>
     </div>
