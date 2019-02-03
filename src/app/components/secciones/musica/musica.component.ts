@@ -3,7 +3,7 @@ import { EstampadoService } from 'src/app/services/estampado.service';
 import { Estampado } from 'src/app/models/estampado';
 import { AppComponent } from 'src/app/app.component';
 
-const MUSICA = 'Musica';
+const MUSICA = 'M';
 
 @Component({
   selector: 'app-musica',
@@ -24,7 +24,6 @@ export class MusicaComponent implements OnInit {
     const res = <Estampado[]> await this.estampadoService.getEstampado();
     let i = 0;
     for (const estampado of res) {
-      console.log(estampado.categoria);
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
         i++;
@@ -32,8 +31,6 @@ export class MusicaComponent implements OnInit {
     }
     this.appComponent.typeNav(true);
     this.cargo = true;
-    console.log(this.estampadosMusica);
-    
   }
 
 }
