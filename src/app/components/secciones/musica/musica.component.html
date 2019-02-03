@@ -20,8 +20,8 @@
     </div>
   </h2>
   <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
-    <div class="row" *ngFor="let estampado of estampadosMusica">
-      <div class="row">
+    <div class="row container-fluid" *ngFor="let estampado of estampadosMusica">
+      <div class="row h-30 oy-hidden">
         <div class="col-md-6 mx-auto">
           <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
         </div>
@@ -33,6 +33,9 @@
       </div>
       <div class="row">
         <div class="col-md-5">{{estampado.nombre}}</div>
+        <div class="col-md-1">
+          <a href=""></a>
+        </div>
       </div>
     </div>
   </div>
