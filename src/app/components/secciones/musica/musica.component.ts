@@ -24,6 +24,7 @@ export class MusicaComponent implements OnInit {
     const res = <Estampado[]> await this.estampadoService.getEstampado();
     let i = 0;
     for (const estampado of res) {
+      console.log(estampado.categoria);
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
         i++;
