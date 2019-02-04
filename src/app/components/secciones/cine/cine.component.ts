@@ -24,7 +24,7 @@ export class CineComponent implements OnInit {
   async ngOnInit() {
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
-
+    // gg
     const est = <Estampado[]> await this.estampadoService.getEstampado();
     for (const estampado of est) {
       if (estampado.categoria === CINE) {
