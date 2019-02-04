@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { Estampado } from 'src/app/models/estampado';
 import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 const MUSICA = 'M';
 
@@ -17,30 +19,51 @@ export class MusicaComponent implements OnInit {
   cargo = false;
   imagen: string;
   audioPlay = false;
+  url: string;
+  estampadoActive: Estampado;
 
   constructor(
     private estampadoService: EstampadoService,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private router: Router,
+    private meta: Meta
   ) { }
 
   async ngOnInit() {
+    this.url = this.router.url;
     const res = <Estampado[]> await this.estampadoService.getEstampado();
     let i = 0;
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
+<<<<<<< HEAD
         if (i === 0) {
           this.imagenActive(estampado.imagenGaleria0);
+=======
+        if (i === 0){
+          this.imagenActive(estampado);
+          this.meta.addTags([
+            { name: 'og:title', content: estampado.nombre },
+            { name: 'og:image', content: estampado.imagenGaleria0 }
+          ]);
+>>>>>>> 1ac0670bfefab87a220cd8197775206f4a9fe4c6
         }
         i++;
       }
     }
     this.appComponent.typeNav(true);
+    this.meta.addTags([
+      { name: 'og:url', content: this.url },
+      { name: 'og:type', content: 'website' }
+    ]);
     this.cargo = true;
   }
 
-  imagenActive(pImagen: string) {
-    this.imagen = pImagen;
+  imagenActive(pEstampado: Estampado) {
+    this.estampadoActive = pEstampado;
+    this.imagen = pEstampado.imagen;
+    this.meta.updateTag({ name: 'og:title', content: pEstampado.nombre });
+    this.meta.updateTag({ name: 'og:image', content: pEstampado.imagenGaleria0 });
   }
 
   playAudio(pEstampado: Estampado) {

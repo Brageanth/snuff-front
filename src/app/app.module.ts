@@ -28,6 +28,7 @@ import { CineComponent } from './components/secciones/cine/cine.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
 import { MusicaComponent } from './components/secciones/musica/musica.component';
 import { PinturaComponent } from './components/secciones/pintura/pintura.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
   imports: [HttpClientModule,
     BrowserModule,
     FormsModule,
+    ClipboardModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
