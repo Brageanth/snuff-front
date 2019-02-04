@@ -1,14 +1,15 @@
-<div class="container-fluid bg-texture-black p-0 h-100" ngFor>
+<div class="container-fluid bg-black h-100" *ngIf="cargo">
   <h2 class="text-center ff-chunkfive text-white pt-2">
     <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
       CINE Y SERIES
     </div>
   </h2>
-  <div class='container bg-texture-white text-black ff-kanit h-'>
+  <div class='container-fluid bg-texture-white text-black mlr-25 h-100'>
     <div class="col mx-auto"> 
-      <div class="row text-center ff-chunkfive text-black">
-      
-      </div>
+      <div class="row text-center ff-chunkfive text-black" *ngFor="let estampado of estampadosCine"></div>
+      <video class="w-100 p-3" controls>
+        <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>

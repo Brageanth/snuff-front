@@ -35,10 +35,21 @@ export class MusicaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
+<<<<<<< HEAD
         this.meta.addTags([
           { name: 'og:title', content: estampado.nombre },
           { name: 'og:image', content: estampado.imagenGaleria0 }
         ]);
+=======
+        if (i === 0) {
+          this.imagenActive(estampado);
+          this.meta.addTags([
+            { name: 'og:title', content: estampado.nombre },
+            { name: 'og:image', content: estampado.imagenGaleria0 }
+          ]);
+        }
+        i++;
+>>>>>>> 6b74f6cf250805a1fcbfe79b8ac371d3677c8701
       }
     }
     this.appComponent.typeNav(true);
@@ -55,8 +66,8 @@ export class MusicaComponent implements OnInit {
     this.meta.updateTag({ name: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
   }
 
-  playAudio(pEstampado: Estampado){
-    this.audio.src = "https://pruebasbrageanth.pythonanywhere.com"+pEstampado.cancion;
+  playAudio(pEstampado: Estampado) {
+    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.cancion;
     this.audio.load();
     this.audio.play();
     this.audioPlay = true;
