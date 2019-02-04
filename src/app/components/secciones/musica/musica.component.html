@@ -24,7 +24,8 @@
       <div class="container-fluid" *ngFor="let estampado of estampadosMusica">
         <div class="row h-60 oy-hidden">
           <div class="col-md-6 mx-auto ox-hidden">
-            <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
+            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.video}}" *ngIf="video"></video>
+            <img src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagen}}" *ngIf="!video" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
         <div class="row">
@@ -40,7 +41,7 @@
               <i class="fas fa-share-alt"></i>
             </div>
             <div class="dropdown-menu bg-yellow ff-espacio">
-              <a class="dropdown-item" (click)="copyToClipboard()" ngxClipboard [cbContent]="url">Copiar Enlace</a>
+              <a class="dropdown-item" (click)="copyToClipboard()" ngxClipboard [cbContent]="'https://pruebasbrageanth.pythonanywhere.com'+url">Copiar Enlace</a>
               <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fsnuff-front.herokuapp.com%2Fmusica&display=popup&ref=plugin&src=share_button">Facebook</a>
             </div>
           </div>
