@@ -35,21 +35,10 @@ export class MusicaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
-<<<<<<< HEAD
         this.meta.addTags([
           { name: 'og:title', content: estampado.nombre },
           { name: 'og:image', content: estampado.imagenGaleria0 }
         ]);
-=======
-        if (i === 0) {
-          this.imagenActive(estampado);
-          this.meta.addTags([
-            { name: 'og:title', content: estampado.nombre },
-            { name: 'og:image', content: estampado.imagenGaleria0 }
-          ]);
-        }
-        i++;
->>>>>>> 6b74f6cf250805a1fcbfe79b8ac371d3677c8701
       }
     }
     this.appComponent.typeNav(true);
