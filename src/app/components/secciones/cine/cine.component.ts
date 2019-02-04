@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EstampadoService } from 'src/app/services/estampado.service';
+import { Estampado } from 'src/app/models/estampado';
+
+
+const CINE = 'C';
 
 @Component({
   selector: 'app-cine',
@@ -20,9 +24,10 @@ export class CineComponent implements OnInit {
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
 
-    const est = <any> await this.estampadoService.getEstampado();
+    const est = <Estampado[]> await this.estampadoService.getEstampado();
     for (const estampado of est) {
-      if (estampado.categoria === 'cine' ) {
+      if (estampado.categoria === CINE) {
+        this.estampadosCine.push(estampado);
       }
     }
   }
