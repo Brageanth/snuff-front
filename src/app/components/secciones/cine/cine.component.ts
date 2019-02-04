@@ -4,7 +4,7 @@ import { EstampadoService } from 'src/app/services/estampado.service';
 import { Estampado } from 'src/app/models/estampado';
 
 
-const CINE = 'C';
+const CINE = 'CS';
 
 @Component({
   selector: 'app-cine',
@@ -14,6 +14,7 @@ const CINE = 'C';
 export class CineComponent implements OnInit {
 
   cargo: boolean;
+  estampadosCine: Array<Estampado> = [];
 
   constructor(
     private appComponent: AppComponent,

@@ -29,7 +29,7 @@ export class MusicaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
-        if (i === 0){
+        if (i === 0) {
           this.imagenActive(estampado.imagenGaleria0);
         }
         i++;
@@ -43,15 +43,15 @@ export class MusicaComponent implements OnInit {
     this.imagen = pImagen;
   }
 
-  playAudio(pEstampado: Estampado){
-    this.audio.src = "https://pruebasbrageanth.pythonanywhere.com"+pEstampado.cancion;
+  playAudio(pEstampado: Estampado) {
+    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.cancion;
     this.audio.load();
     this.audio.play();
     this.audioPlay = true;
   }
 
   pauseAudio() {
-    this.audio.pause()
+    this.audio.pause();
     this.audioPlay = false;
   }
 }
