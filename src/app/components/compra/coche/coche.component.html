@@ -14,49 +14,51 @@
       </div>
     </div>
   </div>
-  <h2 class="text-center ff-chunkfive text-white pt-2">
-    <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
-      COCHE
-    </div>
-  </h2>
-  <div class='oy-scroll ox-hidden mlr-25 bg-texture-white text-black ff-kanit h-80'>
-    <div class="row m-0">
-      <div class="col-sm-6 mt-5 pl-5 h-30 oy-hidden ox-hidden" *ngFor="let compra of carrazo; let i = index">
-        <div class="row">
-          <div class="col-sm-6">
-            <img src="https://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
-          </div>
-          <div class="col-sm-6">
-            <div class="row">
-              {{compra.prenda}}
+  <div *ngIf="cargo">
+    <h2 class="text-center ff-chunkfive text-white pt-2">
+      <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
+        COCHE
+      </div>
+    </h2>
+    <div class='oy-scroll ox-hidden mlr-25 bg-texture-white text-black ff-kanit h-80'>
+      <div class="row m-0">
+        <div class="col-sm-6 mt-5 pl-5 h-30 oy-hidden ox-hidden" *ngFor="let compra of carrazo; let i = index">
+          <div class="row">
+            <div class="col-sm-6">
+              <img src="https://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
             </div>
-            <div class="row">
-              {{compra.estampado}}
-            </div>
-            <div class="row">
-              {{compra.tallaNombre}}
-            </div>
-            <div class="row">
-              <div class="col-sm-1 h-3" [style.background]="compra.colorHexadecimal">
+            <div class="col-sm-6">
+              <div class="row">
+                {{compra.prenda}}
               </div>
-            </div>
-            <div class="row">
-              $ {{compra.precio_individual}}
-            </div>
-            <div class="row">
-              <div class="form-group row">
-                <div class="col">
-                  <input
-                    type="number"
-                    class="w-70 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
-                    name="cantidad{{compra.id}}"
-                    #{{i}}="ngModel"
-                    (change)="calcularSubtotal()"
-                    [(ngModel)]="compra.cantidad"
-                    placeholder="{{compra.cantidad}}"
-                    min="0"
-                    max="{{compra.cantidadDisponible}}"
-                  >
+              <div class="row">
+                {{compra.estampado}}
+              </div>
+              <div class="row">
+                {{compra.tallaNombre}}
+              </div>
+              <div class="row">
+                <div class="col-sm-1 h-3" [style.background]="compra.colorHexadecimal">
+                </div>
+              </div>
+              <div class="row">
+                $ {{compra.precio_individual}}
+              </div>
+              <div class="row">
+                <div class="form-group row">
+                  <div class="col">
+                    <input
+                      type="number"
+                      class="w-70 form-control rounded-4 bg-transparent border border-dark text-black ff-kanit"
+                      name="cantidad{{compra.id}}"
+                      #{{i}}="ngModel"
+                      (change)="calcularSubtotal()"
+                      [(ngModel)]="compra.cantidad"
+                      placeholder="{{compra.cantidad}}"
+                      min="0"
+                      max="{{compra.cantidadDisponible}}"
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -64,36 +66,36 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class='mlr-25 bg-texture-white text-black ff-kanit h-20 row'>
-    <div class="col-sm-2 ml-auto">
-      <div class="row">
-        SUBTOTAL
+    <div class='mlr-25 bg-texture-white text-black ff-kanit h-20 row'>
+      <div class="col-sm-2 ml-auto">
+        <div class="row">
+          SUBTOTAL
+        </div>
+        <div class="row">
+          {{subtotal}}  
+        </div>
       </div>
-      <div class="row">
-        {{subtotal}}  
+      <div class="col-sm-2">
+        <div class="row">
+          ENVIO
+        </div>
+        <div class="row">
+          {{ENVIO}}
+        </div>
       </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="row">
-        ENVIO
+      <div class="col-sm-2">
+        <div class="row">
+          TOTAl
+        </div>
+        <div class="row">
+          {{total}}
+        </div>
       </div>
-      <div class="row">
-        {{ENVIO}}
+      <div class="col-sm-2 bg-yellow pt-2 rounded-left-4 mb-1 text-black ff-kanit">
+        <button type="submit" class="bg-transparent p-0 border-0 text-black ff-kanit">
+          Comprar
+        </button> 
       </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="row">
-        TOTAl
-      </div>
-      <div class="row">
-        {{total}}
-      </div>
-    </div>
-    <div class="col-sm-2 bg-yellow pt-2 rounded-left-4 mb-1 text-black ff-kanit">
-      <button type="submit" class="bg-transparent p-0 border-0 text-black ff-kanit">
-        Comprar
-      </button> 
     </div>
   </div>
 </form>

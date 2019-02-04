@@ -14,254 +14,256 @@
       </div>
     </div>
   </div>
-  <h2 class="text-center ff-chunkfive text-white pt-2">
-    <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
-      TIENDA
-    </div>
-  </h2>
-  <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
-    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()" class="w-100 container-fluid m-0"> 
-      <div class="row">
-        <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
-          <div class="row mxh-25" *ngFor="let compra of compras">
-            <div class="col-sm-6">
-              <img src="https://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
-            </div>
-            <div class="col-sm-6">
-              <div class="row">
-                {{compra.estampado}}
+  <div *ngIf="cargo">
+    <h2 class="text-center ff-chunkfive text-white pt-2">
+      <div class="border-bottom col-3 mx-auto border-black border_4 pb-1">
+        TIENDA
+      </div>
+    </h2>
+    <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
+      <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()" class="w-100 container-fluid m-0"> 
+        <div class="row">
+          <div class="col-md-4 plr-5 oy-scroll ox-hidden h-50">
+            <div class="row mxh-25" *ngFor="let compra of compras">
+              <div class="col-sm-6">
+                <img src="https://pruebasbrageanth.pythonanywhere.com{{compra.imagen}}" alt="" class="w-100">
               </div>
-              <div class="row">
-                {{compra.tallaNombre}}
-              </div>
-              <div class="row">
-                $ {{compra.precio_individual}}
-              </div>
-              <div class="row">
-                cantidad
-              </div>
-              <div class="row">
-                <div class="form-group row">
-                  <div class="col">
-                    <input
-                      type="number"
-                      class="form-control bg-transparent border border-dark ff-kanit"
-                      name="cantidad{{compra.id}}"
-                      #cantidad{{compra.id}}="ngModel"
-                      (change)="calcularSubtotal()"
-                      [(ngModel)]="compra.cantidad"
-                      placeholder="{{compra.cantidad}}"
-                      min="0"
-                      max="{{compra.cantidadDisponible}}"
-                    >
+              <div class="col-sm-6">
+                <div class="row">
+                  {{compra.estampado}}
+                </div>
+                <div class="row">
+                  {{compra.tallaNombre}}
+                </div>
+                <div class="row">
+                  $ {{compra.precio_individual}}
+                </div>
+                <div class="row">
+                  cantidad
+                </div>
+                <div class="row">
+                  <div class="form-group row">
+                    <div class="col">
+                      <input
+                        type="number"
+                        class="form-control bg-transparent border border-dark ff-kanit"
+                        name="cantidad{{compra.id}}"
+                        #cantidad{{compra.id}}="ngModel"
+                        (change)="calcularSubtotal()"
+                        [(ngModel)]="compra.cantidad"
+                        placeholder="{{compra.cantidad}}"
+                        min="0"
+                        max="{{compra.cantidadDisponible}}"
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-8 container-fluid p-0">
-          <div class="row">
-            <div class="col-md-6 pl-0 pr-5">
-              <div class="form-group">
-                <label>NOMBRE</label>
-                <input
-                  type="text"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="nombre"
-                  #nombre="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.nombre"
-                >
-              </div>
-              <div class="form-group">
-                <label>DIRECCION</label>
-                <input
-                  type="text"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="direccion"
-                  #direccion="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.direccion"
-                  placeholder="{{usuario.direccion}}"
-                  value="{{usuario.direccion}}"
-                  *ngIf="usuario"
-                >
-                <small id="codigoPostalHelp" class="form-text text-transparent">CONSULTA TU CODIGO POSTAL</small>
-              </div> 
-              <div class="form-group">
-                <label>CELULAR</label>
-                <input
-                  type="number"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="celular"
-                  #celular="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.celular"
-                  placeholder="{{usuario.celular}}"
-                  value="{{usuario.celular}}"
-                  *ngIf="usuario"
-                >
-              </div>
-            </div>
-            <div class="col-md-6 pl-0 pr-5">
-              <div class="form-group">
-                <label>APELLIDO</label>
-                <input
-                  type="text"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="apellido"
-                  #apellido="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.apellido"
-                >
-              </div>
-              <div class="form-group">
-                <label>CODIGO POSTAL</label>
-                <input
-                  type="text"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="codigoPostal"
-                  #codigoPostal="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.codigoPostal"
-                >
-                <small id="codigoPostalHelp" class="form-text text-muted">CONSULTA TU CODIGO POSTAL <a href="http://visor.codigopostal.gov.co/472/visor/" target="_blank">aqui</a></small>
-              </div> 
-              <div class="form-group">
-                <label>CEDULA</label>
-                <input
-                  type="number"
-                  class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-                  name="cedula"
-                  #cedula="ngModel"
-                  [(ngModel)]="usuarioService.selectedusuario.cedula"
-                >
-              </div>
-            </div>
-          </div>
-          <div class="row bg-yellow text-white pt-2 rounded-left-1">
-            <h4 class="col-md-12">
-              METODO DE PAGO
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-right">
-          <img src="{{ pig }}" alt="cerdito" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(DEBITO)">
-          <img src="{{ tarjeta }}" alt="tarjeta" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(CREDITO)">
-          <img src="{{ money }}" alt="billete" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(EFECTIVO)">
-        </div>
-      </div>
-      <div class="container-fluid" *ngIf="credito">
-        <div class="row mb-4">
-          <div class="col-md-12">
-            SELECCIONA TU TARJETA
-          </div>
-        </div>
-        <div class="row fs_6 mb-4">
-          <div class="col-md-4">
+          <div class="col-md-8 container-fluid p-0">
             <div class="row">
-              <div class="col-sm-12">
-                CREDITO
+              <div class="col-md-6 pl-0 pr-5">
+                <div class="form-group">
+                  <label>NOMBRE</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="nombre"
+                    #nombre="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.nombre"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>DIRECCION</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="direccion"
+                    #direccion="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.direccion"
+                    placeholder="{{usuario.direccion}}"
+                    value="{{usuario.direccion}}"
+                    *ngIf="usuario"
+                  >
+                  <small id="codigoPostalHelp" class="form-text text-transparent">CONSULTA TU CODIGO POSTAL</small>
+                </div> 
+                <div class="form-group">
+                  <label>CELULAR</label>
+                  <input
+                    type="number"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="celular"
+                    #celular="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.celular"
+                    placeholder="{{usuario.celular}}"
+                    value="{{usuario.celular}}"
+                    *ngIf="usuario"
+                  >
+                </div>
+              </div>
+              <div class="col-md-6 pl-0 pr-5">
+                <div class="form-group">
+                  <label>APELLIDO</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="apellido"
+                    #apellido="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.apellido"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>CODIGO POSTAL</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="codigoPostal"
+                    #codigoPostal="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.codigoPostal"
+                  >
+                  <small id="codigoPostalHelp" class="form-text text-muted">CONSULTA TU CODIGO POSTAL <a href="http://visor.codigopostal.gov.co/472/visor/" target="_blank">aqui</a></small>
+                </div> 
+                <div class="form-group">
+                  <label>CEDULA</label>
+                  <input
+                    type="number"
+                    class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                    name="cedula"
+                    #cedula="ngModel"
+                    [(ngModel)]="usuarioService.selectedusuario.cedula"
+                  >
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm-3">
-                <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
-              </div>
-              <div class="col-sm-2">
-                <img src="../../../../assets/img/master.png" alt="master" class="img-fluid">
-              </div>
-              <div class="col-sm-4">
-                <img src="../../../../assets/img/diners.png" alt="diners club" class="img-fluid">
-              </div>
-              <div class="col-sm-1">
-                <img src="../../../../assets/img/american.png" alt="american express" class="img-fluid">
-              </div>
-              <div class="col-sm-1">
-                <img src="../../../../assets/img/codensa.png" alt="codensa" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              DEBITO
-            </div>
-            <div class="row">
-              <div class="col-sm-3">
-                <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
-              </div>
+            <div class="row bg-yellow text-white pt-2 rounded-left-1">
+              <h4 class="col-md-12">
+                METODO DE PAGO
+              </h4>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 form-group">
-            <label>NUMERO DE CUENTA</label>
-            <input
-              type="number"
-              class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-              name="numeroCuenta"
-              #numeroCuenta="ngModel"
-              [(ngModel)]="compraService.selectedcompra.numeroCuenta"
-            >
-          </div>
-          <div class="col-md-4 form-group">
-            <label>CODIGO DE SEGURIDAD</label>
-            <input
-              type="number"
-              class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-              name="codigoSeguridad"
-              #codigoSeguridad="ngModel"
-              [(ngModel)]="compraService.selectedcompra.codigoSeguridad"
-            >
-          </div>
-          <div class="col-md-4 form-group">
-            <label>FECHA DE EXPIRACION</label>
-            <input
-              type="date"
-              class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-              name="fechaExpiracion"
-              #fechaExpiracion="ngModel"
-              [(ngModel)]="compraService.selectedcompra.fechaExpiracion"
-            >
+          <div class="col-md-12 text-right">
+            <img src="{{ pig }}" alt="cerdito" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(DEBITO)">
+            <img src="{{ tarjeta }}" alt="tarjeta" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(CREDITO)">
+            <img src="{{ money }}" alt="billete" class="m-3 hover-pointer img-fluid" (click)="activeMetodoPago(EFECTIVO)">
           </div>
         </div>
-      </div>
-      <div class="container-fluid" *ngIf="efectivo">
-        <div class="row mb-4">
-          <div class="col-md-4 form-group">
-            <label>SELECCION UN LUGAR DE PAGO</label>
-            <select
-              class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
-              name="lugarPago"
-              #lugarPago="ngModel"
-              [(ngModel)]="compraService.selectedcompra.lugarPago"
-            >
-              <option>BALOTO</option>
-              <option>EFECTY</option>
-              <option>Banco</option>
-              <option>Apuestas Cucuta 75</option>
-              <option>Gana</option>
-              <option>Gana Gana</option>
-              <option>Su Chance</option> 
-              <option>Acertemos</option>
-              <option>La Perla</option>
-              <option>Apuestas Unidas</option>
-              <option>Paga Todo</option>
-            </select>
+        <div class="container-fluid" *ngIf="credito">
+          <div class="row mb-4">
+            <div class="col-md-12">
+              SELECCIONA TU TARJETA
+            </div>
+          </div>
+          <div class="row fs_6 mb-4">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-sm-12">
+                  CREDITO
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
+                </div>
+                <div class="col-sm-2">
+                  <img src="../../../../assets/img/master.png" alt="master" class="img-fluid">
+                </div>
+                <div class="col-sm-4">
+                  <img src="../../../../assets/img/diners.png" alt="diners club" class="img-fluid">
+                </div>
+                <div class="col-sm-1">
+                  <img src="../../../../assets/img/american.png" alt="american express" class="img-fluid">
+                </div>
+                <div class="col-sm-1">
+                  <img src="../../../../assets/img/codensa.png" alt="codensa" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                DEBITO
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="../../../../assets/img/visa.png" alt="visa" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <label>NUMERO DE CUENTA</label>
+              <input
+                type="number"
+                class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                name="numeroCuenta"
+                #numeroCuenta="ngModel"
+                [(ngModel)]="compraService.selectedcompra.numeroCuenta"
+              >
+            </div>
+            <div class="col-md-4 form-group">
+              <label>CODIGO DE SEGURIDAD</label>
+              <input
+                type="number"
+                class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                name="codigoSeguridad"
+                #codigoSeguridad="ngModel"
+                [(ngModel)]="compraService.selectedcompra.codigoSeguridad"
+              >
+            </div>
+            <div class="col-md-4 form-group">
+              <label>FECHA DE EXPIRACION</label>
+              <input
+                type="date"
+                class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                name="fechaExpiracion"
+                #fechaExpiracion="ngModel"
+                [(ngModel)]="compraService.selectedcompra.fechaExpiracion"
+              >
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row mt-4 mb-2">
-        <div class="col-sm-2 ml-auto">SUBTOTAL</div>
-        <div class="col-sm-1">{{subtotal}}</div>
-        <div class="col-sm-1">ENVIO</div>
-        <div class="col-sm-1">{{ENVIO}}</div>
-        <div class="col-sm-1">TOTAL</div>
-        <div class="col-sm-1">{{total}}</div>
-        <div class="col-sm-2">
-          <button type="submit" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
-            COMPRAR
-          </button>
+        <div class="container-fluid" *ngIf="efectivo">
+          <div class="row mb-4">
+            <div class="col-md-4 form-group">
+              <label>SELECCION UN LUGAR DE PAGO</label>
+              <select
+                class="form-control rounded-4 bg-transparent border border-dark ff-kanit"
+                name="lugarPago"
+                #lugarPago="ngModel"
+                [(ngModel)]="compraService.selectedcompra.lugarPago"
+              >
+                <option>BALOTO</option>
+                <option>EFECTY</option>
+                <option>Banco</option>
+                <option>Apuestas Cucuta 75</option>
+                <option>Gana</option>
+                <option>Gana Gana</option>
+                <option>Su Chance</option> 
+                <option>Acertemos</option>
+                <option>La Perla</option>
+                <option>Apuestas Unidas</option>
+                <option>Paga Todo</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
+        <div class="row mt-4 mb-2">
+          <div class="col-sm-2 ml-auto">SUBTOTAL</div>
+          <div class="col-sm-1">{{subtotal}}</div>
+          <div class="col-sm-1">ENVIO</div>
+          <div class="col-sm-1">{{ENVIO}}</div>
+          <div class="col-sm-1">TOTAL</div>
+          <div class="col-sm-1">{{total}}</div>
+          <div class="col-sm-2">
+            <button type="submit" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
+              COMPRAR
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

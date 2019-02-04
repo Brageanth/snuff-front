@@ -14,34 +14,34 @@
       </div>
     </div>
   </div>
-  <h2 class="text-center ff-chunkfive text-white pt-2">
-    <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
-      MUSICA
-    </div>
-  </h2>
-  <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
-    <div class="container-fluid" *ngFor="let estampado of estampadosMusica">
-      <div class="row h-60 oy-hidden">
-        <div class="col-md-6 mx-auto ox-hidden">
-          <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
-        </div>
+  <div *ngIf="cargo">
+    <h2 class="text-center ff-chunkfive text-white pt-2">
+      <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
+        MUSICA
       </div>
-      <div class="row">
-        <div class="col-md-3 mx-auto">
-          <audio controls>
-            <source src="https://pruebasbrageanth.pythonanywhere.com{{estampado.cancion}}" type="audio/mpeg">
-          </audio>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 text-uppercase ml-auto fs-1_5 text-center">{{estampado.nombre}}</div>
-        <div class="col-md-1 mr-auto dropright">
-          <div class="dropdown-toggle text-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-share-alt"></i>
+    </h2>
+    <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
+      <div class="container-fluid" *ngFor="let estampado of estampadosMusica">
+        <div class="row h-60 oy-hidden">
+          <div class="col-md-6 mx-auto ox-hidden">
+            <img src="https://pruebasbrageanth.pythonanywhere.com{{imagen}}" alt="{{estampado.nombre}}">
           </div>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mx-auto mt-4">
+            <a (click)="playAudio(estampado)">asdas</a>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-md-5 text-uppercase ml-auto fs-1_5">{{estampado.nombre}}</div>
+          <div class="col-md-1 mr-auto dropright">
+            <div class="dropdown-toggle text-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
           </div>
         </div>
       </div>

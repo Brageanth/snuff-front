@@ -40,4 +40,11 @@ export class MusicaComponent implements OnInit {
   imagenActive(pImagen: string) {
     this.imagen = pImagen;
   }
+
+  playAudio(pEstampado: Estampado){
+    let audio = new Audio();
+    audio.src = "https://pruebasbrageanth.pythonanywhere.com"+pEstampado.cancion;
+    audio.load();
+    audio.play();
+  }
 }
