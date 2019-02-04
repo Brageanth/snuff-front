@@ -61,12 +61,12 @@ const appRoutes: Routes = [
     CineComponent,
     SeccionesComponent,
     MusicaComponent,
-    PinturaComponent,
-    ClipboardModule
+    PinturaComponent
   ],
   imports: [HttpClientModule,
     BrowserModule,
     FormsModule,
+    ClipboardModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
