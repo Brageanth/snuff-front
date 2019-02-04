@@ -28,8 +28,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 mx-auto mt-4">
-            <a (click)="playAudio(estampado)">asdas</a>
+          <div class="col-md-3 mx-auto mt-4 text-center">
+            <a (click)="playAudio(estampado)" *ngIf="!audioPlay"><i class="far fa-play-circle"></i></a>
+            <a (click)="pauseAudio()" *ngIf="audioPlay"><i class="far fa-pause-circle"></i></a>
           </div>
         </div>
         <div class="row pt-4">

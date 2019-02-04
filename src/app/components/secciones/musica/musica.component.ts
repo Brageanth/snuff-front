@@ -12,9 +12,11 @@ const MUSICA = 'M';
 })
 export class MusicaComponent implements OnInit {
 
+  audio = new Audio();
   estampadosMusica: Array<Estampado> = [];
   cargo = false;
   imagen: string;
+  audioPlay = false;
 
   constructor(
     private estampadoService: EstampadoService,
@@ -42,9 +44,14 @@ export class MusicaComponent implements OnInit {
   }
 
   playAudio(pEstampado: Estampado){
-    let audio = new Audio();
-    audio.src = "https://pruebasbrageanth.pythonanywhere.com"+pEstampado.cancion;
-    audio.load();
-    audio.play();
+    this.audio.src = "https://pruebasbrageanth.pythonanywhere.com"+pEstampado.cancion;
+    this.audio.load();
+    this.audio.play();
+    this.audioPlay = true;
+  }
+
+  pauseAudio() {
+    this.audio.pause()
+    this.audioPlay = false;
   }
 }
