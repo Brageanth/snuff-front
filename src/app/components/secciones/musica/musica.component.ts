@@ -49,6 +49,7 @@ export class MusicaComponent implements OnInit {
     ]);
     this.estampadoActive = this.estampadosMusica[0];
     this.estampadoGaleria(this.estampadoActive);
+    console.log(this.imagenesGaleria);
     this.cargo = true;
   }
 
