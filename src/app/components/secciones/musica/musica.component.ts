@@ -46,6 +46,7 @@ export class MusicaComponent implements OnInit {
       { name: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url },
       { name: 'og:type', content: 'website' }
     ]);
+    this.estampadoActive = this.estampadosMusica[0];
     this.cargo = true;
   }
 
