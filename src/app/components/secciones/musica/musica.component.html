@@ -58,9 +58,9 @@
             GALERIA
           </div>
         </div>
-        <div class="row h-10 oy-hidden">
+        <div class="row h-20 oy-hidden">
           <div class="col-md-2 ox-hidden">
-            <img src="https://pruebasbrageanth.pythonanywhere.com/{{estampadoActive.imagenGaleria0}}" alt="{{estampadoActive.nombre}}" class="w-100">
+            <img *ngFor="let imagen of imagenesGaleria" src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampadoActive.nombre}}" class="w-100">
           </div>
         </div>
       </div>

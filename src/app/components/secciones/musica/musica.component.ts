@@ -48,8 +48,7 @@ export class MusicaComponent implements OnInit {
       { name: 'og:type', content: 'website' }
     ]);
     this.estampadoActive = this.estampadosMusica[0];
-    console.log(this.estampadoActive["imagenGaleria"+0]);
-    
+    this.estampadoGaleria(this.estampadoActive);
     this.cargo = true;
   }
 
@@ -72,7 +71,8 @@ export class MusicaComponent implements OnInit {
   }
 
   estampadoGaleria(pEstampado: Estampado) {
-    this.imagenesGaleria.push(pEstampado.imagenGaleria0);
-    this.imagenesGaleria.push(pEstampado.imagenGaleria0);
+    for (var i; i < 7; i++) {
+      this.imagenesGaleria.push(this.estampadoActive["imagenGaleria"+i]);
+    }
   }
 }
