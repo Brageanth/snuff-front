@@ -48,7 +48,7 @@ export class MusicaComponent implements OnInit {
       { name: 'og:type', content: 'website' }
     ]);
     this.estampadoActive = this.estampadosMusica[0];
-    console.log(this.estampadoActive[9]);
+    console.log(this.estampadoActive["imagenGaleria"+0]);
     
     this.cargo = true;
   }
