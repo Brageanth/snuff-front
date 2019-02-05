@@ -20,8 +20,8 @@ export class MusicaComponent implements OnInit {
   video = true;
   audioPlay = false;
   url: string;
-  estampadoActive: Estampado;
-  imagenesGaleria: Array<String> = [];
+  imagenesGaleria: Array<Array<String>> = [];
+  imagenesActivas: Array<String> = [];
 
   constructor(
     private estampadoService: EstampadoService,
@@ -40,6 +40,8 @@ export class MusicaComponent implements OnInit {
           { name: 'og:title', content: estampado.nombre },
           { name: 'og:image', content: estampado.imagenGaleria0 }
         ]);
+        this.estampadoGaleria(estampado);
+        this.imagenesActivas.push("");
       }
     }
     this.appComponent.typeNav(true);
@@ -47,33 +49,32 @@ export class MusicaComponent implements OnInit {
       { name: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url },
       { name: 'og:type', content: 'website' }
     ]);
-    this.estampadoActive = this.estampadosMusica[0];
-    this.estampadoGaleria(this.estampadoActive);
-    console.log(this.imagenesGaleria);
     this.cargo = true;
   }
 
-  imagenActive(pEstampado: Estampado) {
-    this.estampadoActive = pEstampado;
+  imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
+    this.imagenesActivas[numero] = imagen;
     this.meta.updateTag({ name: 'og:title', content: pEstampado.nombre });
     this.meta.updateTag({ name: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
   }
 
-  playAudio() {
-    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + this.estampadoActive.cancion;
+  playAudio(pEstampado: Estampado) {
+    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.cancion;
     this.audio.load();
     this.audio.play();
     this.audioPlay = true;
   }
 
-  pauseAudio() {
+  pauseAudio(pEstampado: Estampado) {
     this.audio.pause();
     this.audioPlay = false;
   }
 
   estampadoGaleria(pEstampado: Estampado) {
+    let imagenes: Array<String> = [];
     for (var i = 0; i < 7; i++) {
-      this.imagenesGaleria.push(this.estampadoActive["imagenGaleria"+i]);
+      imagenes.push(pEstampado["imagenGaleria"+i]);
     }
+    this.imagenesGaleria.push(imagenes);
   }
 }
