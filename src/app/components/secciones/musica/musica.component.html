@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div class="row h-60 oy-hidden">
           <div class="col-md-6 mx-auto ox-hidden">
-            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.video}}" *ngIf="video"></video>
+            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.video}}" *ngIf="video" controls></video>
             <img src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagen}}" *ngIf="!video" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
@@ -42,8 +42,25 @@
             </div>
             <div class="dropdown-menu bg-yellow ff-espacio">
               <a class="dropdown-item" (click)="copyToClipboard()" ngxClipboard [cbContent]="'https://pruebasbrageanth.pythonanywhere.com'+url">Copiar Enlace</a>
-              <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fsnuff-front.herokuapp.com%2Fmusica&display=popup&ref=plugin&src=share_button">Facebook</a>
+              <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fsnuff-front.herokuapp.com%2Fmusica&display=popup&ref=plugin&src=share_button" target="_blank">Facebook</a>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mx-auto">
+            <a [routerLink]="['/compra']" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
+              COMPRAR
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 ff-chunkfive">
+            GALERIA
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 ox-hidden">
+            <img src="https://pruebasbrageanth.pythonanywhere.com/{{estampadoActive.imagenGaleria0}}" alt="">
           </div>
         </div>
       </div>

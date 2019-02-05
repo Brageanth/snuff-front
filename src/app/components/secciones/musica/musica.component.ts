@@ -21,6 +21,7 @@ export class MusicaComponent implements OnInit {
   audioPlay = false;
   url: string;
   estampadoActive: Estampado;
+  imagenesGaleria: Array<String> = [];
 
   constructor(
     private estampadoService: EstampadoService,
@@ -47,6 +48,8 @@ export class MusicaComponent implements OnInit {
       { name: 'og:type', content: 'website' }
     ]);
     this.estampadoActive = this.estampadosMusica[0];
+    console.log(this.estampadoActive[9]);
+    
     this.cargo = true;
   }
 
@@ -66,5 +69,10 @@ export class MusicaComponent implements OnInit {
   pauseAudio() {
     this.audio.pause();
     this.audioPlay = false;
+  }
+
+  estampadoGaleria(pEstampado: Estampado) {
+    this.imagenesGaleria.push(pEstampado.imagenGaleria0);
+    this.imagenesGaleria.push(pEstampado.imagenGaleria0);
   }
 }
