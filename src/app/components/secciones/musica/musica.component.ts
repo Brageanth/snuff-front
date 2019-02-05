@@ -37,8 +37,8 @@ export class MusicaComponent implements OnInit {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
         this.meta.addTags([
-          { name: 'og:title', content: estampado.nombre },
-          { name: 'og:image', content: estampado.imagenGaleria0 }
+          { property: 'og:title', content: estampado.nombre },
+          { property: 'og:image', content: estampado.imagenGaleria0 }
         ]);
         this.estampadoGaleria(estampado);
         this.imagenesActivas.push("");
@@ -46,16 +46,16 @@ export class MusicaComponent implements OnInit {
     }
     this.appComponent.typeNav(true);
     this.meta.addTags([
-      { name: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url },
-      { name: 'og:type', content: 'website' }
+      { property: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url },
+      { property: 'og:type', content: 'website' }
     ]);
     this.cargo = true;
   }
 
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
-    this.meta.updateTag({ name: 'og:title', content: pEstampado.nombre });
-    this.meta.updateTag({ name: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
+    this.meta.updateTag({ property: 'og:title', content: pEstampado.nombre });
+    this.meta.updateTag({ property: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
     this.video = false;
   }
 
