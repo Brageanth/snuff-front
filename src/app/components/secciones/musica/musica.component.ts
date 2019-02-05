@@ -56,6 +56,7 @@ export class MusicaComponent implements OnInit {
     this.imagenesActivas[numero] = imagen;
     this.meta.updateTag({ name: 'og:title', content: pEstampado.nombre });
     this.meta.updateTag({ name: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
+    this.video = false;
   }
 
   playAudio(pEstampado: Estampado) {
