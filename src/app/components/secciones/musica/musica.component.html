@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div class="row h-60 oy-hidden">
           <div class="col-md-6 mx-auto ox-hidden">
-            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.video}}" *ngIf="video" controls></video>
+            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.video}}" *ngIf="video" class="w-100" controls></video>
             <img src="https://pruebasbrageanth.pythonanywhere.com{{estampadoActive.imagen}}" *ngIf="!video" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
@@ -58,7 +58,7 @@
             GALERIA
           </div>
         </div>
-        <div class="row h-20 oy-hidden">
+        <div class="row h-20 oy-hidden mb-5">
           <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria">
             <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampadoActive.nombre}}" class="w-100">
           </div>
