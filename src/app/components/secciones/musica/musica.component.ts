@@ -72,7 +72,7 @@ export class MusicaComponent implements OnInit {
   }
 
   estampadoGaleria(pEstampado: Estampado) {
-    for (var i; i < 7; i++) {
+    for (var i = 0; i < 7; i++) {
       this.imagenesGaleria.push(this.estampadoActive["imagenGaleria"+i]);
     }
   }
