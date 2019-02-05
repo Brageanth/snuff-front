@@ -36,19 +36,15 @@ export class MusicaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === MUSICA) {
         this.estampadosMusica.push(estampado);
-        this.meta.addTags([
-          { property: 'og:title', content: estampado.nombre },
-          { property: 'og:image', content: estampado.imagenGaleria0 }
-        ]);
+        this.meta.updateTag({ property: 'og:title', content: estampado.nombre });
+        this.meta.updateTag({ property: 'og:image', content: estampado.imagenGaleria0 });
         this.estampadoGaleria(estampado);
         this.imagenesActivas.push("");
       }
     }
     this.appComponent.typeNav(true);
-    this.meta.addTags([
-      { property: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url },
-      { property: 'og:type', content: 'website' }
-    ]);
+    this.meta.updateTag({ property: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.cargo = true;
   }
 
