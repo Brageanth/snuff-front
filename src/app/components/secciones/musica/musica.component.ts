@@ -55,8 +55,8 @@ export class MusicaComponent implements OnInit {
     this.meta.updateTag({ name: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
   }
 
-  playAudio(pEstampado: Estampado) {
-    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.cancion;
+  playAudio() {
+    this.audio.src = 'https://pruebasbrageanth.pythonanywhere.com' + this.estampadoActive.cancion;
     this.audio.load();
     this.audio.play();
     this.audioPlay = true;
