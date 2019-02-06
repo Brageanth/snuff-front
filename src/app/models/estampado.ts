@@ -18,4 +18,5 @@ export class Estampado {
     imagenGaleria5: string;
     cancion: string;
     video: string;
+    descripcion: string;
 }
