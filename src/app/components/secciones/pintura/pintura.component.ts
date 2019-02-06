@@ -30,8 +30,6 @@ export class PinturaComponent implements OnInit {
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.getEstampadosPintura();
-    console.log(this.primerasLineas);
-    console.log(this.segundasLineas);
     this.video = true;
     this.cargo = true;
   }
@@ -54,6 +52,9 @@ export class PinturaComponent implements OnInit {
   splitNombre(pNombre: String, i: number) {
     let largo = pNombre.length / 2;
     let palabras = pNombre.split(" ");
+    console.log(largo);
+    console.log(palabras);
+    
     for (const palabra of palabras) {
       if (palabra.length <= largo) {
         this.primerasLineas[i] += (palabra + ' ');
