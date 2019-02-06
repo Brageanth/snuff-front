@@ -15,17 +15,20 @@ export class PinturaComponent implements OnInit {
   imagenesActivas: Array<String>;
   primerasLineas: Array<String>;
   segundasLineas: Array<String>;
+  cargo: boolean;
 
   constructor(
     private estampadoService: EstampadoService
   ) { }
 
   ngOnInit() {
+    this.cargo = false;
     this.estampadosArte = [];
     this.imagenesActivas = [];
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.getEstampadosPintura();
+    this.cargo = true;
   }
 
   async getEstampadosPintura() {
