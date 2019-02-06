@@ -30,7 +30,8 @@ export class PinturaComponent implements OnInit {
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.getEstampadosPintura();
-    console.log(this.estampadosArte);
+    console.log(this.primerasLineas);
+    console.log(this.segundasLineas);
     this.video = true;
     this.cargo = true;
   }
