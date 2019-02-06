@@ -30,6 +30,7 @@ export class PinturaComponent implements OnInit {
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.getEstampadosPintura();
+    console.log(this.primerasLineas);
     this.video = true;
     this.cargo = true;
   }
@@ -44,7 +45,6 @@ export class PinturaComponent implements OnInit {
         this.primerasLineas.push("");
         this.segundasLineas.push("");
         this.splitNombre(estampado.nombre, i);
-        console.log(this.primerasLineas);
         i++;
       }
     }
@@ -67,7 +67,5 @@ export class PinturaComponent implements OnInit {
         this.segundasLineas[i] += (palabra + ' ');
       }
     }
-    console.log(this.primerasLineas);
-    
   }
 }
