@@ -39,7 +39,8 @@ const appRoutes: Routes = [
   { path: 'perfil', component: PerfilComponent },
   { path: 'coche' , component: CocheComponent},
   { path: 'cine' , component: CineComponent},
-  { path: 'musica', component: MusicaComponent}
+  { path: 'musica', component: MusicaComponent},
+  { path: 'arte', component: PinturaComponent }
 ];
 
 
