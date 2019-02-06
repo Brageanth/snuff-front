@@ -44,6 +44,7 @@ export class PinturaComponent implements OnInit {
         this.primerasLineas.push("");
         this.segundasLineas.push("");
         this.splitNombre(estampado.nombre, i);
+        console.log(this.primerasLineas);
         i++;
       }
     }
@@ -59,8 +60,6 @@ export class PinturaComponent implements OnInit {
       } else if (palabra.length > largo) {
         if ((palabra.length / 2) <= largo) {
           this.primerasLineas[i] += palabra;
-          console.log(this.primerasLineas[i]);
-          
         } else {
           this.segundasLineas[i] += (palabra + ' ');
         }
@@ -68,5 +67,7 @@ export class PinturaComponent implements OnInit {
         this.segundasLineas[i] += (palabra + ' ');
       }
     }
+    console.log(this.primerasLineas);
+    
   }
 }
