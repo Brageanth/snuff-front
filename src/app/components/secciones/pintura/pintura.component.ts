@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Estampado } from 'src/app/models/estampado';
 import { EstampadoService } from 'src/app/services/estampado.service';
+import { AppComponent } from 'src/app/app.component';
 
 const ARTE = "A";
 
@@ -19,7 +20,8 @@ export class PinturaComponent implements OnInit {
   video: boolean;
 
   constructor(
-    private estampadoService: EstampadoService
+    private estampadoService: EstampadoService,
+    private appComponent: AppComponent
   ) { }
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class PinturaComponent implements OnInit {
     this.getEstampadosPintura();
     console.log(this.primerasLineas);
     this.video = true;
+    this.appComponent.typeNav(true);
     this.cargo = true;
   }
 
@@ -45,9 +48,12 @@ export class PinturaComponent implements OnInit {
         this.primerasLineas.push("");
         this.segundasLineas.push("");
         this.splitNombre(estampado.nombre, i);
+        console.log(this.primerasLineas);
         i++;
       }
+      console.log(this.primerasLineas);
     }
+    console.log(this.primerasLineas);
   }
 
   splitNombre(pNombre: String, i: number) {
