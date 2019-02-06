@@ -23,9 +23,11 @@
     <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosMusica; let i = index">
         <div class="row h-60 oy-hidden">
-          <div class="col-md-6 mx-auto ox-hidden">
-            <video src="https://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" *ngIf="video" class="w-100" controls></video>
-            <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" *ngIf="!video" alt="{{estampado.nombre}}" class="w-100">
+          <div class="col-md-6 mx-auto ox-hidden" *ngIf="video">
+              <video src="https://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" class="w-100" controls></video>
+          </div>
+          <div class="col-md-6 mx-auto ox-hidden" *ngIf="!video">
+            <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
         <div class="row">
