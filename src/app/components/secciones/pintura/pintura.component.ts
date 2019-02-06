@@ -53,27 +53,18 @@ export class PinturaComponent implements OnInit {
     let largo = pNombre.length / 2;
     let palabras = pNombre.split(" ");
     for (const palabra of palabras) {
-      console.log(palabra);
       if (palabra.length <= largo) {
-        console.log(0);
-        
         this.primerasLineas[i] += (palabra + ' ');
         largo -= (palabra.length + 1);
       } else if (palabra.length > largo) {
-        console.log(1);
-        
         if ((palabra.length / 2) <= largo) {
-          console.log(1.5);
+          this.primerasLineas[i] += palabra;
+          console.log(this.primerasLineas[i]);
           
-          this.primerasLineas[i] += (palabra);
         } else {
-          console.log(1.7);
-          
           this.segundasLineas[i] += (palabra + ' ');
         }
       } else if (largo <= 0) {
-        console.log(2);
-        
         this.segundasLineas[i] += (palabra + ' ');
       }
     }
