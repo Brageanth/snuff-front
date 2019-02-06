@@ -23,7 +23,7 @@
     <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosMusica; let i = index">
         <div class="row h-60 oy-hidden">
-          <div class="col-md-7 mx-auto ox-hidden" *ngIf="video">
+          <div class="col-md-11 mx-auto ox-hidden" *ngIf="video">
               <video src="https://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" class="w-100" controls></video>
           </div>
           <div class="col-md-6 mx-auto ox-hidden" *ngIf="!video">
