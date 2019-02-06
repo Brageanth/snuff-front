@@ -16,6 +16,7 @@ export class PinturaComponent implements OnInit {
   primerasLineas: Array<String>;
   segundasLineas: Array<String>;
   cargo: boolean;
+  video: boolean;
 
   constructor(
     private estampadoService: EstampadoService
@@ -23,11 +24,14 @@ export class PinturaComponent implements OnInit {
 
   ngOnInit() {
     this.cargo = false;
+    this.video = false;
     this.estampadosArte = [];
     this.imagenesActivas = [];
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.getEstampadosPintura();
+    console.log(this.estampadosArte);
+    this.video = true;
     this.cargo = true;
   }
 
