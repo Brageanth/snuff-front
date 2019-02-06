@@ -24,14 +24,14 @@ export class PinturaComponent implements OnInit {
     private appComponent: AppComponent
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.cargo = false;
     this.video = false;
     this.estampadosArte = [];
     this.imagenesActivas = [];
     this.primerasLineas = [];
     this.segundasLineas = [];
-    this.getEstampadosPintura();
+    await this.getEstampadosPintura();
     console.log(this.primerasLineas);
     this.video = true;
     this.appComponent.typeNav(true);
