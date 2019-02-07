@@ -1,12 +1,12 @@
 <div class="container-fluid bg-texture-black h-100 pt-25">
-    <form #usuarioForm="ngForm" (ngSubmit)="onSubmit()" class="w-25 mx-auto"> 
+    <form #usuarioForm="ngForm" (ngSubmit)="onSubmit()" class="w-25 mx-auto ff-kanit"> 
         <div class="form-group text-center pt-2 ">
             <button class="ff-kanit bg-yellow font-weight-bold border-transparent text-white" type="submit">
                 EDITAR
             </button>
         </div>
-        <div class="form-group">
-            <label>NOMBRE</label>
+        <div class="form-group text-center">
+            <label class="text-white">NOMBRE</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
@@ -15,8 +15,8 @@
                 [(ngModel)]="usuario.nombre"
             >
         </div>
-        <div class="form-group">
-            <label>APELLIDO</label>
+        <div class="form-group text-center">
+            <label class="text-white">APELLIDO</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
@@ -25,9 +25,9 @@
                 [(ngModel)]="usuario.apellido"
             >
         </div>
-        <div class="form-group row">
+        <div class="form-group row text-center">
             <div class="col">
-                <label>CORREO</label>
+                <label class="text-white">CORREO</label>
                 <input
                     type="email"
                     class="form-control rounded-4 bg-input border border-dark ff-kanit"
@@ -41,9 +41,9 @@
             </div>
         </div> 
 
-        <div class="form-group row">
+        <div class="form-group row text-center">
             <div class="col"> 
-                <label>CELULAR</label>
+                <label class="text-white">CELULAR</label>
                 <input
                     type="number"
                     class="form-control rounded-4 bg-input border border-dark ff-kanit"
@@ -57,8 +57,8 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>DIRECCION</label>
+        <div class="form-group text-center">
+            <label class="text-white">DIRECCION</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
