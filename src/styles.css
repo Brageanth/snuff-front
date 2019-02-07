@@ -513,7 +513,7 @@
 .top-right {
     position: absolute;
     bottom: 50vh;
-    left: 10vw;
+    right: -35vw;
 }
 
 /* Customs */
