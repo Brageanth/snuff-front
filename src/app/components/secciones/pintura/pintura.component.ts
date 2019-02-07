@@ -32,6 +32,7 @@ export class PinturaComponent implements OnInit {
     this.imagenesActivas = [];
     this.primerasLineas = [];
     this.segundasLineas = [];
+    this.imagenesGaleria = [];
     await this.getEstampadosPintura();
     this.video = true;
     this.appComponent.typeNav(true);
