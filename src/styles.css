@@ -512,8 +512,8 @@
 /* Overtext */
 .top-right {
     position: absolute;
-    top: 1vh;
-    right: 2vw;
+    bottom: 50vh;
+    left: 10vw;
 }
 
 /* Customs */
