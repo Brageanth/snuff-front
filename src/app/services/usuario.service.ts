@@ -30,15 +30,7 @@ insertusuario(pUsuario: Usuario) {
  }
 
  updateUsuario(pUsuario: Usuario) {
-   /* trabajo
-   no le metio ganas
-   voz
-   cansada
-   estresada
-   todavia te falta mucho
-   entonces que haras con el certificado
-   estado */
-
+   
    return new Promise(resolve => {
     setTimeout(() => {
       resolve((this.http.put('https://pruebasbrageanth.pythonanywhere.com/' + pUsuario.id, pUsuario).toPromise().then(
