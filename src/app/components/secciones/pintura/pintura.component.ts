@@ -14,6 +14,7 @@ export class PinturaComponent implements OnInit {
 
   estampadosArte: Array<Estampado>;
   imagenesActivas: Array<String>;
+  imagenesGaleria: Array<Array<String>>;
   primerasLineas: Array<String>;
   segundasLineas: Array<String>;
   cargo: boolean;
@@ -47,7 +48,7 @@ export class PinturaComponent implements OnInit {
         this.primerasLineas.push("");
         this.segundasLineas.push("");
         this.splitNombre(estampado.nombre, i);
-        console.log(this.primerasLineas);
+        this.estampadoGaleria(estampado);
         i++;
       }
       console.log(this.primerasLineas);
@@ -72,5 +73,18 @@ export class PinturaComponent implements OnInit {
         this.segundasLineas[i] += (palabra + ' ');
       }
     }
+  }
+
+  estampadoGaleria(pEstampado: Estampado) {
+    let imagenes: Array<String> = [];
+    for (var i = 0; i < 7; i++) {
+      imagenes.push(pEstampado["imagenGaleria"+i]);
+    }
+    this.imagenesGaleria.push(imagenes);
+  }
+
+  imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
+    this.imagenesActivas[numero] = imagen;
+    this.video = false;
   }
 }
