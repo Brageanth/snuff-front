@@ -41,14 +41,7 @@
             <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-3 mx-auto mt-3 text-center fs-3">
-            <a (click)="playAudio(estampado)" *ngIf="!audioPlay"><i class="far fa-play-circle"></i></a>
-            <a (click)="pauseAudio(estampado)" *ngIf="audioPlay"><i class="far fa-pause-circle"></i></a>
-          </div>
-        </div>
-        <div class="row pt-3">
-          <div class="col-md-5 text-uppercase ml-auto fs-1_5">{{estampado.nombre}}</div>
+        <!--<div class="row pt-3">
           <div class="col-md-1 mr-auto dropright">
             <div class="dropdown-toggle text-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-share-alt"></i>
@@ -75,7 +68,7 @@
           <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria[i]">
             <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)">
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
