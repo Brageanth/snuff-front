@@ -23,15 +23,28 @@
     <div class="mlr-25 bg-texture-white text-black ff-kanit pt-5">
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosArte; let i = index">
         <div class="row h-60 oy-hidden">
-          <div class="col-md-3">
-            <div class="row bg-black text-white text-uppercase ml-1" *ngFor="let linea of primerasLineas">
-              {{linea}}
+          <div class="col-md-3 p-0">
+            <div class="row bg-black text-white text-uppercase pl-1">
+              <div class="col-md-11">
+                {{primerasLineas[i]}}
+              </div>
             </div>
-            <div class="row bg-black text-white text-uppercase text-right mr-1">
-              {{segundasLineas[i]}}
+            <div class="row bg-black text-white text-uppercase text-right pr-1">
+              <div class="col-md-11 ml-auto">
+                {{segundasLineas[i]}}
+              </div>
             </div>
-            <div class="row">
-              {{estampado.descripcion}}
+            <div class="row text-center mt-3">
+              <div class="col-md-12">
+                {{estampado.descripcion}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mx-auto text-center">
+              <a [routerLink]="['/compra']" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
+                COMPRAR
+              </a>
             </div>
           </div>
           <div class="col-md-9 ox-hidden" *ngIf="video">
