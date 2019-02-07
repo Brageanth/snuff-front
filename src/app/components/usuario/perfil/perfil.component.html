@@ -6,34 +6,34 @@
             </button>
         </div>
         <div class="form-group">
+            <label>NOMBRE</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
                 name="nombre"
                 #nombre="ngModel"
                 [(ngModel)]="usuario.nombre"
-                placeholder="usuario.nombre"
             >
         </div>
         <div class="form-group">
+            <label>APELLIDO</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
                 name="apellido"
                 #apellido="ngModel"
                 [(ngModel)]="usuario.apellido"
-                placeholder="usuario.apellido"
             >
         </div>
         <div class="form-group row">
             <div class="col">
+                <label>CORREO</label>
                 <input
-                type="email"
-                class="form-control rounded-4 bg-input border border-dark ff-kanit"
-                name="correo"
-                #correo="ngModel"
-                [(ngModel)]="usuario.correo"
-                placeholder="usuario.correo"
+                    type="email"
+                    class="form-control rounded-4 bg-input border border-dark ff-kanit"
+                    name="correo"
+                    #correo="ngModel"
+                    [(ngModel)]="usuario.correo"
                 >
             </div>
             <div style="font-size: 1.6em" class='text-danger col-1' *ngIf='!correo.value.includes("@") || !correo.value.includes(".") || correo.value.includes(" ") ' >
@@ -43,13 +43,13 @@
 
         <div class="form-group row">
             <div class="col"> 
+                <label>CELULAR</label>
                 <input
-                type="number"
-                class="form-control rounded-4 bg-input border border-dark ff-kanit"
-                name="celular"
-                #celular="ngModel"
-                [(ngModel)]="usuario.celular"
-                placeholder="CELULAR"
+                    type="number"
+                    class="form-control rounded-4 bg-input border border-dark ff-kanit"
+                    name="celular"
+                    #celular="ngModel"
+                    [(ngModel)]="usuario.celular"
                 >
             </div>
             <div style="font-size: 1.6em" class='text-danger col-1' *ngIf="(2000000 > celular.value || celular.value > 4000000000) && (celular.value.length!==0)">
@@ -58,13 +58,13 @@
         </div>
 
         <div class="form-group">
+            <label>DIRECCION</label>
             <input
                 type="text"
                 class="form-control rounded-4 bg-input border border-dark ff-kanit"
                 name="direccion"
                 #direccion="ngModel"
                 [(ngModel)]="usuario.direccion"
-                placeholder="DIRECCION"
             >
         </div>
     </form>
