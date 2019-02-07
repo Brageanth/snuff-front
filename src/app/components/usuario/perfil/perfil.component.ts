@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from 'src/app/app.component';
 import { LoginService } from 'src/app/services/login.service';
 import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -20,7 +21,8 @@ export class PerfilComponent implements OnInit {
     private appComponent: AppComponent,
     private cookieService: CookieService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private usuarioService: UsuarioService
   ) { }
 
   async ngOnInit() {
@@ -44,5 +46,9 @@ export class PerfilComponent implements OnInit {
         return user;
       }
     }
+  }
+
+  onSubmit() {
+    this.usuarioService.updateUsuario(this.usuario);
   }
 }
