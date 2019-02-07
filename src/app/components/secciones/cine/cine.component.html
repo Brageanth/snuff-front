@@ -4,12 +4,13 @@
       CINE Y SERIES
     </div>
   </h2>
-  <div class='container-fluid bg-texture-white text-black mlr-25 h-100'>
-    <div class="col mx-auto"> 
-      <div class="row text-center ff-chunkfive text-black" *ngFor="let estampado of estampadosCine"></div>
-      <video class="w-100 p-3" controls>
-        <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
-      </video>
+    <div class='container-fluid bg-texture-white text-black mlr-25'>
+      <div class="col mx-auto"> 
+        <div class="row text-center ff-chunkfive text-black" *ngFor="let estampado of estampadosCine">
+        <video class="w-100 p-3" controls>
+          <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 </div>
