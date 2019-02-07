@@ -509,6 +509,13 @@
     opacity: .5;
 }
 
+/* Overtext */
+.top-right {
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+}
+
 /* Customs */
 .row-form-compra{
     max-height: 60vh;
