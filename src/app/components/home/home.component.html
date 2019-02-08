@@ -156,3 +156,16 @@
     </div>
   </div>
 </div>
+<script>
+  var loader = new THREE.OBJLoader2();
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  document.body.appendChild( renderer.domElement );
+  var callbackOnLoad = function ( event ) {
+    scene.add( event.detail.loaderRootNode );
+  };
+  loader.load( '../../assets/3d/Camiseta.obj', callbackOnLoad, null, null, null, false );
+  renderer.render( scene, camera );
+</script>
