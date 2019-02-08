@@ -35,6 +35,7 @@ export class CineComponent implements OnInit {
     for (const estampado of est) {
       if (estampado.categoria === CINE) {
         this.estampadosCine.push(estampado);
+        this.estampadoGaleria(estampado);
       }
     }
   }
