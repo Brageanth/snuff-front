@@ -3,7 +3,7 @@ import { Estampado } from 'src/app/models/estampado';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { AppComponent } from 'src/app/app.component';
 
-const ARTE = "A";
+const ARTE = 'A';
 
 @Component({
   selector: 'app-pintura',
@@ -45,21 +45,19 @@ export class PinturaComponent implements OnInit {
     for (const estampado of res) {
       if (estampado.categoria === ARTE) {
         this.estampadosArte.push(estampado);
-        this.imagenesActivas.push("");
-        this.primerasLineas.push("");
-        this.segundasLineas.push("");
+        this.imagenesActivas.push('');
+        this.primerasLineas.push('');
+        this.segundasLineas.push('');
         this.splitNombre(estampado.nombre, i);
         this.estampadoGaleria(estampado);
         i++;
       }
-      console.log(this.primerasLineas);
     }
-    console.log(this.primerasLineas);
   }
 
   splitNombre(pNombre: String, i: number) {
     let largo = pNombre.length / 2;
-    let palabras = pNombre.split(" ");
+    const palabras = pNombre.split(' ');
     for (const palabra of palabras) {
       if (palabra.length <= largo) {
         this.primerasLineas[i] += (palabra + ' ');
@@ -77,9 +75,9 @@ export class PinturaComponent implements OnInit {
   }
 
   estampadoGaleria(pEstampado: Estampado) {
-    let imagenes: Array<String> = [];
-    for (var i = 0; i < 7; i++) {
-      imagenes.push(pEstampado["imagenGaleria"+i]);
+    const imagenes: Array<String> = [];
+    for (let i = 0; i < 7; i++) {
+      imagenes.push(pEstampado['imagenGaleria' + i]);
     }
     this.imagenesGaleria.push(imagenes);
   }
