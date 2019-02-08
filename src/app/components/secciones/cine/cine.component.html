@@ -1,19 +1,19 @@
 <div class="container-fluid bg-black">
-    <div *ngIf="!cargo" class="text-center h-100v pt-25">
-        <div class="cabeza mx-auto">
-          <div class="oreja rounded-circle">
-              <div class="oreja-interno rounded-circle"></div>
-          </div>
-          <div class="ojo rounded-circle"></div>
-          <div class="osico-top rounded">
-              <div class="nariz rounded-circle"></div>
-          </div>
-          <div class="osico-bottom"></div>
-          <div class="filtro-exterior">
-              <div class="filtro"></div>
-          </div>
-        </div>
+  <div *ngIf="!cargo" class="text-center h-100v pt-25">
+    <div class="cabeza mx-auto">
+      <div class="oreja rounded-circle">
+        <div class="oreja-interno rounded-circle"></div>
       </div>
+      <div class="ojo rounded-circle"></div>
+      <div class="osico-top rounded">
+        <div class="nariz rounded-circle"></div>
+      </div>
+      <div class="osico-bottom"></div>
+      <div class="filtro-exterior">
+        <div class="filtro"></div>
+      </div>
+    </div>
+  </div>
   <div *ngIf="cargo">
     <h2 class="text-center ff-chunkfive text-white pt-2">
       <div class="border-bottom col-3 mx-auto border-yellow border_4 pb-1">
@@ -22,22 +22,41 @@
     </h2>
     <div class='mlr-25 bg-texture-white text-black pt-5 h-80'>
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosCine">
+        <div class="row pt-3">
+          <div class="col-md-5 text-uppercase ml-auto fs-1_5 text-center ff-kanit">{{estampado.nombre}}</div>
+          <div class="col-md-1 mr-auto dropright">
+            <div class="dropdown-toggle text-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <div class="dropdown-menu bg-yellow ff-espacio rounded-1 z-index-1000 p-0">
+              <a class="dropdown-item border-bottom border-black" (click)="copyToClipboard()" ngxClipboard [cbContent]="'https://snuff-front.herokuapp.com/' + url">Copiar Enlace</a>
+              <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fsnuff-front.herokuapp.com%2F' + url + '&display=popup&ref=plugin&src=share_button" target="_blank">Facebook</a>
+            </div>
+          </div>
+        </div>
         <div class="row text-center ff-chunkfive text-black">
           <video class="w-100 p-3" controls>
             <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
           </video>
-        </div> 
-  <div class="row">
-      <div class="col-md-2 ff-chunkfive">
-        GALERIA
-      </div>
-    </div>
-    <div class="row h-20 oy-hidden">
-      <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria[i]">
-        <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)">
+        </div>
+        <div class="row">
+          <div class="col-md-3 mx-auto">
+            <a [routerLink]="['/compra']" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
+              COMPRAR
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 ff-chunkfive">
+            GALERIA
+          </div>
+        </div>
+        <div class="row h-20 oy-hidden">
+          <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria[i]">
+            <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-</div>
 </div>
