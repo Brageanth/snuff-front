@@ -32,7 +32,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 const appRoutes: Routes = [
   { path: 'registro', component: UsuarioComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login/:url', component: LoginComponent },
   { path: 'compra', component: CompraComponent },
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },

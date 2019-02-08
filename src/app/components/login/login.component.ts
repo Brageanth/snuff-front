@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService,
     private appComponent: AppComponent,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   async ngOnInit() {
@@ -59,7 +60,11 @@ export class LoginComponent implements OnInit {
     if (userLogin) {
       if (userLogin.contrasenia === loginForm.value.contrasenia) {
         this.cookieService.set( 'Token', userLogin.correo, 1, '/' );
-        this.router.navigate(['/']);
+        if (this.activatedRoute.snapshot.paramMap.get('url') === '') {
+          this.router.navigate(['/']);
+        } else {
+          this.router.navigate([this.activatedRoute.snapshot.paramMap.get('url')]);
+        }
       } else {
         this.errorPassword = 'Contraseña incorrecta';
       }

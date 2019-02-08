@@ -59,7 +59,7 @@ export class CheckoutComponent implements OnInit {
   async ngOnInit() {
     this.token = this.cookieService.get('Token');
     if (!this.token) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login', '/checkout']);
     }
     const res = <any> await this.compraService.getCompras();
     const tal = <any> await this.tallaService.getTalla();

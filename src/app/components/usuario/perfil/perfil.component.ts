@@ -34,7 +34,7 @@ export class PerfilComponent implements OnInit {
 
   comprobarLogin() {
     if (!this.cookieService.check('Token')) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login', '/perfil']);
     } else {
       this.token = this.cookieService.get('Token');
     }

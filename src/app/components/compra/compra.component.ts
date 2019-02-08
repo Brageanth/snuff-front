@@ -37,7 +37,7 @@ export class CompraComponent implements OnInit {
   ngOnInit() {
     this.token = this.cookieService.get('Token');
     if (!this.token) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login', '/compra']);
     }
     this.appComponent.typeNav(true);
   }

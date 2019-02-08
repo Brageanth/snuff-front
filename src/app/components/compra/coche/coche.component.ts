@@ -44,7 +44,7 @@ export class CocheComponent implements OnInit {
   async ngOnInit() {
     this.token = this.cookieService.get('Token');
     if (!this.token) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login', '/coche']);
     }
 
     const res = <any> await this.compraService.getCompras();
