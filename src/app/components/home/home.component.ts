@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit {
 			let renderer = new THREE.WebGLRenderer();
       renderer.setSize( window.innerWidth, window.innerHeight );
       let container = document.getElementById('camiseta-container');
+      console.log(container);
       container.appendChild( renderer.domElement );
 
 			let geometry = new THREE.BoxGeometry( 1, 1, 1 );
