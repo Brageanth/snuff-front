@@ -39,11 +39,11 @@ export class MusicaComponent implements OnInit {
         this.meta.updateTag({ property: 'og:title', content: estampado.nombre });
         this.meta.updateTag({ property: 'og:image', content: estampado.imagenGaleria0 });
         this.estampadoGaleria(estampado);
-        this.imagenesActivas.push("");
+        this.imagenesActivas.push('');
       }
     }
     this.appComponent.typeNav(true);
-    this.meta.updateTag({ property: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com'+this.url });
+    this.meta.updateTag({ property: 'og:url', content: 'https://pruebasbrageanth.pythonanywhere.com' + this.url });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.cargo = true;
   }
@@ -51,7 +51,7 @@ export class MusicaComponent implements OnInit {
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
     this.meta.updateTag({ property: 'og:title', content: pEstampado.nombre });
-    this.meta.updateTag({ property: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com'+pEstampado.imagenGaleria0 });
+    this.meta.updateTag({ property: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.imagenGaleria0 });
     this.video = false;
   }
 
@@ -68,9 +68,9 @@ export class MusicaComponent implements OnInit {
   }
 
   estampadoGaleria(pEstampado: Estampado) {
-    let imagenes: Array<String> = [];
-    for (var i = 0; i < 7; i++) {
-      imagenes.push(pEstampado["imagenGaleria"+i]);
+    const imagenes: Array<String> = [];
+    for (let i = 0; i < 7; i++) {
+      imagenes.push(pEstampado['imagenGaleria' + i]);
     }
     this.imagenesGaleria.push(imagenes);
   }
