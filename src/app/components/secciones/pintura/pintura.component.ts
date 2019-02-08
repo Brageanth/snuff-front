@@ -27,7 +27,6 @@ export class PinturaComponent implements OnInit {
 
   async ngOnInit() {
     this.cargo = false;
-    this.video = false;
     this.estampadosArte = [];
     this.imagenesActivas = [];
     this.primerasLineas = [];
