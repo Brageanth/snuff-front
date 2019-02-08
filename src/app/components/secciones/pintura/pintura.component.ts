@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Estampado } from 'src/app/models/estampado';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
 
 const ARTE = 'A';
 
@@ -19,14 +20,17 @@ export class PinturaComponent implements OnInit {
   segundasLineas: Array<String>;
   cargo: boolean;
   video: boolean;
+  url: string;
 
   constructor(
     private estampadoService: EstampadoService,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private router: Router
   ) { }
 
   async ngOnInit() {
     this.cargo = false;
+    this.url = this.router.url;
     this.estampadosArte = [];
     this.imagenesActivas = [];
     this.primerasLineas = [];

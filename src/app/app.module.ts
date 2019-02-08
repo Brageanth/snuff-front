@@ -43,7 +43,6 @@ const appRoutes: Routes = [
   { path: 'arte', component: PinturaComponent }
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
