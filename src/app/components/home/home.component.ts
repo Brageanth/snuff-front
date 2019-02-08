@@ -66,8 +66,9 @@ export class HomeComponent implements OnInit {
     let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
 			let renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      let container = document.getElementById('camiseta-container');
+      container.appendChild( renderer.domElement );
 
 			let geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
