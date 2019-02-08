@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   imgLarge = false;
   imgWidth = false;
   cargo = false;
+  containerCamisa: ElementRef;
 
   constructor(private appComponent: AppComponent, private estampadoService: EstampadoService, private homeService: HomeService) { }
 
@@ -67,9 +68,7 @@ export class HomeComponent implements OnInit {
 
 			let renderer = new THREE.WebGLRenderer();
       renderer.setSize( window.innerWidth, window.innerHeight );
-      let container = document.getElementById('camiseta-container');
-      console.log(container);
-      container.appendChild( renderer.domElement );
+      this.containerCamisa.nativeElement.appendChild( renderer.domElement );
 
 			let geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
