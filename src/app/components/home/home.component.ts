@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
     console.log(this.empresaList);
     this.cargo = true;
     this.appComponent.typeNav(this.cargo);
+    this.importCamiseta();
   }
 
   activeSlide(pEstampado: Estampado) {
