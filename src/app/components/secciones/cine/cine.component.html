@@ -20,7 +20,7 @@
         CINE Y SERIES
       </div>
     </h2>
-    <div class='mlr-25 bg-texture-white text-black pt-5 h-80'>
+    <div class='mlr-25 bg-texture-white text-black pt-1'>
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosCine; let i = index">
         <div class="row pt-3">
           <div class="col-md-5 text-uppercase ml-auto fs-1_5 text-center ff-kanit">{{estampado.nombre}}</div>
@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-        <div class="row text-center ff-chunkfive text-black">
+        <div class="row text-center ff-chunkfive text-black h-60">
           <video class="w-100 p-3" controls>
             <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
           </video>
