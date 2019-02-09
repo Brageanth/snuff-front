@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   imgLarge = false;
   imgWidth = false;
   cargo = false;
-  containerCamisa: ElementRef;
+  @ViewChild('containerCamisa') containerCamisa: ElementRef;
 
   constructor(private appComponent: AppComponent, private estampadoService: EstampadoService, private homeService: HomeService) { }
 
