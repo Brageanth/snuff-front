@@ -24,7 +24,7 @@
       <div class="container-fluid pb-5" *ngFor="let estampado of estampadosCine; let i = index">
         <div class="row pt-3">
           <div class="col-md-5 text-uppercase ml-auto fs-1_5 text-center ff-kanit">{{estampado.nombre}}</div>
-          <div class="col-md-1 mr-auto dropright">
+          <div class="col-md-1 ml-auto dropright">
             <div class="dropdown-toggle text-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-share-alt"></i>
             </div>
@@ -41,13 +41,13 @@
         </div>
         <div class="row">
           <div class="col-md-3">
-            <a [routerLink]="['/compra']" class="text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
+            <a [routerLink]="['/compra']" class="h-20 text-white bg-black ff-chunkfive rounded-1 pl-1 pr-1 pt-1 pb-1 hover-pointer">
               COMPRAR
             </a>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-2 ff-chunkfive">
+          <div class="col-md-2 ff-chunkfive h-10">
             GALERIA
           </div>
         </div>
