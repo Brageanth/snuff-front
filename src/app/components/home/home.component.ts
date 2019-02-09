@@ -68,7 +68,8 @@ export class HomeComponent implements OnInit {
 
 		let renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
-    this.containerCamisa.nativeElement.appendChild( renderer.domElement );
+    //this.containerCamisa.nativeElement.appendChild( renderer.domElement );
+    document.body.appendChild(renderer.domElement);
 
 		let geometry = new THREE.BoxGeometry( 1, 1, 1 );
 		let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
