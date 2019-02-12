@@ -53,7 +53,7 @@
         </div>
         <div class="row h-20 oy-hidden">
           <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria[i]">
-            <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)" *ngIf="!imagen">
+            <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)" *ngIf="imagen">
           </div>
         </div>
       </div>
