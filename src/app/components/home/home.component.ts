@@ -62,30 +62,77 @@ export class HomeComponent implements OnInit {
   }
 
   importCamiseta() {
-    let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    //This demo is using the plugin "OBJLoader". Don't forget to include it into your page ;)
+//You can find it here : https://github.com/mrdoob/three.js/tree/cf584a60bdfd24c42eaa81d484533364742bda44/examples/js/loaders
 
-		let renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    // this.containerCamisa.nativeElement.appendChild( renderer.domElement );
-    document.body.appendChild(renderer.domElement);
+var renderer, scene, camera, banana;
 
-		let geometry = new THREE.BoxGeometry( 1, 1, 1 );
-		let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-		let cube = new THREE.Mesh( geometry, material );
-		scene.add( cube );
+var ww = window.innerWidth,
+	wh = window.innerHeight;
 
-		camera.position.z = 5;
+function init(){
 
-		let animate = function () {
-			requestAnimationFrame( animate );
+	renderer = new THREE.WebGLRenderer({canvas : document.getElementById('scene')});
+	renderer.setSize(ww,wh);
 
-			cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
+	scene = new THREE.Scene();
 
-			renderer.render( scene, camera );
-		};
+	camera = new THREE.PerspectiveCamera(50,ww/wh, 0.1, 10000 );
+	camera.position.set(0,0,500);
+	scene.add(camera);
 
-		animate();
+	//Add a light in the scene
+	let directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+	directionalLight.position.set( 0, 0, 350 );
+	directionalLight.lookAt(new THREE.Vector3(0,0,0));
+	scene.add( directionalLight );
+
+	//Load the obj file
+	loadOBJ();
+}
+
+var loadOBJ = function(){
+
+	//Manager from ThreeJs to track a loader and its status
+	var manager = new THREE.LoadingManager();
+	//Loader for Obj from Three.js
+	var loader = new THREE.OBJLoader( manager );
+  
+	//Launch loading of the obj file, addBananaInScene is the callback when it's ready 
+	loader.load( 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/banana.obj', addBananaInScene);
+
+};
+
+var addBananaInScene = function(object){
+	banana = object;
+	//Move the banana in the scene
+	banana.rotation.x = Math.PI/2;
+	banana.position.y = -200;
+	banana.position.z = 50;
+	//Go through all children of the loaded object and search for a Mesh
+	object.traverse( function ( child ) {
+		//This allow us to check if the children is an instance of the Mesh constructor
+		if(child instanceof THREE.Mesh){
+			child.material.color = new THREE.Color(0X00FF00);
+			//Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+			child.geometry.computeVertexNormals();
+		}
+	});
+	//Add the 3D object in the scene
+	scene.add(banana);
+	render();
+};
+
+
+var render = function () {
+	requestAnimationFrame(render);
+
+	//Turn the banana
+	banana.rotation.z += .01;
+
+	renderer.render(scene, camera);
+};
+
+init();
   }
 }
