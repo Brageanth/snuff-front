@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-        <div class="row text-center ff-chunkfive text-black">
+        <div class="row text-center ff-chunkfive text-black" *ngIf="video">
           <video class="w-100 p-3" controls>
             <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
           </video>
