@@ -22,6 +22,7 @@ export class CineComponent implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private estampadoService: EstampadoService
+
   ) { }
 
   async ngOnInit() {
@@ -39,7 +40,7 @@ export class CineComponent implements OnInit {
       }
     }
   }
- // gg
+
   estampadoGaleria(pEstampado: Estampado) {
     const imagenes: Array<String> = [];
     for (let i = 0; i < 7; i++) {
