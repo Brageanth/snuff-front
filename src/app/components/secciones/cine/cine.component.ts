@@ -22,6 +22,7 @@ export class CineComponent implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private estampadoService: EstampadoService
+
   ) { }
 
   async ngOnInit() {
