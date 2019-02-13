@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit {
     }
     this.estampadoBack = this.estampadoList[Math.floor(Math.random() * this.estampadoList.length)];
     this.cargo = true;
+    console.log(this.imgBack);
+    console.log(this.canvas);
     this.importCamiseta();
     this.appComponent.typeNav(this.cargo);
   }
@@ -60,10 +62,10 @@ export class HomeComponent implements OnInit {
     } else {
       this.imgLarge = true;
     }
+    console.log(this.imgBack.nativeElement);
   }
 
   importCamiseta() {
-    console.log(this.imgBack.nativeElement);
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
     console.log(this.canvas.nativeElement);
