@@ -70,11 +70,13 @@ export class HomeComponent implements OnInit {
 var renderer, scene, camera, banana;
 
 var ww = window.innerWidth,
-	wh = window.innerHeight;
+  wh = window.innerHeight;
+  
+  let canvas = this.containerCamisa;
 
 function init(){
 
-	renderer = new THREE.WebGLRenderer({canvas : this.containerCamisa});
+	renderer = new THREE.WebGLRenderer({canvas : canvas});
 	renderer.setSize(ww,wh);
 
 	scene = new THREE.Scene();
