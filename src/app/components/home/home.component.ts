@@ -140,8 +140,8 @@ init();
   importCamiseta() {
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    console.log(this.imgBack);
-    console.log(this.containerCamisa);
+    console.log(this.imgBack.nativeElement as HTMLImageElement);
+    console.log(this.containerCamisa.nativeElement);
 
     var renderer = new THREE.WebGLRenderer({canvas : (this.containerCamisa.nativeElement as HTMLCanvasElement)});
     renderer.setSize( window.innerWidth, window.innerHeight );
