@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
     this.estampadoBack = this.estampadoList[Math.floor(Math.random() * this.estampadoList.length)];
     console.log(this.empresaList);
     this.cargo = true;
+    this.importCamiseta();
     this.appComponent.typeNav(this.cargo);
   }
 
