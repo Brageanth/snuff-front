@@ -5,6 +5,7 @@ import { Estampado } from 'src/app/models/estampado';
 import { HomeService } from 'src/app/services/home.service';
 import { Campania, Empresa } from 'src/app/models/home';
 import * as THREE from 'three-full';
+import * as OBJLoader from 'three-obj-loader'
 
 @Component({
   selector: 'app-home',
@@ -92,7 +93,6 @@ function init(){
 }
 
 var loadOBJ = function(){
-  var OBJLoader = require('three-obj-loader');
 OBJLoader(THREE);
 	//Manager from ThreeJs to track a loader and its status
 	var manager = new THREE.LoadingManager();
