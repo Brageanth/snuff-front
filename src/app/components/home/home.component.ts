@@ -99,7 +99,7 @@ var loadOBJ = function(){
 	var loader = new THREE.OBJLoader( manager );
   
 	//Launch loading of the obj file, addBananaInScene is the callback when it's ready 
-	loader.load( 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/banana.obj', addBananaInScene);
+	loader.load( '../../../assets/3d/Camiseta.obj', addBananaInScene);
 
 };
 
