@@ -74,7 +74,7 @@ var ww = window.innerWidth,
 
 function init(){
 
-	renderer = new THREE.WebGLRenderer({canvas : document.getElementById('scene')});
+	renderer = new THREE.WebGLRenderer({canvas : this.containerCamisa});
 	renderer.setSize(ww,wh);
 
 	scene = new THREE.Scene();
