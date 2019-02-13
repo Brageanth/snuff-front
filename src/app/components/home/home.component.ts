@@ -92,7 +92,8 @@ function init(){
 }
 
 var loadOBJ = function(){
-
+  var OBJLoader = require('three-obj-loader');
+OBJLoader(THREE);
 	//Manager from ThreeJs to track a loader and its status
 	var manager = new THREE.LoadingManager();
 	//Loader for Obj from Three.js
