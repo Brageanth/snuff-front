@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit {
       i++;
     }
     this.estampadoBack = this.estampadoList[Math.floor(Math.random() * this.estampadoList.length)];
-    console.log(this.empresaList);
     this.cargo = true;
     this.importCamiseta();
     this.appComponent.typeNav(this.cargo);
@@ -144,7 +143,7 @@ init();
 
     console.log(this.containerCamisa);
 
-    var renderer = new THREE.WebGLRenderer({canvas : this.containerCamisa});
+    var renderer = new THREE.WebGLRenderer({canvas : (this.containerCamisa.nativeElement as HTMLCanvasElement)});
     renderer.setSize( window.innerWidth, window.innerHeight );
 
     console.log(renderer);
