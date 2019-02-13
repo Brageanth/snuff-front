@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   imgLarge = false;
   imgWidth = false;
   cargo = false;
-  @ViewChild('containerCamisa') containerCamisa: ElementRef;
+  @ViewChild('canvas') canvas: ElementRef;
 
   constructor(private appComponent: AppComponent, private estampadoService: EstampadoService, private homeService: HomeService) { }
 
@@ -55,13 +55,41 @@ export class HomeComponent implements OnInit {
   }
 
   imgSize() {
-    console.log(this.imgBack.nativeElement as HTMLImageElement);
-    console.log((this.imgBack.nativeElement as HTMLImageElement).width);
     if ((this.imgBack.nativeElement as HTMLImageElement).width > (this.imgBack.nativeElement as HTMLImageElement).height) {
       this.imgWidth = true;
     } else {
       this.imgLarge = true;
     }
+  }
+
+  importCamiseta() {
+    console.log(this.imgBack.nativeElement);
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    console.log(this.canvas.nativeElement);
+
+    var renderer = new THREE.WebGLRenderer({canvas : (this.canvas.nativeElement as HTMLCanvasElement)});
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    console.log(renderer);
+
+    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    var animate = function () {
+      requestAnimationFrame( animate );
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render( scene, camera );
+    };
+
+    animate();
   }
 
   /*importCamiseta() {
@@ -139,32 +167,4 @@ var render = function () {
 
 init();
   }*/
-  importCamiseta() {
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    console.log(this.containerCamisa.nativeElement);
-
-    var renderer = new THREE.WebGLRenderer({canvas : (this.containerCamisa.nativeElement as HTMLCanvasElement)});
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-    console.log(renderer);
-
-    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    var cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
-
-    camera.position.z = 5;
-
-    var animate = function () {
-      requestAnimationFrame( animate );
-
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
-      renderer.render( scene, camera );
-    };
-
-    animate();
-  }
 }
