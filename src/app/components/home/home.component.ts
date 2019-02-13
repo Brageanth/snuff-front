@@ -55,8 +55,8 @@ export class HomeComponent implements OnInit {
   }
 
   imgSize() {
-
     console.log(this.imgBack.nativeElement as HTMLImageElement);
+    console.log((this.imgBack.nativeElement as HTMLImageElement).width);
     if ((this.imgBack.nativeElement as HTMLImageElement).width > (this.imgBack.nativeElement as HTMLImageElement).height) {
       this.imgWidth = true;
     } else {
