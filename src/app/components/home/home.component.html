@@ -44,7 +44,8 @@
     </div>
     <div class="plr-25 pt-10 ff-espacio text-white text-center pb-10" *ngFor="let campania of campaniaList">
       <h1>{{campania.copy}}</h1>
-      <div class="oy-hidden mh-65 mb-5" #containerCamisa>
+      <div class="oy-hidden mh-65 mb-5">
+        <canvas #canvas (load)="importCamiseta()"></canvas>
         <img src="http://pruebasbrageanth.pythonanywhere.com{{estampadoBack.imagenPreview}}" alt="" class="o-3 mt-5 img-fluid" #imgBack (load)="imgSize()" [ngClass]="{'h-60':this.imgLarge, 'w-75':this.imgWidth}">
       </div>
       <button type="button" class="btn bg-white ff-chunkfive fs-1" [routerLink]="['/compra']">TIENDA</button>
