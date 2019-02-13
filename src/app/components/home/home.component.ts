@@ -43,8 +43,6 @@ export class HomeComponent implements OnInit {
     }
     this.estampadoBack = this.estampadoList[Math.floor(Math.random() * this.estampadoList.length)];
     this.cargo = true;
-    console.log(this.imgBack);
-    console.log(this.canvas);
     this.importCamiseta();
     this.appComponent.typeNav(this.cargo);
   }
@@ -62,7 +60,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.imgLarge = true;
     }
-    console.log(this.imgBack.nativeElement);
   }
 
   importCamiseta() {
