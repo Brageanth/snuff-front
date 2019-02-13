@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  importCamiseta() {
+  /*importCamiseta() {
     //This demo is using the plugin "OBJLoader". Don't forget to include it into your page ;)
 //You can find it here : https://github.com/mrdoob/three.js/tree/cf584a60bdfd24c42eaa81d484533364742bda44/examples/js/loaders
 
@@ -137,5 +137,30 @@ var render = function () {
 };
 
 init();
+  }*/
+  importCamiseta() {
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    var renderer = new THREE.WebGLRenderer({canvas : this.containerCamisa});
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    var animate = function () {
+      requestAnimationFrame( animate );
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render( scene, camera );
+    };
+
+    animate();
   }
 }
