@@ -38,6 +38,9 @@
           <video class="w-100 p-3" controls>
             <source src="http://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" type="video/mp4">
           </video>
+          <div class="col-md-6 mx-auto ox-hidden" *ngIf="!video">
+            <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" alt="{{estampado.nombre}}" class="w-100">
+          </div>
         </div>
         <div class="row mb-4">
           <div class="col-md-2">
@@ -51,7 +54,7 @@
             GALERIA
           </div>
         </div>
-        <div class="row h-20 oy-hidden" *ngIf="!video">
+        <div class="row h-20 oy-hidden">
           <div class="col-md-2 ox-hidden" *ngFor="let imagen of imagenesGaleria[i]">
             <img src="https://pruebasbrageanth.pythonanywhere.com/{{imagen}}" alt="{{estampado.nombre}}" class="w-100" (click)="imagenActive(estampado, imagen, i)" *ngIf="imagen">
           </div>
