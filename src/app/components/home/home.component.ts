@@ -5,7 +5,7 @@ import { Estampado } from 'src/app/models/estampado';
 import { HomeService } from 'src/app/services/home.service';
 import { Campania, Empresa } from 'src/app/models/home';
 import * as THREE from 'three-full';
-import * as OBJLoader from 'three-obj-loader'
+import * as OBJLoader from 'three-obj-loader';
 
 @Component({
   selector: 'app-home',

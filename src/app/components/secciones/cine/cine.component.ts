@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EstampadoService } from 'src/app/services/estampado.service';
 import { Estampado } from 'src/app/models/estampado';
+import { Router } from '@angular/router';
 
 
 const CINE = 'CS';
@@ -18,10 +19,12 @@ export class CineComponent implements OnInit {
   imagenesActivas: Array<String>;
   imagenesGaleria: Array<Array<String>>;
   video: boolean;
+  url: string;
 
   constructor(
     private appComponent: AppComponent,
-    private estampadoService: EstampadoService
+    private estampadoService: EstampadoService,
+    private router: Router
 
   ) { }
 
@@ -31,6 +34,7 @@ export class CineComponent implements OnInit {
     this.imagenesActivas = [];
     this.imagenesGaleria = [];
     this.video = true;
+    this.url = this.router.url;
 
     const est = <Estampado[]> await this.estampadoService.getEstampado();
     for (const estampado of est) {
