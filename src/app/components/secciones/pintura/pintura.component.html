@@ -47,7 +47,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9 ox-hidden" *ngIf="video">
+          <div class="col-md-9 ox-hidden" *ngIf="video[i]">
             <video src="https://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" class="w-100" controls></video>
             <div class="col-md-1 mr-auto dropright">
               <div class="dropdown-toggle text-right top-right text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +59,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9 ox-hidden" *ngIf="!video">
+          <div class="col-md-9 ox-hidden" *ngIf="!video[i]">
             <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" alt="{{estampado.nombre}}" class="w-100">
             <div class="col-md-1 mr-auto dropright">
               <div class="dropdown-toggle text-right top-right text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

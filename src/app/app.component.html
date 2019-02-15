@@ -35,7 +35,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown bg-transparent text-white fs-1" *ngIf="!token">
-                <a class="nav-link" [routerLink]="['/login']">
+                <a class="nav-link" [routerLink]="['/login', '']">
                     <img src="../../../assets/img/user.png" width="25" height="25" alt="User">
                 </a>
             </li>
@@ -65,7 +65,7 @@
         </div>
         <div class="row bg-white ff-espacio fs-1_5 text-center">
             <div class="col-12">
-                <a [routerLink]="token?['/compra']:['/login']" class="text-dark">
+                <a [routerLink]="token?['/compra']:['/login/', 'compra']" class="text-dark">
                     TIENDA
                 </a>
             </div>
@@ -88,7 +88,7 @@
             </div>
         </li>
         <li class="nav-item dropdown bg-transparent text-white fs-1" *ngIf="!token">
-            <a class="nav-link" [routerLink]="['/login']">
+            <a class="nav-link" [routerLink]="['/login', '']">
                 <img src="../../../assets/img/user-white.png" width="25" height="25" alt="User">
             </a>
         </li>
