@@ -40,6 +40,7 @@ export class CineComponent implements OnInit {
       if (estampado.categoria === CINE) {
         this.estampadosCine.push(estampado);
         this.estampadoGaleria(estampado);
+        this.imagenesActivas.push('');
       }
     }
     this.cargo = true;

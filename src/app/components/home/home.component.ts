@@ -59,52 +59,22 @@ export class HomeComponent implements OnInit {
     } else {
       this.imgLarge = true;
     }
+    this.importCamiseta();
   }
 
   importCamiseta() {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-    console.log(this.canvas.nativeElement);
+    var renderer, scene, camera, banana;
 
-    const renderer = new THREE.WebGLRenderer({canvas : (this.canvas.nativeElement as HTMLCanvasElement)});
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    var ww = window.innerWidth,
+    wh = window.innerHeight;
+  
+    let canvas = this.canvas.nativeElement as HTMLCanvasElement;
 
-    console.log(renderer);
+    function init(){
 
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
-
-    camera.position.z = 5;
-
-    const animate = function () {
-      requestAnimationFrame( animate );
-
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
-      renderer.render( scene, camera );
-    };
-
-    animate();
-  }
-
-  /*importCamiseta() {
-    //This demo is using the plugin "OBJLoader". Don't forget to include it into your page ;)
-//You can find it here : https://github.com/mrdoob/three.js/tree/cf584a60bdfd24c42eaa81d484533364742bda44/examples/js/loaders
-
-var renderer, scene, camera, banana;
-
-var ww = window.innerWidth,
-  wh = window.innerHeight;
-
-  let canvas = this.containerCamisa;
-
-function init(){
-
-	renderer = new THREE.WebGLRenderer({canvas : canvas});
-	renderer.setSize(ww,wh);
+  renderer = new THREE.WebGLRenderer({canvas : canvas, alpha: true});
+  renderer.setSize(ww,wh);
+  renderer.setClearColor( 0x000000, 0 );
 
 	scene = new THREE.Scene();
 
@@ -127,23 +97,25 @@ var loadOBJ = function(){
 	var manager = new THREE.LoadingManager();
 	//Loader for Obj from Three.js
 	var loader = new THREE.OBJLoader( manager );
-
-	//Launch loading of the obj file, addBananaInScene is the callback when it's ready
-	loader.load( 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/banana.obj', addBananaInScene);
+  
+	//Launch loading of the obj file, addBananaInScene is the callback when it's ready 
+	loader.load( '../../../assets/3d/Camiseta.obj', addBananaInScene);
 
 };
 
 var addBananaInScene = function(object){
 	banana = object;
 	//Move the banana in the scene
-	banana.rotation.x = Math.PI/2;
-	banana.position.y = -200;
-	banana.position.z = 50;
+  banana.rotation.x = 2*Math.PI;
+  banana.position.x = 0;
+	banana.position.y = -70;
+  banana.position.z = 100;
+  banana.scale.set(1.7, 1.7, 1.7);
 	//Go through all children of the loaded object and search for a Mesh
 	object.traverse( function ( child ) {
 		//This allow us to check if the children is an instance of the Mesh constructor
 		if(child instanceof THREE.Mesh){
-			child.material.color = new THREE.Color(0X00FF00);
+			child.material.color = new THREE.Color(0xFFFFFF);
 			//Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
 			child.geometry.computeVertexNormals();
 		}
@@ -158,11 +130,11 @@ var render = function () {
 	requestAnimationFrame(render);
 
 	//Turn the banana
-	banana.rotation.z += .01;
+	banana.rotation.y += .01;
 
 	renderer.render(scene, camera);
 };
 
 init();
-  }*/
+  }
 }

@@ -17,7 +17,7 @@ export class MusicaComponent implements OnInit {
   audio = new Audio();
   estampadosMusica: Array<Estampado> = [];
   cargo = false;
-  video = true;
+  video: Array<Boolean> = [];
   audioPlay = false;
   url: string;
   imagenesGaleria: Array<Array<String>> = [];
@@ -40,6 +40,7 @@ export class MusicaComponent implements OnInit {
         this.meta.updateTag({ property: 'og:image', content: estampado.imagenGaleria0 });
         this.estampadoGaleria(estampado);
         this.imagenesActivas.push('');
+        this.video.push(true);
       }
     }
     this.appComponent.typeNav(true);
@@ -52,7 +53,7 @@ export class MusicaComponent implements OnInit {
     this.imagenesActivas[numero] = imagen;
     this.meta.updateTag({ property: 'og:title', content: pEstampado.nombre });
     this.meta.updateTag({ property: 'og:image', content: 'https://pruebasbrageanth.pythonanywhere.com' + pEstampado.imagenGaleria0 });
-    this.video = false;
+    this.video[numero] = false;
   }
 
   playAudio(pEstampado: Estampado) {

@@ -19,7 +19,7 @@ export class PinturaComponent implements OnInit {
   primerasLineas: Array<String>;
   segundasLineas: Array<String>;
   cargo: boolean;
-  video: boolean;
+  video: Array<boolean>;
   url: string;
 
   constructor(
@@ -36,8 +36,8 @@ export class PinturaComponent implements OnInit {
     this.primerasLineas = [];
     this.segundasLineas = [];
     this.imagenesGaleria = [];
+    this.video = [];
     await this.getEstampadosPintura();
-    this.video = true;
     this.appComponent.typeNav(true);
     this.cargo = true;
   }
@@ -51,6 +51,7 @@ export class PinturaComponent implements OnInit {
         this.imagenesActivas.push('');
         this.primerasLineas.push('');
         this.segundasLineas.push('');
+        this.video.push(true);
         this.splitNombre(estampado.nombre, i);
         this.estampadoGaleria(estampado);
         i++;
@@ -87,6 +88,6 @@ export class PinturaComponent implements OnInit {
 
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
-    this.video = false;
+    this.video[numero] = false;
   }
 }

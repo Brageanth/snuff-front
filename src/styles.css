@@ -515,6 +515,19 @@
     opacity: .5;
 }
 
+/* Positions */
+.absolute {
+    position: absolute;
+}
+
+/* Left */
+.l-0 {
+    left: 0vw;
+}
+.l-10 {
+    left: 10vw;
+}
+
 /* Overtext */
 .top-right {
     position: absolute;
