@@ -29,7 +29,6 @@ export class CineComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.cargo = true;
     this.appComponent.typeNav(this.cargo);
     this.imagenesActivas = [];
     this.imagenesGaleria = [];
@@ -43,6 +42,7 @@ export class CineComponent implements OnInit {
         this.estampadoGaleria(estampado);
       }
     }
+    this.cargo = true;
   }
 
   estampadoGaleria(pEstampado: Estampado) {
@@ -55,5 +55,6 @@ export class CineComponent implements OnInit {
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
     this.video = false;
+    console.log(this.imagenesActivas);
   }
 }
