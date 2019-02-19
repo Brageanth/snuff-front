@@ -18,7 +18,7 @@ export class CineComponent implements OnInit {
   estampadosCine: Array<Estampado> = [];
   imagenesActivas: Array<String>;
   imagenesGaleria: Array<Array<String>>;
-  video: boolean;
+  video: Array<boolean>;
   url: string;
 
   constructor(
@@ -33,7 +33,7 @@ export class CineComponent implements OnInit {
     this.appComponent.typeNav(this.cargo);
     this.imagenesActivas = [];
     this.imagenesGaleria = [];
-    this.video = true;
+    this.video = [];
     this.url = this.router.url;
 
     const est = <Estampado[]> await this.estampadoService.getEstampado();
@@ -42,6 +42,7 @@ export class CineComponent implements OnInit {
         this.estampadosCine.push(estampado);
         this.estampadoGaleria(estampado);
         this.imagenesActivas.push('');
+        this.video.push(true);
       }
     }
   }
@@ -55,6 +56,6 @@ export class CineComponent implements OnInit {
   }
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
-    this.video = false;
+    this.video[numero] = true;
   }
 }

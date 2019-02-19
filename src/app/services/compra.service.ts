@@ -60,7 +60,7 @@ insertcompra(pCompra: Compra) {
   const headers = new HttpHeaders().set('content-type', 'application/json').set('Accept', 'application/json');
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve((this.http.get('https://pruebasbrageanth.pythonanywhere.com/pagos/').toPromise().then(
+      resolve((this.http.get('http://127.0.0.1:8000/pagos/').toPromise().then(
           res => {
             console.log(res);
           },

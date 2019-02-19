@@ -52,7 +52,7 @@
         </button>
     </div>
     <div *ngIf="homeNav">
-        <div class="row pl-2" *ngFor="let empresa of empresaList">
+        <div class="row pl-2 mobile" *ngFor="let empresa of empresaList">
             <a href="{{empresa.facebook}}" class="col-4 text-center text-white" target="_blank">
                 <i class="fab fa-facebook-f"></i>
             </a>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <ul class="navbar-nav ml-auto" *ngIf="!activeNav">
+    <ul class="navbar-nav ml-auto mobile" *ngIf="!activeNav">
         <li class="nav-item" *ngIf="token">
             <a class="nav-link" [routerLink]="(numeroCarrito === 0)?['/compra']:['/coche']">
                 <img src="../../../assets/img/carrito-white.png" width="25" height="25" alt="Carrito">

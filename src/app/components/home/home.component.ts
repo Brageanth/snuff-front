@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   campaniaList: Campania;
   empresaList: Empresa;
   estampadoBack: Estampado;
-  @ViewChild('imgBack') imgBack: ElementRef;
   imgLarge = false;
   imgWidth = false;
   cargo = false;
@@ -53,15 +52,6 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
-  imgSize() {
-    if ((this.imgBack.nativeElement as HTMLImageElement).width > (this.imgBack.nativeElement as HTMLImageElement).height) {
-      this.imgWidth = true;
-    } else {
-      this.imgLarge = true;
-    }
-    this.importCamiseta();
-  }
-
   importCamiseta() {
     var renderer, scene, camera, banana;
 
@@ -73,7 +63,6 @@ export class HomeComponent implements OnInit {
     function init(){
 
   renderer = new THREE.WebGLRenderer({canvas : canvas, alpha: true});
-  renderer.setSize(ww,wh);
   renderer.setClearColor( 0x000000, 0 );
 
 	scene = new THREE.Scene();
@@ -108,9 +97,9 @@ var addBananaInScene = function(object){
 	//Move the banana in the scene
   banana.rotation.x = 2*Math.PI;
   banana.position.x = 0;
-	banana.position.y = -70;
+	banana.position.y = -175;
   banana.position.z = 100;
-  banana.scale.set(1.7, 1.7, 1.7);
+  banana.scale.set(1.7, 2.3, 1.7);
 	//Go through all children of the loaded object and search for a Mesh
 	object.traverse( function ( child ) {
 		//This allow us to check if the children is an instance of the Mesh constructor
