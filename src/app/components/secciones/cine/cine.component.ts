@@ -29,7 +29,6 @@ export class CineComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.cargo = true;
     this.appComponent.typeNav(this.cargo);
     this.imagenesActivas = [];
     this.imagenesGaleria = [];
@@ -45,6 +44,7 @@ export class CineComponent implements OnInit {
         this.video.push(true);
       }
     }
+    this.cargo = true;
   }
 
   estampadoGaleria(pEstampado: Estampado) {
