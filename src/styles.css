@@ -276,6 +276,9 @@
 .mxh-25 {
     max-height: 25vh;
 }
+.mxh-50 {
+    max-height: 50vh;
+}
 .mxh-58 {
     max-height: 58vh;
 }
@@ -403,6 +406,27 @@
 }
 .fs-6{
     font-size: 6vw;
+}
+.fs-10 {
+    font-size: 10vw;
+}
+.fs-12 {
+    font-size: 12vw;
+}
+.fs-13 {
+    font-size: 13vw;
+}
+.fs-14 {
+    font-size: 14vw;
+}
+.fs-15 {
+    font-size: 15vw;
+}
+.fs-17 {
+    font-size: 17vw;
+}
+.fs-20 {
+    font-size: 20vw;
 }
 
 /* Font family */
@@ -533,6 +557,99 @@
     position: absolute;
     bottom: 50vh;
     right: -46vw;
+}
+
+/* Responsive */
+@media only screen and (max-width: 766px) {
+    @keyframes ojo {
+        0% {
+            top: -3vh;
+        }
+        20% {
+            top: 8vh;
+        }
+        50% {
+            top: 8vh;
+        } 
+        70% {
+            top: -3vh;
+        }
+        100% {
+            top: -3vh;
+        }
+    }
+    .mobile {
+        display: none;
+    }
+    .cabeza {
+        height: 20vh !important;
+        width: 25vw !important;
+    }
+    .ojo {
+        height: 2vh !important;
+        width: 3vw !important;
+        left: 13vw !important;
+    }
+    .osico-top {
+        width: 9vw !important;
+        height: 8vh;
+        left: 24vw !important;
+    }
+    .nariz {
+        background: black;
+        width: 1.5vw;
+        height: 2vh;
+        position: relative;
+        left: 3.2vw;
+        bottom: 1vh;
+    }
+    .osico-bottom {
+        background: url(texture.png), #7F6950;
+        border-radius: 0vh 0vw 4vw 0;
+        width: 4vw;
+        height: 8vh;
+        position: relative;
+        left: 8vw;
+        top: 6vh;
+        z-index: -100;
+        animation: osico-bottom 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s infinite normal;
+    }
+    .oreja {
+        background: url(texture.png), #6F5000;
+        height: 7vh;
+        width: 3.5vw;
+        animation: oreja 3s cubic-bezier(0.215, 0.610, 0.355, 1) 0s infinite normal;
+        position: relative;
+    }
+    .oreja-interno {
+        background: black;
+        height: 4vh;
+        width: 2vw;
+        position: relative;
+        top: 1.2vh;
+        left: .8vw;
+    }
+    .filtro {
+        background: rgb(255, 255, 255);
+        height: 17vh;
+        width: 18vw;
+        border-right: 0vw solid transparent;
+        border-radius: 12vw 12vw 0vw 0vw;
+    }
+    .filtro-exterior {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 9.1vh;
+        width: 9.4vw;
+        z-index: -1000;
+        position: relative;
+        bottom: 1.16vh;
+        opacity: .07;
+        left: 0.2vh;
+        transform: rotateZ(180deg);
+        transform: rotateX(180deg);
+        animation: filtro 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s infinite normal;
+    }
 }
 
 /* Customs */

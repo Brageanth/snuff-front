@@ -14,6 +14,7 @@ export class PrendaComponent implements OnInit {
   @Output() prenda: EventEmitter<any> = new EventEmitter();
   prendasList: Array<Prenda> = [];
   cargo = false;
+  genero: boolean;
 
   constructor(private prendaService: PrendaService ) { }
 
@@ -21,14 +22,22 @@ export class PrendaComponent implements OnInit {
     this.prenda.emit(prendaform);
   }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.genero = false;
+    this.cargo = true;
+  }
 
+  async cargarPrendas(pGenero: boolean) {
+    this.cargo = false
     const ress = <any> await this.prendaService.getprenda();
     for (const prenda of ress) {
       if (prenda.cantidad > 0) {
-        this.prendasList.push(prenda);
+        if (prenda.genero === pGenero) {
+          this.prendasList.push(prenda);
+        }
       }
     }
+    this.genero = true;
     this.cargo = true;
   }
 }
