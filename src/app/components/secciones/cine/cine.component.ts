@@ -56,6 +56,6 @@ export class CineComponent implements OnInit {
   }
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
-    this.video[numero] = true;
+    this.video[numero] = false;
   }
 }
