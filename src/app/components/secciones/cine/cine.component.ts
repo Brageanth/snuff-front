@@ -54,6 +54,9 @@ export class CineComponent implements OnInit {
     }
     this.imagenesGaleria.push(imagenes);
   }
+
+
+
   imagenActive(pEstampado: Estampado, imagen: string, numero: number) {
     this.imagenesActivas[numero] = imagen;
     this.video[numero] = false;
