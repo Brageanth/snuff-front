@@ -34,11 +34,16 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="row text-center ff-chunkfive text-black h-60 oy-hidden">
           <div class="col-md-11 mx-auto ox-hidden" *ngIf="video[i]">
+=======
+        <div class="row text-center ff-chunkfive text-black">
+          <div class="col-md-11 mx-auto ox-hidden mx-height" *ngIf="video[i]">
+>>>>>>> af73c2d5c6ec150be37dd93bea5fbd09c5406c1b
             <video src="https://pruebasbrageanth.pythonanywhere.com{{estampado.video}}" class="w-100" controls></video>
           </div>
-          <div class="col-md-6 mx-auto ox-hidden" *ngIf="!video[i]">
+          <div class="col-md-6 mx-auto ox-hidden mx-height" *ngIf="!video[i]">
             <img src="https://pruebasbrageanth.pythonanywhere.com{{imagenesActivas[i]}}" alt="{{estampado.nombre}}" class="w-100">
           </div>
         </div>
