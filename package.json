@@ -3,11 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-<<<<<<< HEAD
-    "start": "ng serve",
-=======
     "start": "node server.js --proxy-config  proxy.conf.json",
->>>>>>> 38deb3155a8b7b8cb4adb5d1b26f3f706c4f0d25
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
